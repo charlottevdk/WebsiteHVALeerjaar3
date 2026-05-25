@@ -3,91 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Young Professional &mdash; Charlotte van den Kerkhoff</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Young Professional — Charlotte van den Kerkhoff</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream:#FAF8F4; --cream-mid:#F0EDE6; --cream-dark:#E3DDD3;
-    --green:#1C3A2E; --green-mid:#2D5243; --green-pale:#EBF1ED;
-    --gold:#C8A96E; --gold-light:#E2C98C; --gold-pale:#F7F0E3;
-    --charcoal:#1C1C1C; --gray:#6B6B6B; --white:#FFFFFF;
+  :root{
+    --warm-white:#FAF7F2;--white:#FFFFFF;
+    --black:#141414;--black-mid:#2C2C2C;
+    --gray:#6A6A6A;--border:#E2DDD6;
+    --mist:#7BAFC8;--mist-mid:#A4C8DC;
+    --mist-light:#D8EAF3;--mist-pale:#EDF5FA;
+    --sand:#C4985C;--sand-mid:#D9B484;
+    --sand-light:#F2E5D0;--sand-pale:#FAF3E8;
+    --s-blue:#1B3A6B;--s-yellow:#F39100;
+    --s-pastel:#6D9FB5;--s-light:#F5F4EF;--s-gray:#B7B5AC;
   }
-  *{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
-  body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden}
+  *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--warm-white);color:var(--black);overflow-x:hidden}
 
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5rem;background:rgba(250,248,244,0.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.07)}
-  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:0.04em;color:var(--green);text-decoration:none}
-  .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
-  .nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
-  .nav-links a:hover,.nav-links a.active{color:var(--green)}
-  .nav-cta{background:var(--green)!important;color:var(--white)!important;padding:0.55rem 1.5rem;border-radius:100px;box-shadow:0 3px 14px rgba(28,58,46,0.28);transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.28s ease!important}
-  .nav-cta:hover{transform:translateY(-3px) scale(1.03)!important;box-shadow:0 7px 22px rgba(28,58,46,0.33)!important;color:var(--white)!important}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.3rem 5rem;background:rgba(250,247,242,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+  .nav-logo{font-family:'Fraunces',serif;font-size:1.65rem;font-weight:700;color:var(--black);text-decoration:none}
+  .nav-links{display:flex;gap:2.8rem;list-style:none;align-items:center}
+  .nav-links a{font-size:0.74rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--black)}
+  .nav-cta{background:var(--black)!important;color:var(--white)!important;padding:0.58rem 1.55rem;border-radius:50px;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),background 0.2s!important}
+  .nav-cta:hover{background:var(--mist)!important;transform:translateY(-3px) scale(1.03)!important}
 
-  .btn-primary{background:var(--green);color:var(--white);padding:0.9rem 2.3rem;border-radius:100px;font-family:'Jost',sans-serif;font-weight:500;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;display:inline-block;box-shadow:0 5px 18px rgba(28,58,46,0.26),0 2px 6px rgba(28,58,46,0.15);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease}
-  .btn-primary:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 12px 30px rgba(28,58,46,0.3),0 5px 12px rgba(28,58,46,0.18);color:var(--white)}
-  .btn-secondary{background:transparent;color:var(--green);padding:0.9rem 2.3rem;border-radius:100px;font-family:'Jost',sans-serif;font-weight:500;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;display:inline-block;border:1.5px solid var(--green);box-shadow:0 3px 12px rgba(28,58,46,0.1);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease,background 0.2s}
-  .btn-secondary:hover{transform:translateY(-5px) scale(1.03);background:var(--green-pale);box-shadow:0 10px 26px rgba(28,58,46,0.14);color:var(--green)}
+  /* HERO */
+  .page-hero{padding:9rem 5rem 5rem;background:var(--black);position:relative;overflow:hidden}
+  .page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(123,175,200,0.12) 0%,transparent 70%);pointer-events:none}
+  .page-hero::after{content:'';position:absolute;bottom:-60px;left:20%;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(196,152,92,0.08) 0%,transparent 70%);pointer-events:none}
+  .page-eyebrow{display:inline-flex;align-items:center;gap:0.7rem;background:rgba(123,175,200,0.1);color:var(--mist-mid);border:1px solid rgba(123,175,200,0.25);padding:0.45rem 1.1rem;border-radius:50px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2rem;position:relative;z-index:1}
+  .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--mist);flex-shrink:0}
+  .page-title{font-family:'Fraunces',serif;font-size:clamp(3rem,5.5vw,5.2rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.5rem;color:var(--white);position:relative;z-index:1}
+  .page-title em{font-style:italic;font-weight:300;color:var(--mist-mid);display:block}
+  .page-desc{color:rgba(255,255,255,0.5);font-size:1rem;line-height:1.88;max-width:600px;font-weight:300;margin-bottom:3rem;position:relative;z-index:1}
+  .hero-divider{display:flex;gap:3rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.1);position:relative;z-index:1}
+  .hero-stat{}
+  .hero-stat-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:700;color:var(--white);line-height:1}
+  .hero-stat-accent{color:var(--mist-mid)}
+  .hero-stat-label{font-size:0.7rem;color:rgba(255,255,255,0.35);margin-top:0.2rem;font-weight:300;line-height:1.45}
 
-  /* PAGE HEADER */
-  .page-header{padding:9rem 5rem 5rem;background:linear-gradient(135deg,var(--green-pale) 0%,var(--white) 60%);border-bottom:1px solid var(--cream-dark)}
-  .breadcrumb{font-size:0.75rem;color:rgba(0,0,0,0.3);margin-bottom:1.2rem}
-  .breadcrumb a{color:var(--green);text-decoration:none}
-  .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.08}
-  .page-title em{color:var(--green);font-style:italic}
-  .page-sub{color:var(--gray);margin-top:1rem;font-size:0.97rem;line-height:1.78;max-width:620px}
+  /* REFLECTION SECTIONS */
+  .refl-section{padding:5.5rem 5rem;border-bottom:1px solid var(--border)}
+  .refl-section:nth-child(odd){background:var(--white)}
+  .refl-section:nth-child(even){background:var(--warm-white)}
 
-  /* CONTENT */
-  .content{max-width:860px;margin:0 auto;padding:5rem 5rem 6rem}
+  .section-tag{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--mist);display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem}
+  .section-tag::before{content:'';display:block;width:2rem;height:1.5px;background:var(--sand);flex-shrink:0}
+  .section-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:1.5rem}
+  .section-title em{font-style:italic;font-weight:300;color:var(--mist)}
 
-  .reflection-q{margin-bottom:4rem;padding-bottom:4rem;border-bottom:1px solid var(--cream-dark)}
-  .reflection-q:last-child{border-bottom:none}
+  .refl-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:1rem}
+  .refl-body{color:var(--gray);font-size:0.95rem;line-height:1.9;font-weight:300}
+  .refl-body p{margin-bottom:1.2rem}
+  .refl-body p:last-child{margin-bottom:0}
+  .refl-body strong{color:var(--black);font-weight:600}
 
-  .q-eyebrow{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--green-mid);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.7rem;font-weight:600}
-  .q-eyebrow::before{content:'';display:block;width:1.8rem;height:1.5px;background:var(--gold)}
-  .q-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;margin-bottom:0.8rem;line-height:1.25;color:var(--charcoal)}
-  .q-title em{color:var(--green);font-style:italic}
+  .insight-card{background:var(--mist-pale);border-radius:20px;padding:2rem;border:1px solid var(--mist-light);margin-bottom:1.2rem}
+  .refl-section:nth-child(even) .insight-card{background:var(--white)}
+  .ic-label{font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist);margin-bottom:0.7rem;display:flex;align-items:center;gap:0.5rem}
+  .ic-label::before{content:'';display:block;width:1.2rem;height:1.5px;background:var(--sand)}
+  .ic-text{font-size:0.88rem;color:var(--black-mid);line-height:1.72;font-weight:400}
 
-  .verdict{display:inline-flex;align-items:center;gap:0.6rem;background:var(--green-pale);color:var(--green-mid);padding:0.45rem 1.1rem;font-size:0.78rem;font-weight:600;border-radius:100px;margin:0.8rem 0 1.5rem;border:1px solid rgba(28,58,46,0.15)}
-  .verdict-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+  /* DEVELOPMENT POINTS */
+  .dev-section{padding:5.5rem 5rem;background:var(--white)}
+  .dev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:3rem}
+  .dev-card{background:var(--warm-white);border-radius:20px;padding:2rem;border:1px solid var(--border);transition:transform 0.32s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.32s,border-color 0.2s}
+  .dev-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 14px 36px rgba(20,20,20,0.08);border-color:var(--mist-light)}
+  .dev-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:700;color:rgba(123,175,200,0.12);line-height:1;margin-bottom:0.5rem}
+  .dev-title{font-size:0.95rem;font-weight:600;color:var(--black);margin-bottom:0.5rem}
+  .dev-body{font-size:0.84rem;color:var(--gray);line-height:1.75;font-weight:300}
 
-  .q-body p{color:var(--gray);line-height:1.92;font-size:0.96rem;margin-bottom:1rem}
-  .q-body p strong{color:var(--charcoal);font-weight:600}
+  /* FUTURE DIRECTION */
+  .future-section{padding:6rem 5rem;background:var(--s-blue);position:relative;overflow:hidden}
+  .future-section::before{content:'';position:absolute;top:-80px;right:-80px;width:460px;height:460px;background:radial-gradient(circle,rgba(243,145,0,0.08) 0%,transparent 70%);pointer-events:none}
+  .future-section::after{content:'';position:absolute;bottom:-60px;left:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(109,159,181,0.1) 0%,transparent 70%);pointer-events:none}
+  .future-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+  .future-tag{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--s-yellow);display:flex;align-items:center;gap:0.7rem;margin-bottom:0.7rem}
+  .future-tag::before{content:'';display:block;width:2rem;height:1.5px;background:var(--s-yellow)}
+  .future-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:1.4rem}
+  .future-title em{font-style:italic;font-weight:300;color:var(--s-yellow)}
+  .future-body{color:rgba(255,255,255,0.5);font-size:0.93rem;line-height:1.88;font-weight:300}
+  .future-body p{margin-bottom:1rem}
+  .future-body strong{color:rgba(255,255,255,0.85);font-weight:600}
+  .future-criteria{display:flex;flex-direction:column;gap:1rem}
+  .criterion{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.6rem}
+  .criterion-label{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--s-yellow);margin-bottom:0.5rem}
+  .criterion-text{font-size:0.85rem;color:rgba(255,255,255,0.62);font-weight:300;line-height:1.65}
 
-  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0}
-  .col-block{background:var(--white);border:1px solid var(--cream-dark);border-radius:14px;padding:1.6rem;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
-  .col-block h4{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--green-mid);margin-bottom:1rem;font-weight:600}
-  .col-block ul{list-style:none}
-  .col-block ul li{font-size:0.86rem;color:var(--gray);padding:0.35rem 0;display:flex;gap:0.6rem;line-height:1.55}
-  .col-block ul li::before{content:'→';color:var(--gold);flex-shrink:0;font-size:0.8rem}
-  .col-block ul li.gap::before{content:'○';color:var(--gray);flex-shrink:0;font-size:0.8rem}
+  /* CONTACT */
+  #contact{padding:6rem 5rem;background:var(--black);text-align:center}
+  .contact-inner{max-width:600px;margin:0 auto}
+  #contact .section-tag{color:var(--mist-mid);justify-content:center}
+  #contact .section-title{color:var(--white)}
+  #contact .section-title em{color:var(--mist-mid)}
+  #contact .section-sub{color:rgba(255,255,255,0.45);margin:0 auto 2.5rem}
+  .section-sub{font-size:0.97rem;line-height:1.82;max-width:560px;font-weight:300;color:var(--gray)}
+  .contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+  .contact-link{display:inline-flex;align-items:center;gap:0.6rem;color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.8rem;padding:0.75rem 1.5rem;border:1px solid rgba(255,255,255,0.14);border-radius:50px;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),border-color 0.2s,color 0.2s,background 0.2s}
+  .contact-link:hover{transform:translateY(-4px) scale(1.02);border-color:var(--mist-mid);color:var(--white);background:rgba(123,175,200,0.12)}
+  footer{padding:1.8rem 5rem;background:var(--black);border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center}
+  footer span{font-size:0.74rem;color:rgba(255,255,255,0.28)}
+  footer a{color:var(--sand-mid);font-size:0.74rem;text-decoration:none}
 
-  .develop-list{list-style:none;margin:1rem 0}
-  .develop-item{display:flex;gap:1.5rem;padding:1.4rem 0;border-bottom:1px solid var(--cream-dark);align-items:flex-start}
-  .develop-item:last-child{border-bottom:none}
-  .develop-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:rgba(28,58,46,0.15);flex-shrink:0;line-height:1;min-width:2.5rem}
-  .develop-text strong{display:block;font-size:0.92rem;font-weight:600;color:var(--charcoal);margin-bottom:0.3rem}
-  .develop-text span{font-size:0.85rem;color:var(--gray);line-height:1.65}
+  .fade-up{opacity:0;transform:translateY(28px);animation:fadeUp 0.8s cubic-bezier(0.34,1.2,0.64,1) forwards}
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+  .d1{animation-delay:0.1s}.d2{animation-delay:0.25s}.d3{animation-delay:0.4s}
 
-  .future-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:1.5rem 0}
-  .future-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:14px;padding:1.4rem;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
-  .future-card h4{font-size:0.73rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:0.6rem;font-weight:600}
-  .future-card p{font-size:0.84rem;color:var(--gray);line-height:1.65}
-
-  .closing-block{background:var(--green);border-radius:18px;padding:3rem;margin:2.5rem 0;text-align:center;box-shadow:0 8px 32px rgba(28,58,46,0.2)}
-  .closing-block blockquote{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--gold-light);line-height:1.65;margin-bottom:1rem}
-  .closing-block cite{font-size:0.78rem;color:rgba(255,255,255,0.45)}
-
-  .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:3.5rem}
-
-  footer{padding:1.8rem 5rem;background:var(--charcoal);display:flex;justify-content:space-between;align-items:center;font-size:0.76rem;color:rgba(255,255,255,0.3)}
-  footer a{color:var(--gold);text-decoration:none}
-
+  @media(max-width:1100px){
+    .page-hero,.refl-section,.dev-section,.future-section,#contact{padding-left:2.5rem;padding-right:2.5rem}
+    .refl-grid,.future-inner{grid-template-columns:1fr;gap:2.5rem}
+    .dev-grid{grid-template-columns:1fr}
+    .hero-divider{gap:2rem}
+  }
   @media(max-width:900px){
-    nav{padding:1rem 1.5rem} .nav-links{display:none}
-    .page-header,.content{padding-left:1.5rem;padding-right:1.5rem}
-    .two-col,.future-grid{grid-template-columns:1fr}
-    footer{flex-direction:column;gap:0.5rem}
+    nav{padding:1rem 1.5rem}
+    .nav-links{display:none}
+    .page-hero,.refl-section,.dev-section,.future-section,#contact,footer{padding-left:1.5rem;padding-right:1.5rem}
+    footer{flex-direction:column;gap:0.5rem;text-align:center}
+    .hero-divider{flex-wrap:wrap;gap:1.5rem}
   }
 </style>
 </head>
@@ -100,155 +134,197 @@
     <li><a href="projects.html">Projects</a></li>
     <li><a href="skills.html">CE-Skills</a></li>
     <li><a href="reflection.html" class="active">Reflection</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
-<div class="page-header">
-  <div class="breadcrumb"><a href="index.html">Home</a> / Young Professional</div>
-  <h1 class="page-title">Young<br><em>Professional</em></h1>
-  <p class="page-sub">Six months at Stryker OI Northern Europe taught me a lot &mdash; about medical technology, about international business, and about myself as a professional. This is my honest reflection on where I&rsquo;ve been, what I&rsquo;ve learned, and where I want to go.</p>
-</div>
-
-<div class="content">
-
-  <div class="reflection-q">
-    <div class="q-eyebrow">Industry fit</div>
-    <h2 class="q-title">Does the MedTech sector <em>suit me?</em></h2>
-    <div class="verdict"><span class="verdict-dot"></span> Yes &mdash; with conviction</div>
-    <div class="q-body">
-      <p>Medical technology was an entirely unfamiliar world for me before this internship. Surgical power tools, operating room protocols, compliance regulations, Key Opinion Leader strategies &mdash; none of this was part of my vocabulary six months ago.</p>
-      <p>What surprised me most was how <strong>commercially rigorous</strong> the sector is. Every decision &mdash; which product to display at a congress, which surgeon to target first, which market to enter &mdash; is grounded in data, competitive analysis, and a clear link to patient outcomes. That combination of analytical depth and real-world impact is exactly what I want from a career.</p>
-      <p>I also discovered a genuine interest in the intersection of <strong>healthcare and technology</strong>. The MIS Foot research project made me realise how much innovation is happening in surgical technique &mdash; and how much marketing can do to accelerate adoption and, ultimately, improve patient care.</p>
+<!-- DARK HERO -->
+<section class="page-hero">
+  <div class="page-eyebrow fade-up"><span class="eyebrow-dot"></span>Young Professional Reflection &middot; HvA Commercial Economics</div>
+  <h1 class="page-title fade-up d1">Who I am becoming<br><em>as a professional.</em></h1>
+  <p class="page-desc fade-up d2">After six months at Stryker Orthopaedic Instruments Northern Europe, I have more than project results to show for it. I have a clearer sense of the work I want to do, the environments I thrive in, and the professional I am becoming.</p>
+  <div class="hero-divider fade-up d3">
+    <div class="hero-stat">
+      <div class="hero-stat-num">6</div>
+      <div class="hero-stat-label">Months at Stryker<br>OI Northern Europe</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5</div>
+      <div class="hero-stat-label">Projects owned<br>and delivered</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">8.2</div>
+      <div class="hero-stat-label">Academic GPA<br>Valedictorian</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">4</div>
+      <div class="hero-stat-label">Development areas<br>identified for growth</div>
     </div>
   </div>
+</section>
 
-  <div class="reflection-q">
-    <div class="q-eyebrow">Work type fit</div>
-    <h2 class="q-title">Does this type of work <em>suit me?</em></h2>
-    <div class="verdict"><span class="verdict-dot"></span> Yes &mdash; especially the strategic and communicative parts</div>
-    <div class="q-body">
-      <p>My work at Stryker spanned four very different types of activity: <strong>event management, market research, operational problem-solving, and knowledge sharing</strong>. I learned a lot about where I get energy and where I don&rsquo;t.</p>
-      <div class="two-col">
-        <div class="col-block">
-          <h4>Where I thrived</h4>
-          <ul>
-            <li>Projects with full ownership and clear business impact</li>
-            <li>Combining analysis with communication (Jetpak report, MIS Foot research)</li>
-            <li>Working with diverse stakeholders across different levels</li>
-            <li>Creating structure where there was none</li>
-          </ul>
-        </div>
-        <div class="col-block">
-          <h4>Where I grew the most</h4>
-          <ul>
-            <li class="gap">Presenting to senior international audiences</li>
-            <li class="gap">Adapting scope when reality didn&rsquo;t match the plan</li>
-            <li class="gap">Technical product knowledge (outside comfort zone)</li>
-            <li class="gap">Navigating complex multi-party compliance processes</li>
-          </ul>
-        </div>
+<!-- INDUSTRY FIT -->
+<section class="refl-section" id="industry">
+  <div class="section-tag">Industry Fit</div>
+  <h2 class="section-title">Why MedTech is the <em>right field</em></h2>
+  <div class="refl-grid">
+    <div class="refl-body">
+      <p>Before Stryker, I knew I liked marketing. I was less certain about which <em>type</em> of marketing, for which kind of organisation, in which kind of market. The internship answered that question in a way six months of lectures could not.</p>
+      <p><strong>MedTech combines the two things I find most motivating: analytical rigour and patient impact.</strong> The decisions a company like Stryker makes about which instruments to develop, how to position them, and which procedures to target have real consequences for surgical outcomes. That proximity to purpose is not something I want to give up.</p>
+      <p>At the same time, MedTech is a commercially demanding environment. You need to understand clinical evidence, competitive dynamics, procedure volumes, and budget cycles simultaneously. That complexity &mdash; far from putting me off &mdash; is exactly what makes the work interesting. The MIS Foot market intelligence report showed me what it looks like to do that kind of thinking well.</p>
+      <p>I came in thinking I might go into consumer marketing after graduating. I leave certain that I want to stay in healthcare or medtech, where the stakes make the rigour worthwhile.</p>
+    </div>
+    <div>
+      <div class="insight-card">
+        <div class="ic-label">Key Insight</div>
+        <div class="ic-text">Purpose and commercial rigour are not in tension in MedTech &mdash; they reinforce each other. Good marketing helps better instruments reach more surgeons, which improves patient outcomes. That alignment between commercial success and clinical value is what makes this sector feel meaningful to me.</div>
       </div>
-      <p>I noticed that I lose energy on purely administrative tasks &mdash; updating spreadsheets, tracking fields in Cvent. But give me a problem that needs structure, a clear analytical framework, and a stakeholder who needs to understand the outcome, and I&rsquo;m in my element.</p>
-    </div>
-  </div>
-
-  <div class="reflection-q">
-    <div class="q-eyebrow">Company type fit</div>
-    <h2 class="q-title">Does a multinational like Stryker <em>suit me?</em></h2>
-    <div class="verdict"><span class="verdict-dot"></span> Yes &mdash; the scale and ambition energise me</div>
-    <div class="q-body">
-      <p>Stryker is a global company with a high-performance culture. Results matter, standards are high, and the pace is fast. For some people, that&rsquo;s intimidating. For me, it was motivating.</p>
-      <p>What I valued most was being treated as a <strong>genuine contributor from day one</strong>. Juha included me in management-level email threads, gave me ownership of real deliverables, and asked for my input in strategic discussions. That level of trust accelerated my development significantly.</p>
-      <p>The international dimension was also formative. Working alongside colleagues from Finland, Belgium, Norway, Sweden and the Netherlands &mdash; and presenting to all of them in one Teams session &mdash; gave me a much clearer sense of what international collaboration actually demands: cultural awareness, clear written communication, and the confidence to take up space in a room even when you&rsquo;re the youngest person in it.</p>
-    </div>
-  </div>
-
-  <div class="reflection-q">
-    <div class="q-eyebrow">Culture fit</div>
-    <h2 class="q-title">Does the Stryker culture <em>suit me?</em></h2>
-    <div class="verdict"><span class="verdict-dot"></span> Strong fit &mdash; especially the autonomy and ambition</div>
-    <div class="q-body">
-      <p>Stryker&rsquo;s culture is results-driven and ambitious, but also genuinely collegial. My manager was supportive and direct &mdash; he gave feedback clearly, celebrated wins, and pushed me to keep raising the bar. Colleagues across the team were welcoming and responsive, even when I was asking questions that added to their workload.</p>
-      <p>I particularly valued the <strong>trust culture</strong>: nobody micromanaged me. I was expected to plan my own projects, meet my own deadlines, and come to 1:1s with an agenda. That kind of autonomy brought out the best in me.</p>
-    </div>
-  </div>
-
-  <div class="reflection-q">
-    <div class="q-eyebrow">Development plan</div>
-    <h2 class="q-title">What do I still <em>want to learn?</em></h2>
-    <div class="q-body">
-      <ul class="develop-list">
-        <li class="develop-item">
-          <div class="develop-num">01</div>
-          <div class="develop-text">
-            <strong>Data Analytics &mdash; Power BI &amp; SQL</strong>
-            <span>I relied on Excel and manual analysis throughout this internship. I want to build the technical skills to create interactive dashboards and handle larger datasets independently &mdash; so I&rsquo;m not bottlenecked by data volume or format.</span>
-          </div>
-        </li>
-        <li class="develop-item">
-          <div class="develop-num">02</div>
-          <div class="develop-text">
-            <strong>Executive Presentation Skills</strong>
-            <span>The Copilot demo went well, but I noticed I could project more authority in front of senior audiences. I want to intentionally practise high-stakes presentation scenarios during the rest of my studies.</span>
-          </div>
-        </li>
-        <li class="develop-item">
-          <div class="develop-num">03</div>
-          <div class="develop-text">
-            <strong>Cross-cultural Communication</strong>
-            <span>Working across five countries gave me a foundation. But I want to understand more deeply how cultural context shapes communication styles &mdash; particularly in negotiations and conflict resolution.</span>
-          </div>
-        </li>
-        <li class="develop-item">
-          <div class="develop-num">04</div>
-          <div class="develop-text">
-            <strong>MedTech Regulatory Framework</strong>
-            <span>CE marking, MDR compliance, clinical evidence requirements &mdash; these are the rules of the game in medical technology. For a future career in this space, I need a stronger foundation here.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="reflection-q">
-    <div class="q-eyebrow">Looking forward</div>
-    <h2 class="q-title">What kind of professional <em>do I want to be?</em></h2>
-    <div class="q-body">
-      <p>This internship gave me a much clearer picture of where I want to land. I want to work in an environment that is <strong>international, data-driven, and commercially ambitious</strong> &mdash; ideally in medical technology, life sciences, or an adjacent sector where work has a genuine impact on people&rsquo;s lives.</p>
-      <div class="future-grid">
-        <div class="future-card">
-          <h4>Ideal company</h4>
-          <p>International, data-driven culture. Scale of a multinational with room to own real projects. MedTech, life sciences or health-adjacent.</p>
-        </div>
-        <div class="future-card">
-          <h4>Ideal role</h4>
-          <p>Strategic marketing, market intelligence or commercial excellence. Where analysis meets communication and decisions matter.</p>
-        </div>
-        <div class="future-card">
-          <h4>What I bring</h4>
-          <p>Structured thinking, strong communication, project ownership, adaptability, and genuine curiosity about the markets I work in.</p>
-        </div>
+      <div class="insight-card">
+        <div class="ic-label">What confirmed it</div>
+        <div class="ic-text">OI Academy 201 gave me a direct view of the clinical environment Stryker sells into. Sitting in a room learning about surgical anatomy and instrument technique gave me a visceral sense of what is at stake when a product works &mdash; or doesn&apos;t. I didn&apos;t expect that experience to affect me, but it did.</div>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="closing-block">
-    <blockquote>&ldquo;We need to work smarter, not harder. And if we have these tools and Stryker is providing them for us, why not use them for our benefit?&rdquo;</blockquote>
-    <cite>&mdash; Juha Soininen, Marketing Manager Northern Europe &mdash; closing my Copilot training session, April 2026</cite>
+<!-- WORK TYPE -->
+<section class="refl-section" id="worktype">
+  <div class="section-tag">Work Type</div>
+  <h2 class="section-title">The kind of work I do <em>best</em></h2>
+  <div class="refl-grid">
+    <div class="refl-body">
+      <p>Not all marketing work is the same. Some of it is execution &mdash; producing content, managing calendars, routing approvals. Some of it is analytical &mdash; reading markets, identifying patterns, building frameworks for decisions. Some of it is creative &mdash; finding the right message for the right audience.</p>
+      <p>I have done all three during my internship, and I now have a much clearer sense of where I add the most value: <strong>at the intersection of analysis and communication</strong>. I am energised by projects where I have to synthesise information into a clear narrative &mdash; whether that is a market intelligence report, an event ROI analysis, or a Copilot use case for a commercial team.</p>
+      <p>I am less energised by pure administration and repetitive execution tasks. This isn&apos;t a refusal to do them &mdash; it&apos;s an honest recognition of where I produce my best work and where I grow the most. At Stryker, I was fortunate to have <strong>a manager who gave me ownership</strong> over projects rather than just assigning tasks within someone else&apos;s project. That model brings the best out of me.</p>
+    </div>
+    <div>
+      <div class="insight-card">
+        <div class="ic-label">Where I thrive</div>
+        <div class="ic-text">Projects with a clear problem to solve, latitude to determine the approach, and a meaningful deliverable at the end. The MIS Foot report, the Jetpak audit, the Copilot initiative &mdash; all three had these qualities, and all three produced work I&apos;m proud of.</div>
+      </div>
+      <div class="insight-card">
+        <div class="ic-label">What I&apos;ve learned about myself</div>
+        <div class="ic-text">I need to understand the &ldquo;why&rdquo; behind what I&apos;m doing. When I understand the commercial or strategic purpose of a project, I naturally invest more, push further, and produce better work. When that context is absent, I&apos;m less effective. Going forward, I will proactively seek out that context &mdash; and offer it to others.</div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="cta-row">
-    <a href="projects.html" class="btn-primary">View My Projects</a>
-    <a href="skills.html" class="btn-secondary">CE-Skills Overview</a>
-    <a href="index.html#contact" class="btn-secondary">Get in Touch</a>
+<!-- COMPANY TYPE -->
+<section class="refl-section" id="environment">
+  <div class="section-tag">Work Environment</div>
+  <h2 class="section-title">The kind of company I want to <em>grow in</em></h2>
+  <div class="refl-grid">
+    <div class="refl-body">
+      <p>Stryker is a multinational with deep data infrastructure, a structured performance culture, and a genuinely warm team dynamic. Those three things together are rarer than they sound. Many large organisations have the structure without the warmth, or the warmth without the ambition. Stryker had all three.</p>
+      <p><strong>Working within a 5-country Northern Europe team</strong> meant constant cross-cultural exposure &mdash; different communication styles, different relationships to hierarchy, different paces of work. That was sometimes uncomfortable, but mostly exhilarating. I want to keep working internationally.</p>
+      <p>Critically, my manager Juha Soininen gave me <strong>full ownership of my projects</strong> from day one. He did not over-manage or micromanage. He set expectations, made himself available, and let me take responsibility for the quality of my output. That approach &mdash; stretching, trusting, and then recognising the result &mdash; is what I want from a future employer. It is also, I think, what I will eventually want to offer as a manager myself.</p>
+      <p>I want to work for an organisation that is data-driven, internationally oriented, and commercially ambitious &mdash; but that has not sacrificed its people culture in the process. Stryker showed me that combination exists.</p>
+    </div>
+    <div>
+      <div class="insight-card">
+        <div class="ic-label">What I need from a workplace</div>
+        <div class="ic-text">Autonomy over meaningful projects, a team I can learn from, and an environment that values rigour. I function best when I am trusted to determine the approach rather than given a checklist to follow.</div>
+      </div>
+      <div class="insight-card">
+        <div class="ic-label">What Stryker gave me</div>
+        <div class="ic-text">A manager who championed my initiative. Colleagues who treated me as a peer rather than an intern. Projects that mattered to the business. The combination made me a better professional and a more confident one.</div>
+      </div>
+      <div class="insight-card">
+        <div class="ic-label">What I take forward</div>
+        <div class="ic-text">The bar. I now know what good looks like &mdash; how a high-performing commercial team operates, what it means to own a project professionally, and the standard of output that earns respect in a demanding business environment.</div>
+      </div>
+    </div>
   </div>
+</section>
 
-</div>
+<!-- DEVELOPMENT POINTS -->
+<section class="dev-section" id="development">
+  <div class="section-tag">Areas for Growth</div>
+  <h2 class="section-title">Where I want to develop <em>further</em></h2>
+  <p class="section-sub" style="max-width:600px">Honest reflection means naming the gaps as clearly as the strengths. These four areas are where I know I have room to grow &mdash; and where I am actively investing.</p>
+  <div class="dev-grid">
+    <div class="dev-card">
+      <div class="dev-num">01</div>
+      <div class="dev-title">Advanced Data Analytics &mdash; Power BI &amp; SQL</div>
+      <div class="dev-body">My analysis work at Stryker relied on Excel and qualitative synthesis. I could see throughout the internship that Power BI and SQL skills would have made my market intelligence work faster and more visually compelling. These are tools I am actively learning, and I want my next role to accelerate that development &mdash; working in a data environment where dashboards and queries are part of daily work, not a specialist function.</div>
+    </div>
+    <div class="dev-card">
+      <div class="dev-num">02</div>
+      <div class="dev-title">Senior Management Presentations</div>
+      <div class="dev-body">I presented the Copilot initiative and several project findings to my direct team with confidence. Presenting to C-suite or senior management &mdash; in a setting where time is limited, stakes are high, and the audience is sceptical &mdash; is a different skill. I want to put myself in those rooms earlier in my career rather than later, and I need to actively seek opportunities to present upward, not just laterally.</div>
+    </div>
+    <div class="dev-card">
+      <div class="dev-num">03</div>
+      <div class="dev-title">Cross-Cultural Communication Depth</div>
+      <div class="dev-body">Working across a 5-country Northern Europe team gave me exposure to different communication styles, but I was mostly communicating in English &mdash; my strongest language. Building fluency in reading cultural signals more subtly, particularly in written communication, is an area I want to deepen. This is not a skill that can be learned from a course; it comes from time spent working closely with diverse teams.</div>
+    </div>
+    <div class="dev-card">
+      <div class="dev-num">04</div>
+      <div class="dev-title">Regulatory &amp; Clinical Knowledge (MDR / CE Marking)</div>
+      <div class="dev-body">The Medical Device Regulation (MDR) framework and CE marking requirements are fundamental to how Stryker markets its products in Europe. During my internship, I encountered this context regularly but never dove deep into it. Understanding how regulatory constraints shape commercial and marketing decisions in MedTech is a genuine competitive advantage for a marketing professional in this sector &mdash; and something I want to develop as I continue in the field.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FUTURE DIRECTION -->
+<section class="future-section" id="future">
+  <div class="future-inner">
+    <div>
+      <div class="future-tag">Looking Ahead</div>
+      <h2 class="future-title">Where I am going <em>from here</em></h2>
+      <div class="future-body">
+        <p>My goal after graduating is to secure a <strong>graduate internship or entry-level role at an international, data-driven organisation</strong> &mdash; preferably in MedTech, life sciences, or a similarly complex B2B sector where marketing requires genuine analytical depth alongside creative and communicative skill.</p>
+        <p>I am not looking for a generalist marketing role. I want to be in an environment where I am surrounded by people who are excellent at what they do, where data informs decisions rather than decorates them, and where I have real ownership of work that matters.</p>
+        <p>Stryker gave me a blueprint. I now know what I am looking for &mdash; and more importantly, I know what I have to offer. The combination of <strong>analytical thinking, commercial awareness, strong communication, and the adaptability to operate across domains</strong> is not common in a graduate. I want to find the organisation that will make the most of it.</p>
+      </div>
+    </div>
+    <div class="future-criteria">
+      <div class="criterion">
+        <div class="criterion-label">Organisation Type</div>
+        <div class="criterion-text">International, data-driven, with genuine product complexity &mdash; ideally MedTech, life sciences, or comparable B2B sector. Must have a performance culture that also values people.</div>
+      </div>
+      <div class="criterion">
+        <div class="criterion-label">Role Characteristics</div>
+        <div class="criterion-text">Project ownership from early on. Analytical and communicative in equal measure. Cross-functional exposure. A manager who leads by trusting and stretching, not by controlling.</div>
+      </div>
+      <div class="criterion">
+        <div class="criterion-label">Development Priorities</div>
+        <div class="criterion-text">Power BI and SQL capability. Senior stakeholder exposure. International team dynamics. Regulatory market understanding in healthcare sectors.</div>
+      </div>
+      <div class="criterion">
+        <div class="criterion-label">Longer-Term Ambition</div>
+        <div class="criterion-text">A commercial leadership role &mdash; marketing director or commercial strategy &mdash; at a company where the product genuinely improves lives. The combination of purpose and performance is non-negotiable.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-tag">Get in touch</div>
+    <h2 class="section-title">Let&apos;s build something <em>together</em></h2>
+    <p class="section-sub">If what you&apos;ve read resonates &mdash; or if you&apos;re looking for someone with exactly this kind of profile &mdash; I&apos;d love to have a conversation.</p>
+    <div class="contact-links">
+      <a href="mailto:charlotte.van.den.kerkhoff@hva.nl" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        charlotte.van.den.kerkhoff@hva.nl
+      </a>
+      <a href="https://www.linkedin.com/in/charlottevandenkerkhoff" target="_blank" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="projects.html" class="contact-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        View My Projects
+      </a>
+    </div>
+  </div>
+</section>
 
 <footer>
   <span>&copy; 2026 Charlotte van den Kerkhoff</span>
-  <span><a href="index.html">Home</a> &middot; <a href="projects.html">Projects</a> &middot; <a href="skills.html">CE-Skills</a></span>
+  <a href="index.html">CVK</a>
 </footer>
 
 </body>
