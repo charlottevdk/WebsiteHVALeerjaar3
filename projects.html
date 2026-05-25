@@ -6,460 +6,367 @@
 <title>Projects — Charlotte van den Kerkhoff</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --warm-white:#FAF7F2;--white:#FFFFFF;
-    --black:#141414;--black-mid:#2C2C2C;
-    --gray:#6A6A6A;--border:#E2DDD6;
-    --mist:#7BAFC8;--mist-mid:#A4C8DC;
-    --mist-light:#D8EAF3;--mist-pale:#EDF5FA;
-    --sand:#C4985C;--sand-mid:#D9B484;
-    --sand-light:#F2E5D0;--sand-pale:#FAF3E8;
-    --s-blue:#1B3A6B;--s-yellow:#F39100;
-    --s-pastel:#6D9FB5;--s-light:#F5F4EF;--s-gray:#B7B5AC;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--warm-white);color:var(--black);overflow-x:hidden}
+:root{
+  --bg:#FAF7F2;--white:#FFFFFF;--black:#141414;
+  --gray:#6A6A6A;--gray-light:#9A9A9A;--border:#E4DFD8;
+  --mist:#7BAFC8;--mist-light:#D8EAF3;--mist-pale:#EDF5FA;
+  --sand:#C4985C;--sand-light:#F2E5D0;
+}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--black);overflow-x:hidden}
 
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.3rem 5rem;background:rgba(250,247,242,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-  .nav-logo{font-family:'Fraunces',serif;font-size:1.65rem;font-weight:700;color:var(--black);text-decoration:none}
-  .nav-links{display:flex;gap:2.8rem;list-style:none;align-items:center}
-  .nav-links a{font-size:0.74rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
-  .nav-links a:hover,.nav-links a.active{color:var(--black)}
-  .nav-cta{background:var(--black)!important;color:var(--white)!important;padding:0.58rem 1.55rem;border-radius:50px;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),background 0.2s!important}
-  .nav-cta:hover{background:var(--mist)!important;transform:translateY(-3px) scale(1.03)!important}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5rem;background:rgba(250,247,242,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Fraunces',serif;font-style:italic;font-size:1.35rem;font-weight:600;color:var(--black);text-decoration:none}
+.nav-links{display:flex;gap:2.4rem;list-style:none;align-items:center}
+.nav-links a{font-size:0.71rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--black)}
+.nav-cta{background:var(--black)!important;color:var(--white)!important;padding:0.5rem 1.3rem;border-radius:50px;transition:background 0.2s,transform 0.3s cubic-bezier(0.34,1.56,0.64,1)!important}
+.nav-cta:hover{background:var(--mist)!important;transform:translateY(-2px)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--black);transition:transform 0.28s ease,opacity 0.28s ease;border-radius:1px}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-panel{display:none;position:fixed;top:61px;left:0;right:0;z-index:190;background:var(--bg);border-bottom:1px solid var(--border);padding:1rem 2rem 1.5rem;flex-direction:column}
+.nav-panel.open{display:flex}
+.nav-panel a{font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--border);transition:color 0.2s}
+.nav-panel a:last-child{border-bottom:none}
+.nav-panel a:hover{color:var(--black)}
 
-  .page-hero{padding:9rem 5rem 5rem;background:var(--white);position:relative;overflow:hidden}
-  .page-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--mist-light) 0%,transparent 70%);pointer-events:none}
-  .page-hero::after{content:'';position:absolute;bottom:-40px;left:15%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,var(--sand-light) 0%,transparent 70%);pointer-events:none;opacity:0.5}
-  .page-eyebrow{display:inline-flex;align-items:center;gap:0.7rem;background:var(--mist-pale);color:var(--mist);border:1px solid var(--mist-light);padding:0.45rem 1.1rem;border-radius:50px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2rem}
-  .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--mist);flex-shrink:0}
-  .page-title{font-family:'Fraunces',serif;font-size:clamp(3rem,5.5vw,5.2rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.5rem;position:relative;z-index:1}
-  .page-title em{font-style:italic;font-weight:300;color:var(--mist);display:block}
-  .page-desc{color:var(--gray);font-size:1rem;line-height:1.88;max-width:560px;font-weight:300;margin-bottom:2.5rem;position:relative;z-index:1}
-  .project-nav-pills{display:flex;gap:0.6rem;flex-wrap:wrap;position:relative;z-index:1}
-  .pill{font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.45rem 1.1rem;border-radius:50px;border:1.5px solid var(--border);color:var(--gray);text-decoration:none;transition:all 0.25s cubic-bezier(0.34,1.4,0.64,1);background:none;display:inline-block}
-  .pill:hover,.pill.active{background:var(--mist);border-color:var(--mist);color:var(--white);transform:translateY(-2px)}
+/* PAGE HEADER */
+.page-header{padding:8rem 5rem 4.5rem;background:var(--white)}
+.eyebrow{display:inline-flex;align-items:center;gap:0.6rem;background:var(--mist-pale);color:var(--mist);border:1px solid var(--mist-light);border-radius:50px;padding:0.4rem 1rem;font-size:0.67rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.8rem}
+.eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--mist)}
+.page-header h1{font-family:'Fraunces',serif;font-size:clamp(2.8rem,5vw,4.8rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.2rem}
+.page-header h1 em{font-style:italic;font-weight:300;color:var(--mist);display:block}
+.page-header p{color:var(--gray);font-size:0.95rem;line-height:1.85;max-width:520px;font-weight:300}
 
-  .projects-container{padding:4rem 5rem 6rem}
-  .project-entry{display:grid;grid-template-columns:260px 1fr;gap:5rem;padding:4.5rem 0;border-bottom:1px solid var(--border)}
-  .project-entry:last-child{border-bottom:none}
+/* PROJECTS ACCORDION */
+.projects-wrap{padding:3rem 5rem 6rem;background:var(--bg)}
+.proj-item{border-bottom:1px solid var(--border);background:var(--bg)}
+.proj-item:first-child{border-top:1px solid var(--border)}
+.proj-trigger{display:flex;align-items:center;width:100%;padding:2rem 0;background:none;border:none;cursor:pointer;text-align:left;gap:2rem;transition:opacity 0.2s}
+.proj-trigger:hover{opacity:0.78}
+.proj-num{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:700;color:rgba(123,175,200,0.16);line-height:1;flex-shrink:0;width:4.5rem}
+.proj-trigger-main{flex:1}
+.proj-trigger-title{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;margin-bottom:0.2rem}
+.proj-trigger-sub{font-size:0.74rem;color:var(--mist);font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
+.proj-meta-line{display:flex;gap:1.5rem;margin-top:0.5rem;flex-wrap:wrap}
+.proj-tag{font-size:0.61rem;text-transform:uppercase;letter-spacing:0.07em;font-weight:600;color:var(--mist);background:var(--mist-pale);padding:0.2rem 0.58rem;border-radius:50px;border:1px solid var(--mist-light)}
+.proj-plus{width:20px;height:20px;position:relative;flex-shrink:0}
+.proj-plus::before,.proj-plus::after{content:'';position:absolute;background:var(--gray);border-radius:1px}
+.proj-plus::before{width:1.5px;height:12px;top:4px;left:9.25px;transition:opacity 0.3s ease,transform 0.3s ease}
+.proj-plus::after{width:12px;height:1.5px;top:9.25px;left:4px}
+.proj-item.open .proj-plus::before{opacity:0}
 
-  .proj-number{font-family:'Fraunces',serif;font-size:5.5rem;font-weight:700;color:rgba(123,175,200,0.12);line-height:1;margin-bottom:-0.5rem;display:block}
-  .proj-label{font-size:0.66rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--mist);display:flex;align-items:center;gap:0.6rem;margin-bottom:1.2rem}
-  .proj-label::after{content:'';display:block;width:2rem;height:1.5px;background:var(--sand)}
-  .proj-meta{list-style:none}
-  .proj-meta li{font-size:0.76rem;color:var(--gray);padding:0.5rem 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:0.15rem;font-weight:300}
-  .proj-meta li:first-child{border-top:1px solid var(--border)}
-  .proj-meta strong{font-size:0.66rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--black);font-weight:600}
-  .proj-tags-side{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:1.5rem}
-  .proj-tag{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.07em;font-weight:600;color:var(--mist);background:var(--mist-pale);padding:0.2rem 0.6rem;border-radius:50px;border:1px solid var(--mist-light)}
+.proj-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.36s ease}
+.proj-inner{overflow:hidden}
+.proj-item.open .proj-body{grid-template-rows:1fr}
+.proj-content{padding:0 0 2.5rem 6.5rem}
 
-  .stryker-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--s-blue);color:var(--white);padding:0.4rem 1rem;border-radius:50px;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.4rem}
-  .stryker-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--s-yellow)}
-  .proj-title{font-family:'Fraunces',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:700;line-height:1.2;margin-bottom:0.6rem}
-  .proj-subtitle{font-size:0.85rem;color:var(--sand);font-weight:600;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:1.6rem}
-  .proj-body{color:var(--gray);font-size:0.93rem;line-height:1.88;font-weight:300;margin-bottom:2rem}
-  .proj-body p{margin-bottom:1rem}
-  .proj-body p:last-child{margin-bottom:0}
-  .proj-body strong{color:var(--black);font-weight:600}
+/* CONTENT BLOCKS */
+.stats-row{display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+.stat-chip{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1rem 1.4rem;text-align:center;flex:1;min-width:100px}
+.chip-val{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;color:var(--black);line-height:1}
+.chip-val em{font-style:normal;color:var(--mist);font-size:1.1rem}
+.chip-lbl{font-size:0.67rem;color:var(--gray);font-weight:300;margin-top:0.2rem;line-height:1.4}
 
-  .highlight-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
-  .hl-item{background:var(--warm-white);border-radius:16px;padding:1.4rem;text-align:center;border:1px solid var(--border)}
-  .hl-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--black);line-height:1}
-  .hl-accent{color:var(--mist)}
-  .hl-label{font-size:0.7rem;color:var(--gray);margin-top:0.25rem;font-weight:300;line-height:1.45}
+.body-text{color:var(--gray);font-size:0.89rem;line-height:1.88;font-weight:300;margin-bottom:1.8rem}
+.body-text p{margin-bottom:0.9rem}
+.body-text p:last-child{margin-bottom:0}
+.body-text strong{color:var(--black);font-weight:600}
 
-  .outcomes{background:var(--white);border-radius:20px;padding:2rem;margin-bottom:2rem;border:1px solid var(--border)}
-  .outcomes-title{font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.6rem}
-  .outcomes-title::before{content:'';display:block;width:1.4rem;height:1.5px;background:var(--sand)}
-  .outcome-list{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
-  .outcome-list li{display:flex;align-items:flex-start;gap:0.8rem;font-size:0.85rem;color:var(--black-mid);font-weight:400;line-height:1.6}
-  .outcome-list li::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--mist);flex-shrink:0;margin-top:0.45rem}
+.outcomes-box{background:var(--white);border-radius:14px;padding:1.6rem;margin-bottom:1.6rem;border:1px solid var(--border)}
+.outcomes-label{font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--mist);display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem}
+.outcomes-label::before{content:'';display:block;width:1.4rem;height:1.5px;background:var(--sand)}
+.outcomes-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.outcomes-list li{display:flex;align-items:flex-start;gap:0.7rem;font-size:0.83rem;color:var(--black);font-weight:400;line-height:1.6}
+.outcomes-list li::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--mist);flex-shrink:0;margin-top:0.5rem}
 
-  .quote-block{background:linear-gradient(135deg,var(--mist-pale) 0%,var(--sand-pale) 100%);border-radius:20px;padding:2rem 2.2rem;margin-bottom:1.4rem;border-left:3px solid var(--mist)}
-  .quote-text{font-family:'Fraunces',serif;font-size:1.05rem;font-style:italic;font-weight:300;color:var(--black-mid);line-height:1.65;margin-bottom:0.8rem}
-  .quote-author{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray)}
-  .quote-role{font-size:0.7rem;color:var(--mist);font-weight:400}
+.quote-box{background:linear-gradient(135deg,var(--mist-pale) 0%,var(--bg) 100%);border-radius:14px;padding:1.6rem 1.8rem;margin-bottom:1.2rem;border-left:2.5px solid var(--mist)}
+.quote-text{font-family:'Fraunces',serif;font-size:1rem;font-style:italic;font-weight:300;color:var(--black);line-height:1.65;margin-bottom:0.65rem}
+.quote-who{font-size:0.71rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray)}
+.quote-role{font-size:0.69rem;color:var(--mist);font-weight:400}
 
-  .ce-links{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.5rem}
-  .ce-chip{font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:50px;background:var(--sand-light);color:var(--sand);border:1px solid var(--sand-mid)}
+.ce-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1.5rem}
+.ce-chip{font-size:0.63rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:0.22rem 0.7rem;border-radius:50px;background:var(--sand-light);color:var(--sand);border:1px solid rgba(196,152,92,0.35)}
 
-  #contact{padding:6rem 5rem;background:var(--black);text-align:center}
-  .contact-inner{max-width:600px;margin:0 auto}
-  .section-tag{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem}
-  .section-tag::before{content:'';display:block;width:2rem;height:1.5px;background:var(--sand);flex-shrink:0}
-  #contact .section-tag{color:var(--mist-mid);justify-content:center}
-  .section-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:1rem}
-  .section-title em{font-style:italic;font-weight:300}
-  #contact .section-title{color:var(--white)}
-  #contact .section-title em{color:var(--mist-mid)}
-  .section-sub{font-size:0.97rem;line-height:1.82;max-width:560px;font-weight:300}
-  #contact .section-sub{color:rgba(255,255,255,0.45);margin:0 auto 2.5rem}
-  .contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-  .contact-link{display:inline-flex;align-items:center;gap:0.6rem;color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.8rem;padding:0.75rem 1.5rem;border:1px solid rgba(255,255,255,0.14);border-radius:50px;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),border-color 0.2s,color 0.2s,background 0.2s}
-  .contact-link:hover{transform:translateY(-4px) scale(1.02);border-color:var(--mist-mid);color:var(--white);background:rgba(123,175,200,0.12)}
-  footer{padding:1.8rem 5rem;background:var(--black);border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center}
-  footer span{font-size:0.74rem;color:rgba(255,255,255,0.28)}
-  footer a{color:var(--sand-mid);font-size:0.74rem;text-decoration:none}
+/* CONTACT */
+.contact-wrap{padding:6rem 5rem;background:var(--black);text-align:center}
+.contact-inner{max-width:520px;margin:0 auto}
+.label{font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--mist);display:flex;align-items:center;gap:0.7rem;margin-bottom:0.7rem}
+.label::before{content:'';display:block;width:1.8rem;height:1.5px;background:var(--sand);flex-shrink:0}
+.contact-wrap .label{color:rgba(164,200,220,0.75);justify-content:center}
+.contact-wrap h2{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:0.8rem;color:var(--white)}
+.contact-wrap h2 em{font-style:italic;font-weight:300;color:rgba(164,200,220,0.85)}
+.contact-sub{color:rgba(255,255,255,0.38);font-size:0.9rem;line-height:1.8;font-weight:300;margin-bottom:2.5rem}
+.contact-links{display:flex;justify-content:center;gap:0.8rem;flex-wrap:wrap}
+.contact-link{display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.58);text-decoration:none;font-size:0.78rem;padding:0.7rem 1.4rem;border:1px solid rgba(255,255,255,0.12);border-radius:50px;transition:border-color 0.2s,color 0.2s,background 0.2s,transform 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.contact-link:hover{border-color:var(--mist);color:var(--white);background:rgba(123,175,200,0.1);transform:translateY(-3px)}
+footer{padding:1.5rem 5rem;background:var(--black);border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center}
+footer span{font-size:0.71rem;color:rgba(255,255,255,0.24)}
+footer a{font-size:0.71rem;color:rgba(196,152,92,0.55);text-decoration:none}
 
-  .fade-up{opacity:0;transform:translateY(28px);animation:fadeUp 0.8s cubic-bezier(0.34,1.2,0.64,1) forwards}
-  @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-  .d1{animation-delay:0.1s}.d2{animation-delay:0.25s}.d3{animation-delay:0.4s}
+.fu{opacity:0;transform:translateY(22px);animation:fadeup 0.7s cubic-bezier(0.34,1.2,0.64,1) forwards}
+@keyframes fadeup{to{opacity:1;transform:translateY(0)}}
+.d1{animation-delay:0.1s}.d2{animation-delay:0.22s}
 
-  @media(max-width:1100px){
-    .page-hero,.projects-container,#contact{padding-left:2.5rem;padding-right:2.5rem}
-    .project-entry{grid-template-columns:1fr;gap:2rem}
-    .proj-number{font-size:4rem}
-  }
-  @media(max-width:900px){
-    nav{padding:1rem 1.5rem}
-    .nav-links{display:none}
-    .page-hero,.projects-container,#contact,footer{padding-left:1.5rem;padding-right:1.5rem}
-    .highlight-strip{grid-template-columns:repeat(2,1fr)}
-    footer{flex-direction:column;gap:0.5rem;text-align:center}
-  }
+@media(max-width:1100px){
+  nav,.page-header,.projects-wrap,.contact-wrap,footer{padding-left:2.5rem;padding-right:2.5rem}
+  .proj-content{padding-left:0}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.4rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .page-header,.projects-wrap,.contact-wrap,footer{padding-left:1.4rem;padding-right:1.4rem}
+  .proj-trigger{gap:1rem;padding:1.5rem 0}
+  .proj-num{font-size:2rem;width:3rem}
+  .stats-row{flex-direction:column}
+  .stat-chip{text-align:left;display:flex;align-items:center;gap:1rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center}
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">CVK</a>
+  <a href="index.html" class="nav-logo">Charlotte</a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
     <li><a href="projects.html" class="active">Projects</a></li>
-    <li><a href="skills.html">CE-Skills</a></li>
+    <li><a href="skills.html">CE Skills</a></li>
     <li><a href="reflection.html">Reflection</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
+  <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
 </nav>
+<div class="nav-panel" id="panel">
+  <a href="index.html#about">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="skills.html">CE Skills</a>
+  <a href="reflection.html">Reflection</a>
+  <a href="#contact">Contact</a>
+</div>
 
-<section class="page-hero">
-  <div class="page-eyebrow fade-up"><span class="eyebrow-dot"></span>Stryker OI Northern Europe &middot; Internship 2025&ndash;2026</div>
-  <h1 class="page-title fade-up d1">Five projects.<br><em>Real impact.</em></h1>
-  <p class="page-desc fade-up d2">From market intelligence reports to AI adoption initiatives &mdash; these are the projects I owned, delivered, and grew through during my internship at Stryker Orthopaedic Instruments Northern Europe.</p>
-  <div class="project-nav-pills fade-up d3">
-    <a href="#p1" class="pill active">LVO Congress</a>
-    <a href="#p2" class="pill">Market Intelligence</a>
-    <a href="#p3" class="pill">Jetpak Audit</a>
-    <a href="#p4" class="pill">Copilot AI</a>
-    <a href="#p5" class="pill">OI Academy</a>
+<div class="page-header">
+  <div class="eyebrow fu"><span class="eyebrow-dot"></span>Stryker OI Northern Europe &middot; 2025&ndash;2026</div>
+  <h1 class="fu d1">Five projects.<br><em>Real impact.</em></h1>
+  <p class="fu d2">Each project was fully owned and delivered during my internship. Expand any card to read the full case study.</p>
+</div>
+
+<div class="projects-wrap">
+
+  <!-- 01 -->
+  <div class="proj-item open" id="p1">
+    <button class="proj-trigger">
+      <div class="proj-num">01</div>
+      <div class="proj-trigger-main">
+        <div class="proj-trigger-title">LVO Congress 2026</div>
+        <div class="proj-trigger-sub">Congress &amp; Events &mdash; 26&ndash;27 March 2026, Hilversum</div>
+        <div class="proj-meta-line"><span class="proj-tag">Event Marketing</span><span class="proj-tag">Lead-Gen</span><span class="proj-tag">ROI Analysis</span></div>
+      </div>
+      <div class="proj-plus"></div>
+    </button>
+    <div class="proj-body"><div class="proj-inner"><div class="proj-content">
+      <div class="stats-row">
+        <div class="stat-chip"><div class="chip-val">7</div><div class="chip-lbl">Stakeholders coordinated</div></div>
+        <div class="stat-chip"><div class="chip-val">6<em>m²</em></div><div class="chip-lbl">Exhibition stand</div></div>
+        <div class="stat-chip"><div class="chip-val">5</div><div class="chip-lbl">Congresses analysed</div></div>
+      </div>
+      <div class="body-text">
+        <p>The LVO (Landelijke Vereniging van Orthopedisch Instrumentmakers) Congress 2026 was one of the most important commercial touchpoints for Stryker OI in the Dutch market. I took full ownership &mdash; from strategic planning and stakeholder alignment through to day-of execution and post-event ROI analysis.</p>
+        <p>Before LVO, I conducted a landscape analysis of five relevant congresses (LVO, VVOV, Afiso, NOV, BVOT/OB) to evaluate audience profile and commercial relevance. For the event itself, I designed a <strong>lead-generation system using Microsoft Forms</strong> and coordinated seven stakeholders across logistics, venue, and suppliers. Post-event, I built an <strong>ROI analysis framework</strong> to measure effectiveness and give Stryker a repeatable method for future event decisions.</p>
+      </div>
+      <div class="outcomes-box">
+        <div class="outcomes-label">Key outcomes</div>
+        <ul class="outcomes-list">
+          <li>Structured lead-capture system used throughout both congress days</li>
+          <li>7-stakeholder logistics coordinated without delays on either day</li>
+          <li>Post-event ROI report enabling data-driven congress prioritisation</li>
+          <li>5-congress landscape analysis to inform future events strategy</li>
+        </ul>
+      </div>
+      <div class="quote-box"><div class="quote-text">&ldquo;Great initiative Charlotte.&rdquo;</div><div class="quote-who">Dorien Van Cappellen</div><div class="quote-role">Stryker OI Northern Europe</div></div>
+      <div class="quote-box"><div class="quote-text">&ldquo;Dank je voor het duidelijke plan van aanpak.&rdquo;</div><div class="quote-who">Kirsty Thomass</div><div class="quote-role">Stryker OI Northern Europe</div></div>
+      <div class="ce-row"><span class="ce-chip">Commercial Awareness</span><span class="ce-chip">Teamwork</span><span class="ce-chip">Communication</span></div>
+    </div></div></div>
   </div>
-</section>
 
-<div class="projects-container">
-
-  <!-- PROJECT 01 -->
-  <article class="project-entry" id="p1">
-    <div class="project-sidebar">
-      <span class="proj-number">01</span>
-      <div class="proj-label">Congress &amp; Events</div>
-      <ul class="proj-meta">
-        <li><strong>Date</strong>26&ndash;27 March 2026</li>
-        <li><strong>Location</strong>Gooiland, Hilversum</li>
-        <li><strong>Event</strong>LVO Congres 2026</li>
-        <li><strong>Stakeholders</strong>7 internal &amp; external</li>
-        <li><strong>Stand size</strong>6 m²</li>
-      </ul>
-      <div class="proj-tags-side">
-        <span class="proj-tag">Event Marketing</span>
-        <span class="proj-tag">Lead-Gen</span>
-        <span class="proj-tag">ROI Analysis</span>
-        <span class="proj-tag">Stakeholder Mgmt</span>
+  <!-- 02 -->
+  <div class="proj-item" id="p2">
+    <button class="proj-trigger">
+      <div class="proj-num">02</div>
+      <div class="proj-trigger-main">
+        <div class="proj-trigger-title">Market Intelligence &mdash; MIS Foot &amp; Orthognathic</div>
+        <div class="proj-trigger-sub">Market Research &mdash; Benelux</div>
+        <div class="proj-meta-line"><span class="proj-tag">Market Research</span><span class="proj-tag">Competitor Analysis</span><span class="proj-tag">Portfolio Strategy</span></div>
       </div>
-    </div>
-    <div class="project-content">
-      <div class="stryker-badge"><span class="stryker-badge-dot"></span>Stryker OI NE</div>
-      <h2 class="proj-title">LVO Congress 2026 &mdash; End-to-End Event Execution</h2>
-      <div class="proj-subtitle">Lead Generation &middot; Stand Management &middot; ROI Analysis</div>
-      <div class="highlight-strip">
-        <div class="hl-item"><div class="hl-num">7</div><div class="hl-label">Stakeholders coordinated</div></div>
-        <div class="hl-item"><div class="hl-num">6<span class="hl-accent">m²</span></div><div class="hl-label">Exhibition stand managed</div></div>
-        <div class="hl-item"><div class="hl-num">5</div><div class="hl-label">Congresses researched &amp; evaluated</div></div>
+      <div class="proj-plus"></div>
+    </button>
+    <div class="proj-body"><div class="proj-inner"><div class="proj-content">
+      <div class="stats-row">
+        <div class="stat-chip"><div class="chip-val">6</div><div class="chip-lbl">Report chapters</div></div>
+        <div class="stat-chip"><div class="chip-val">2</div><div class="chip-lbl">Surgical segments</div></div>
+        <div class="stat-chip"><div class="chip-val">3</div><div class="chip-lbl">Benelux countries</div></div>
       </div>
-      <div class="proj-body">
-        <p>The LVO (Landelijke Vereniging van Orthopedisch Instrumentmakers) Congress 2026 was one of the most important commercial touchpoints for Stryker OI in the Dutch market. I took full ownership of our presence &mdash; from strategic planning and stakeholder alignment through to day-of execution and post-event ROI analysis.</p>
-        <p>Before LVO, I conducted a landscape analysis of five relevant congresses: <strong>LVO, VVOV, Afiso, NOV, and BVOT/OB</strong> &mdash; evaluating each on audience profile, commercial relevance, and Stryker's historical return. This analysis formed the basis for prioritising which events deserved investment in the upcoming calendar year.</p>
-        <p>For LVO itself, I designed a <strong>lead-generation system using Microsoft Forms</strong>, enabling the sales team to capture qualified contacts directly on the stand in a structured, trackable way. I coordinated logistics across seven stakeholders &mdash; internal colleagues, the venue, and third-party suppliers &mdash; and managed the full 6 m² stand setup and breakdown.</p>
-        <p>Post-event, I built an <strong>ROI analysis framework</strong> to measure the effectiveness of our attendance against cost and leads generated, giving Stryker a repeatable method for future congress evaluation decisions.</p>
+      <div class="body-text">
+        <p>A comprehensive market intelligence report covering two specialised surgical segments &mdash; MIS Foot and Orthognathic surgery &mdash; both high-growth areas in the Benelux. Stryker needed a clear picture to inform its go-to-market strategy.</p>
+        <p>The six-chapter report moves from Benelux procedure volumes through competitive landscape mapping, a surgeon learning curve analysis, and a <strong>portfolio gap assessment</strong>. The gap analysis revealed Stryker&apos;s Large and Medium Bone portfolio is strong, while <strong>Small Bone instruments are significantly underutilised</strong> relative to market potential &mdash; a strategic insight with direct commercial implications.</p>
+        <p>In parallel, I created an <strong>Orthognathic educational guide for sales reps</strong> &mdash; translating complex surgical context into language that enables more credible customer conversations.</p>
       </div>
-      <div class="outcomes">
-        <div class="outcomes-title">Key outcomes</div>
-        <ul class="outcome-list">
-          <li>Delivered a structured lead-capture system used by the sales team throughout both congress days</li>
-          <li>Coordinated a 7-stakeholder logistics chain without delays on either day</li>
-          <li>Produced a post-event ROI report enabling data-driven congress prioritisation</li>
-          <li>Completed a 5-congress landscape analysis to inform Stryker&apos;s future events strategy</li>
+      <div class="outcomes-box">
+        <div class="outcomes-label">Key outcomes</div>
+        <ul class="outcomes-list">
+          <li>6-chapter MIS Foot report covering Benelux volumes and competitive positioning</li>
+          <li>Small Bone portfolio gap identified &mdash; commercially significant for product strategy</li>
+          <li>Orthognathic educational guide produced to upskill the sales team</li>
+          <li>Learning curve analysis supporting surgeon adoption timelines</li>
         </ul>
       </div>
-      <div class="quote-block">
-        <div class="quote-text">&ldquo;Great initiative Charlotte.&rdquo;</div>
-        <div class="quote-author">Dorien Van Cappellen</div>
-        <div class="quote-role">Stryker OI Northern Europe</div>
-      </div>
-      <div class="quote-block">
-        <div class="quote-text">&ldquo;Dank je voor het duidelijke plan van aanpak.&rdquo;</div>
-        <div class="quote-author">Kirsty Thomass</div>
-        <div class="quote-role">Stryker OI Northern Europe</div>
-      </div>
-      <div class="ce-links">
-        <span class="ce-chip">CB &mdash; Commercial Awareness</span>
-        <span class="ce-chip">SW &mdash; Teamwork</span>
-        <span class="ce-chip">CO &mdash; Communication</span>
-      </div>
-    </div>
-  </article>
+      <div class="ce-row"><span class="ce-chip">Critical Thinking</span><span class="ce-chip">Commercial Awareness</span><span class="ce-chip">Communication</span></div>
+    </div></div></div>
+  </div>
 
-  <!-- PROJECT 02 -->
-  <article class="project-entry" id="p2">
-    <div class="project-sidebar">
-      <span class="proj-number">02</span>
-      <div class="proj-label">Market Intelligence</div>
-      <ul class="proj-meta">
-        <li><strong>Region</strong>Benelux</li>
-        <li><strong>Report chapters</strong>6</li>
-        <li><strong>Segments</strong>MIS Foot &amp; Orthognathic</li>
-        <li><strong>Focus</strong>Portfolio gap analysis</li>
-      </ul>
-      <div class="proj-tags-side">
-        <span class="proj-tag">Market Research</span>
-        <span class="proj-tag">Competitor Analysis</span>
-        <span class="proj-tag">Portfolio Strategy</span>
-        <span class="proj-tag">Sales Enablement</span>
+  <!-- 03 -->
+  <div class="proj-item" id="p3">
+    <button class="proj-trigger">
+      <div class="proj-num">03</div>
+      <div class="proj-trigger-main">
+        <div class="proj-trigger-title">Jetpak Warehouse Audit</div>
+        <div class="proj-trigger-sub">Operations &amp; Audit &mdash; May 2026, Mechelen</div>
+        <div class="proj-meta-line"><span class="proj-tag">Warehouse Audit</span><span class="proj-tag">Root Cause Analysis</span><span class="proj-tag">Process Improvement</span></div>
       </div>
-    </div>
-    <div class="project-content">
-      <div class="stryker-badge"><span class="stryker-badge-dot"></span>Stryker OI NE</div>
-      <h2 class="proj-title">Market Intelligence &mdash; MIS Foot &amp; Orthognathic</h2>
-      <div class="proj-subtitle">Benelux Procedure Volumes &middot; Competitive Landscape &middot; Portfolio Gaps</div>
-      <div class="highlight-strip">
-        <div class="hl-item"><div class="hl-num">6</div><div class="hl-label">Report chapters delivered</div></div>
-        <div class="hl-item"><div class="hl-num">2</div><div class="hl-label">Surgical segments covered</div></div>
-        <div class="hl-item"><div class="hl-num">3</div><div class="hl-label">Benelux countries analysed</div></div>
+      <div class="proj-plus"></div>
+    </button>
+    <div class="proj-body"><div class="proj-inner"><div class="proj-content">
+      <div class="stats-row">
+        <div class="stat-chip"><div class="chip-val">6<em>/26</em></div><div class="chip-lbl">Banners located</div></div>
+        <div class="stat-chip"><div class="chip-val">3</div><div class="chip-lbl">Root causes found</div></div>
+        <div class="stat-chip"><div class="chip-val">3</div><div class="chip-lbl">Team members</div></div>
       </div>
-      <div class="proj-body">
-        <p>One of my most analytically demanding projects: a <strong>comprehensive market intelligence report</strong> covering two specialised surgical segments &mdash; MIS Foot (Minimally Invasive Surgery) and Orthognathic surgery (corrective jaw surgery). Both are high-growth areas in the Benelux, and Stryker needed a clear picture to inform its go-to-market strategy.</p>
-        <p>The report spans six chapters: a macro overview of Benelux procedure volumes, a competitor landscape mapping, a learning curve analysis for surgeons adopting MIS techniques, and a <strong>portfolio gap assessment</strong>. The gap analysis revealed that Stryker&apos;s Large and Medium Bone portfolio is strong, while Small Bone instruments are significantly underutilised relative to market potential &mdash; a strategic insight with direct commercial implications.</p>
-        <p>In parallel, I developed a standalone <strong>educational document on Orthognathic surgery for sales representatives</strong> &mdash; translating complex surgical context into language that helps reps hold credible conversations with surgeons and theatre staff.</p>
-        <p>The research required synthesising data from clinical publications, procedure volume databases, competitive catalogues, and internal sales data &mdash; then translating complex findings into <strong>actionable strategic recommendations</strong> for the commercial team.</p>
+      <div class="body-text">
+        <p>In May 2026, I travelled to Mechelen, Belgium with colleagues Nazli Tiryaki and Hande Cankaya Keles to conduct a physical audit of Stryker&apos;s marketing asset inventory at the Jetpak warehouse. The objective: locate 26 branded exhibition banners registered as in storage.</p>
+        <p>We found only <strong>6 of 26</strong>. The remaining 20 were unaccounted for &mdash; no record of shipping, return, or disposal. I led the <strong>root cause analysis</strong>, identifying three structural failures: no traceability system, outdated inventory logs, and no governance owner for asset tracking.</p>
+        <p>The audit findings report recommended a check-out/check-in system, assigned asset ownership, and a regular reconciliation cadence &mdash; directly quantifying a financial risk Stryker hadn&apos;t previously measured.</p>
       </div>
-      <div class="outcomes">
-        <div class="outcomes-title">Key outcomes</div>
-        <ul class="outcome-list">
-          <li>Delivered a 6-chapter MIS Foot market intelligence report covering Benelux volumes and competitive positioning</li>
-          <li>Identified Small Bone portfolio gap &mdash; a commercially significant finding for product strategy</li>
-          <li>Produced a separate Orthognathic educational guide to upskill the sales team on clinical context</li>
-          <li>Provided learning curve analysis to support surgeon adoption timelines for MIS techniques</li>
+      <div class="outcomes-box">
+        <div class="outcomes-label">Key outcomes</div>
+        <ul class="outcomes-list">
+          <li>Full physical inventory audit &mdash; 6 of 26 banners located</li>
+          <li>Three structural root causes identified and documented</li>
+          <li>Findings report with actionable process improvement recommendations</li>
+          <li>Financial risk to marketing operations quantified for the first time</li>
         </ul>
       </div>
-      <div class="ce-links">
-        <span class="ce-chip">KD &mdash; Critical Thinking</span>
-        <span class="ce-chip">CB &mdash; Commercial Awareness</span>
-        <span class="ce-chip">CO &mdash; Communication</span>
-      </div>
-    </div>
-  </article>
+      <div class="quote-box"><div class="quote-text">&ldquo;Thank you once more for your visit to Jetpak and all the great observations &mdash; it was very helpful to get an outside perspective on our processes.&rdquo;</div><div class="quote-who">Juha Soininen</div><div class="quote-role">Director Marketing, Stryker OI Northern Europe</div></div>
+      <div class="ce-row"><span class="ce-chip">Critical Thinking</span><span class="ce-chip">Teamwork</span><span class="ce-chip">Adaptability</span></div>
+    </div></div></div>
+  </div>
 
-  <!-- PROJECT 03 -->
-  <article class="project-entry" id="p3">
-    <div class="project-sidebar">
-      <span class="proj-number">03</span>
-      <div class="proj-label">Operations &amp; Audit</div>
-      <ul class="proj-meta">
-        <li><strong>Date</strong>May 2026</li>
-        <li><strong>Location</strong>Mechelen, Belgium</li>
-        <li><strong>Partner</strong>Jetpak Logistics</li>
-        <li><strong>Team</strong>3 people</li>
-        <li><strong>Banners found</strong>6 of 26</li>
-      </ul>
-      <div class="proj-tags-side">
-        <span class="proj-tag">Warehouse Audit</span>
-        <span class="proj-tag">Root Cause Analysis</span>
-        <span class="proj-tag">Process Improvement</span>
-        <span class="proj-tag">Governance</span>
+  <!-- 04 -->
+  <div class="proj-item" id="p4">
+    <button class="proj-trigger">
+      <div class="proj-num">04</div>
+      <div class="proj-trigger-main">
+        <div class="proj-trigger-title">Microsoft Copilot &mdash; &ldquo;The 15-Minute Gift&rdquo;</div>
+        <div class="proj-trigger-sub">AI &amp; Innovation &mdash; 5-country rollout</div>
+        <div class="proj-meta-line"><span class="proj-tag">AI Adoption</span><span class="proj-tag">Change Management</span><span class="proj-tag">Productivity</span></div>
       </div>
-    </div>
-    <div class="project-content">
-      <div class="stryker-badge"><span class="stryker-badge-dot"></span>Stryker OI NE</div>
-      <h2 class="proj-title">Jetpak Warehouse Audit &mdash; Asset Traceability</h2>
-      <div class="proj-subtitle">Physical Audit &middot; Root Cause Analysis &middot; Process Recommendations</div>
-      <div class="highlight-strip">
-        <div class="hl-item"><div class="hl-num">6<span class="hl-accent">/26</span></div><div class="hl-label">Banners located on-site</div></div>
-        <div class="hl-item"><div class="hl-num">3</div><div class="hl-label">Root causes identified</div></div>
-        <div class="hl-item"><div class="hl-num">3</div><div class="hl-label">Team members</div></div>
+      <div class="proj-plus"></div>
+    </button>
+    <div class="proj-body"><div class="proj-inner"><div class="proj-content">
+      <div class="stats-row">
+        <div class="stat-chip"><div class="chip-val">4</div><div class="chip-lbl">Use cases developed</div></div>
+        <div class="stat-chip"><div class="chip-val">5</div><div class="chip-lbl">Countries reached</div></div>
+        <div class="stat-chip"><div class="chip-val">1</div><div class="chip-lbl">Stryker Cheat Sheet</div></div>
       </div>
-      <div class="proj-body">
-        <p>In May 2026, I travelled to Mechelen, Belgium with colleagues <strong>Nazli Tiryaki and Hande Cankaya Keles</strong> to conduct a physical audit of Stryker&apos;s marketing asset inventory at the Jetpak warehouse. The objective: locate and account for 26 branded exhibition banners registered as being in storage.</p>
-        <p>We found only <strong>6 of the 26 banners</strong>. The remaining 20 were unaccounted for &mdash; no record of where they were shipped, returned, or disposed of. This wasn&apos;t just a stock discrepancy; it exposed a fundamental gap in asset governance.</p>
-        <p>I led the <strong>root cause analysis</strong>, identifying three structural failures: no traceability system (assets moved without check-out records), outdated inventory logs not reconciled with physical counts, and the absence of a governance framework with no one owning responsibility for asset tracking.</p>
-        <p>The audit findings were compiled into a report with concrete recommendations: implementing a check-out/check-in system, assigning asset ownership per region, and establishing a regular reconciliation cadence. The work directly quantified an operational and financial risk Stryker hadn&apos;t previously measured.</p>
+      <div class="body-text">
+        <p>This project started without a brief. After exploring Microsoft Copilot independently, I saw real potential to save time for the Stryker OI team &mdash; built around a simple concept: <strong>what if every rep could reclaim 15 minutes per day?</strong></p>
+        <p>I developed four concrete use cases tailored to the commercial team&apos;s workflow &mdash; meeting summarisation, email drafting, pre-call briefings, competitive insight synthesis &mdash; each with a worked example and estimated time saving. I then presented live to a 5-country team, driving immediate adoption from colleagues who had never used AI tools before.</p>
+        <p>To sustain adoption, I created a <strong>Stryker-specific Copilot Cheat Sheet</strong> &mdash; a quick-reference card with the most useful prompts, written in Stryker language and context.</p>
       </div>
-      <div class="outcomes">
-        <div class="outcomes-title">Key outcomes</div>
-        <ul class="outcome-list">
-          <li>Conducted full physical inventory audit &mdash; located 6 of 26 registered banners</li>
-          <li>Identified three structural root causes: no traceability, outdated records, no governance owner</li>
-          <li>Delivered a findings report with actionable process improvement recommendations</li>
-          <li>Quantified a financial risk to the marketing operations function for the first time</li>
+      <div class="outcomes-box">
+        <div class="outcomes-label">Key outcomes</div>
+        <ul class="outcomes-list">
+          <li>4 use cases with worked examples and time-saving estimates</li>
+          <li>Live demo to 5-country team with immediate independent adoption</li>
+          <li>Stryker-branded Cheat Sheet as a lasting resource</li>
+          <li>AI adoption initiative started independently &mdash; not assigned</li>
         </ul>
       </div>
-      <div class="quote-block">
-        <div class="quote-text">&ldquo;Thank you once more for your visit to Jetpak and all the great observations &mdash; it was very helpful to get an outside perspective on our processes.&rdquo;</div>
-        <div class="quote-author">Juha Soininen</div>
-        <div class="quote-role">Director Marketing, Stryker OI Northern Europe</div>
-      </div>
-      <div class="ce-links">
-        <span class="ce-chip">KD &mdash; Critical Thinking</span>
-        <span class="ce-chip">SW &mdash; Teamwork</span>
-        <span class="ce-chip">AV &mdash; Adaptability</span>
-      </div>
-    </div>
-  </article>
+      <div class="quote-box"><div class="quote-text">&ldquo;Using Copilot and learning to use it in our benefit&hellip; We need to work smarter, not harder.&rdquo;</div><div class="quote-who">Juha Soininen</div><div class="quote-role">Director Marketing, Stryker OI Northern Europe</div></div>
+      <div class="quote-box"><div class="quote-text">&ldquo;I applaud the initiative, this is well needed!&rdquo;</div><div class="quote-who">Alexis Michaud</div><div class="quote-role">Stryker OI Northern Europe</div></div>
+      <div class="ce-row"><span class="ce-chip">Adaptability</span><span class="ce-chip">Communication</span><span class="ce-chip">Commercial Awareness</span></div>
+    </div></div></div>
+  </div>
 
-  <!-- PROJECT 04 -->
-  <article class="project-entry" id="p4">
-    <div class="project-sidebar">
-      <span class="proj-number">04</span>
-      <div class="proj-label">AI &amp; Innovation</div>
-      <ul class="proj-meta">
-        <li><strong>Tool</strong>Microsoft Copilot</li>
-        <li><strong>Reach</strong>5-country team</li>
-        <li><strong>Use cases</strong>4 documented</li>
-        <li><strong>Output</strong>Stryker Cheat Sheet</li>
-      </ul>
-      <div class="proj-tags-side">
-        <span class="proj-tag">AI Adoption</span>
-        <span class="proj-tag">Change Management</span>
-        <span class="proj-tag">Knowledge Sharing</span>
-        <span class="proj-tag">Productivity</span>
+  <!-- 05 -->
+  <div class="proj-item" id="p5">
+    <button class="proj-trigger">
+      <div class="proj-num">05</div>
+      <div class="proj-trigger-main">
+        <div class="proj-trigger-title">OI Academy 201 &mdash; Surgical Product Certification</div>
+        <div class="proj-trigger-sub">Professional Development &mdash; 16&ndash;19 March 2026, Amsterdam</div>
+        <div class="proj-meta-line"><span class="proj-tag">Clinical Training</span><span class="proj-tag">Product Knowledge</span><span class="proj-tag">Passed 80%</span></div>
       </div>
-    </div>
-    <div class="project-content">
-      <div class="stryker-badge"><span class="stryker-badge-dot"></span>Stryker OI NE</div>
-      <h2 class="proj-title">Microsoft Copilot &mdash; &ldquo;The 15-Minute Gift&rdquo;</h2>
-      <div class="proj-subtitle">AI Use Case Development &middot; Cross-Country Rollout &middot; Enablement Resource</div>
-      <div class="highlight-strip">
-        <div class="hl-item"><div class="hl-num">4</div><div class="hl-label">Copilot use cases developed</div></div>
-        <div class="hl-item"><div class="hl-num">5</div><div class="hl-label">Countries reached</div></div>
-        <div class="hl-item"><div class="hl-num">1</div><div class="hl-label">Stryker Cheat Sheet delivered</div></div>
+      <div class="proj-plus"></div>
+    </button>
+    <div class="proj-body"><div class="proj-inner"><div class="proj-content">
+      <div class="stats-row">
+        <div class="stat-chip"><div class="chip-val">80<em>%</em></div><div class="chip-lbl">My score &mdash; Passed</div></div>
+        <div class="stat-chip"><div class="chip-val">4</div><div class="chip-lbl">Days of training</div></div>
+        <div class="stat-chip"><div class="chip-val">85<em>%</em></div><div class="chip-lbl">Course average</div></div>
       </div>
-      <div class="proj-body">
-        <p>This project started as a personal initiative. After exploring Microsoft Copilot independently, I saw real potential to save time for the Stryker OI team &mdash; specifically the repetitive administrative tasks that eat into selling time. I built a case around a simple concept: <strong>what if every rep could reclaim 15 minutes per day?</strong></p>
-        <p>I developed <strong>four concrete Copilot use cases</strong> tailored to the commercial team&apos;s daily workflow &mdash; meeting summarisation, email drafting, pre-call briefings, and competitive insight synthesis. Each use case included a worked example and an estimated time saving per week.</p>
-        <p>I then presented this live to the team across <strong>five countries</strong>, demonstrating how Copilot integrates into their existing tools without requiring technical expertise. The response was immediate: colleagues who had never used AI tools started experimenting the same week.</p>
-        <p>To sustain adoption beyond the presentation, I created a <strong>Stryker-specific Copilot Cheat Sheet</strong> &mdash; a quick-reference card with the most useful prompts and workflows, written in Stryker language and context. It became the team&apos;s go-to starting point for AI-assisted work.</p>
+      <div class="body-text">
+        <p>Stryker&apos;s OI Academy 201 is an intensive four-day certification covering surgical procedures, instrument systems, and clinical environments &mdash; normally the domain of experienced medical sales professionals.</p>
+        <p>As a marketing intern, I was the <strong>only participant without a clinical or sales background</strong>. I passed with 80% &mdash; meeting the certification threshold &mdash; while the course average was 85%. More than the score, this training gave me a foundational understanding of the clinical world Stryker operates in, enabling more credible market intelligence and more informed conversations with the sales team.</p>
       </div>
-      <div class="outcomes">
-        <div class="outcomes-title">Key outcomes</div>
-        <ul class="outcome-list">
-          <li>Developed 4 Copilot use cases with worked examples and time-saving estimates</li>
-          <li>Delivered live demo to a 5-country team, driving immediate independent adoption</li>
-          <li>Created a Stryker-branded Copilot Cheat Sheet as a lasting team resource</li>
-          <li>Initiated an AI adoption programme independently &mdash; without being asked</li>
+      <div class="outcomes-box">
+        <div class="outcomes-label">Key outcomes</div>
+        <ul class="outcomes-list">
+          <li>OI Academy 201 passed with 80% &mdash; formal certification</li>
+          <li>Clinical knowledge enabling more credible market intelligence work</li>
+          <li>Credibility built with the sales team through shared product language</li>
         </ul>
       </div>
-      <div class="quote-block">
-        <div class="quote-text">&ldquo;Using Copilot and learning to use it in our benefit&hellip; We need to work smarter, not harder.&rdquo;</div>
-        <div class="quote-author">Juha Soininen</div>
-        <div class="quote-role">Director Marketing, Stryker OI Northern Europe</div>
-      </div>
-      <div class="quote-block">
-        <div class="quote-text">&ldquo;I applaud the initiative, this is well needed!&rdquo;</div>
-        <div class="quote-author">Alexis Michaud</div>
-        <div class="quote-role">Stryker OI Northern Europe</div>
-      </div>
-      <div class="ce-links">
-        <span class="ce-chip">AV &mdash; Adaptability</span>
-        <span class="ce-chip">CO &mdash; Communication</span>
-        <span class="ce-chip">CB &mdash; Commercial Awareness</span>
-      </div>
-    </div>
-  </article>
-
-  <!-- PROJECT 05 -->
-  <article class="project-entry" id="p5">
-    <div class="project-sidebar">
-      <span class="proj-number">05</span>
-      <div class="proj-label">Professional Development</div>
-      <ul class="proj-meta">
-        <li><strong>Date</strong>16&ndash;19 March 2026</li>
-        <li><strong>Location</strong>Amsterdam</li>
-        <li><strong>Programme</strong>OI Academy 201</li>
-        <li><strong>My score</strong>80%</li>
-        <li><strong>Course average</strong>85%</li>
-        <li><strong>Min. threshold</strong>80% &mdash; Passed</li>
-      </ul>
-      <div class="proj-tags-side">
-        <span class="proj-tag">Clinical Training</span>
-        <span class="proj-tag">Product Knowledge</span>
-        <span class="proj-tag">Sales Enablement</span>
-        <span class="proj-tag">MedTech</span>
-      </div>
-    </div>
-    <div class="project-content">
-      <div class="stryker-badge"><span class="stryker-badge-dot"></span>Stryker OI NE</div>
-      <h2 class="proj-title">OI Academy 201 &mdash; Surgical Product Certification</h2>
-      <div class="proj-subtitle">4-Day Intensive &middot; Clinical Product Knowledge &middot; 80% Score &middot; Certified</div>
-      <div class="highlight-strip">
-        <div class="hl-item"><div class="hl-num">80<span class="hl-accent">%</span></div><div class="hl-label">My final score</div></div>
-        <div class="hl-item"><div class="hl-num">4</div><div class="hl-label">Days of intensive training</div></div>
-        <div class="hl-item"><div class="hl-num">85<span class="hl-accent">%</span></div><div class="hl-label">Course average</div></div>
-      </div>
-      <div class="proj-body">
-        <p>The OI Academy 201 is Stryker&apos;s internal certification programme for commercial team members in the Orthopaedic Instruments division. It is an intensive four-day training covering surgical procedures, instrument systems, clinical environments, and product application &mdash; knowledge normally the domain of trained medical sales professionals.</p>
-        <p>As a marketing intern, I was the <strong>only participant without a pure sales or clinical background</strong>. Absorbing surgical anatomy, technique steps, and instrument specifications at a pace designed for experienced reps was genuinely outside my comfort zone.</p>
-        <p>I passed with a score of <strong>80%</strong> &mdash; exactly meeting the certification threshold. The course average was 85%, placing me within range of my technically experienced peers. More importantly, this training gave me a foundational understanding of the clinical world Stryker operates in &mdash; enabling more credible market intelligence, more informed conversations with the sales team, and a clearer sense of what matters at the point of care.</p>
-        <p>The experience demonstrated adaptability and a commitment to the role beyond its formal scope &mdash; showing I was willing to do the hard work of understanding the business from the inside out.</p>
-      </div>
-      <div class="outcomes">
-        <div class="outcomes-title">Key outcomes</div>
-        <ul class="outcome-list">
-          <li>Passed OI Academy 201 with 80% &mdash; meeting the formal certification threshold</li>
-          <li>Gained foundational clinical knowledge enabling more informed and credible market intelligence</li>
-          <li>Demonstrated adaptability by succeeding in a technically demanding programme beyond my academic background</li>
-          <li>Built credibility with the sales team through shared clinical language and product knowledge</li>
-        </ul>
-      </div>
-      <div class="quote-block">
-        <div class="quote-text">&ldquo;Well done in staying so focused and engaged throughout the training. It was amazing to see your high level of engagement, curiosity and motivation to keep learning and improving.&rdquo;</div>
-        <div class="quote-author">Erisa Sina</div>
-        <div class="quote-role">Sales Education Lead, Stryker</div>
-      </div>
-      <div class="ce-links">
-        <span class="ce-chip">AV &mdash; Adaptability</span>
-        <span class="ce-chip">SW &mdash; Teamwork</span>
-        <span class="ce-chip">KD &mdash; Critical Thinking</span>
-      </div>
-    </div>
-  </article>
+      <div class="quote-box"><div class="quote-text">&ldquo;Well done in staying so focused and engaged throughout the training. It was amazing to see your high level of engagement, curiosity and motivation to keep learning and improving.&rdquo;</div><div class="quote-who">Erisa Sina</div><div class="quote-role">Sales Education Lead, Stryker</div></div>
+      <div class="ce-row"><span class="ce-chip">Adaptability</span><span class="ce-chip">Teamwork</span><span class="ce-chip">Critical Thinking</span></div>
+    </div></div></div>
+  </div>
 
 </div>
 
-<section id="contact">
+<section id="contact" class="contact-wrap">
   <div class="contact-inner">
-    <div class="section-tag">Get in touch</div>
-    <h2 class="section-title">Want to know <em>more?</em></h2>
-    <p class="section-sub">I&apos;d love to connect &mdash; whether you&apos;re curious about a project, exploring a collaboration, or simply want to chat about MedTech marketing.</p>
+    <div class="label">Get in touch</div>
+    <h2>Want to know <em>more?</em></h2>
+    <p class="contact-sub">Curious about a project or want to talk MedTech marketing?</p>
     <div class="contact-links">
       <a href="mailto:charlotte.van.den.kerkhoff@hva.nl" class="contact-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        charlotte.van.den.kerkhoff@hva.nl
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email me
       </a>
       <a href="https://www.linkedin.com/in/charlottevandenkerkhoff" target="_blank" class="contact-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
-      <a href="index.html" class="contact-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
-        Back to Homepage
-      </a>
+      <a href="index.html" class="contact-link">Back to Home</a>
     </div>
   </div>
 </section>
-
 <footer>
   <span>&copy; 2026 Charlotte van den Kerkhoff</span>
-  <a href="index.html">CVK</a>
+  <a href="#top">Back to top &uarr;</a>
 </footer>
 
+<script>
+const ham=document.getElementById('ham'),panel=document.getElementById('panel');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');panel.classList.toggle('open')});
+panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');panel.classList.remove('open')}));
+document.querySelectorAll('.proj-trigger').forEach(btn=>{
+  btn.addEventListener('click',()=>btn.closest('.proj-item').classList.toggle('open'));
+});
+</script>
 </body>
 </html>

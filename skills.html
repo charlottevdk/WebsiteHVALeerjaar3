@@ -3,457 +3,370 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CE-Skills — Charlotte van den Kerkhoff</title>
+<title>CE Skills — Charlotte van den Kerkhoff</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --warm-white:#FAF7F2;--white:#FFFFFF;
-    --black:#141414;--black-mid:#2C2C2C;
-    --gray:#6A6A6A;--border:#E2DDD6;
-    --mist:#7BAFC8;--mist-mid:#A4C8DC;
-    --mist-light:#D8EAF3;--mist-pale:#EDF5FA;
-    --sand:#C4985C;--sand-mid:#D9B484;
-    --sand-light:#F2E5D0;--sand-pale:#FAF3E8;
-    --s-blue:#1B3A6B;--s-yellow:#F39100;
-    --s-pastel:#6D9FB5;--s-light:#F5F4EF;--s-gray:#B7B5AC;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--warm-white);color:var(--black);overflow-x:hidden}
+:root{
+  --bg:#FAF7F2;--white:#FFFFFF;--black:#141414;
+  --gray:#6A6A6A;--gray-light:#9A9A9A;--border:#E4DFD8;
+  --mist:#7BAFC8;--mist-light:#D8EAF3;--mist-pale:#EDF5FA;
+  --sand:#C4985C;--sand-light:#F2E5D0;
+}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--black);overflow-x:hidden}
 
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.3rem 5rem;background:rgba(250,247,242,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-  .nav-logo{font-family:'Fraunces',serif;font-size:1.65rem;font-weight:700;color:var(--black);text-decoration:none}
-  .nav-links{display:flex;gap:2.8rem;list-style:none;align-items:center}
-  .nav-links a{font-size:0.74rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
-  .nav-links a:hover,.nav-links a.active{color:var(--black)}
-  .nav-cta{background:var(--black)!important;color:var(--white)!important;padding:0.58rem 1.55rem;border-radius:50px;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),background 0.2s!important}
-  .nav-cta:hover{background:var(--mist)!important;transform:translateY(-3px) scale(1.03)!important}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5rem;background:rgba(250,247,242,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Fraunces',serif;font-style:italic;font-size:1.35rem;font-weight:600;color:var(--black);text-decoration:none}
+.nav-links{display:flex;gap:2.4rem;list-style:none;align-items:center}
+.nav-links a{font-size:0.71rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--black)}
+.nav-cta{background:var(--black)!important;color:var(--white)!important;padding:0.5rem 1.3rem;border-radius:50px;transition:background 0.2s,transform 0.3s cubic-bezier(0.34,1.56,0.64,1)!important}
+.nav-cta:hover{background:var(--mist)!important;transform:translateY(-2px)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--black);transition:transform 0.28s ease,opacity 0.28s ease;border-radius:1px}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-panel{display:none;position:fixed;top:61px;left:0;right:0;z-index:190;background:var(--bg);border-bottom:1px solid var(--border);padding:1rem 2rem 1.5rem;flex-direction:column}
+.nav-panel.open{display:flex}
+.nav-panel a{font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--border);transition:color 0.2s}
+.nav-panel a:last-child{border-bottom:none}
+.nav-panel a:hover{color:var(--black)}
 
-  .page-hero{padding:9rem 5rem 5rem;background:var(--white);position:relative;overflow:hidden}
-  .page-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--sand-light) 0%,transparent 70%);pointer-events:none;opacity:0.6}
-  .page-hero::after{content:'';position:absolute;bottom:-40px;left:20%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,var(--mist-light) 0%,transparent 70%);pointer-events:none;opacity:0.5}
-  .page-eyebrow{display:inline-flex;align-items:center;gap:0.7rem;background:var(--mist-pale);color:var(--mist);border:1px solid var(--mist-light);padding:0.45rem 1.1rem;border-radius:50px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2rem}
-  .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--mist);flex-shrink:0}
-  .page-title{font-family:'Fraunces',serif;font-size:clamp(3rem,5.5vw,5.2rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.5rem;position:relative;z-index:1}
-  .page-title em{font-style:italic;font-weight:300;color:var(--mist);display:block}
-  .page-desc{color:var(--gray);font-size:1rem;line-height:1.88;max-width:620px;font-weight:300;margin-bottom:1rem;position:relative;z-index:1}
+.page-header{padding:8rem 5rem 4.5rem;background:var(--white)}
+.eyebrow{display:inline-flex;align-items:center;gap:0.6rem;background:var(--mist-pale);color:var(--mist);border:1px solid var(--mist-light);border-radius:50px;padding:0.4rem 1rem;font-size:0.67rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.8rem}
+.eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--mist)}
+.page-header h1{font-family:'Fraunces',serif;font-size:clamp(2.8rem,5vw,4.8rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.2rem}
+.page-header h1 em{font-style:italic;font-weight:300;color:var(--mist);display:block}
+.page-header p{color:var(--gray);font-size:0.95rem;line-height:1.85;max-width:520px;font-weight:300}
 
-  /* CE FRAMEWORK OVERVIEW */
-  .ce-intro{padding:3rem 5rem 4rem;background:var(--warm-white)}
-  .ce-overview{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2rem}
-  .ce-pill-card{background:var(--white);border-radius:16px;padding:1.6rem 1.2rem;text-align:center;border:1px solid var(--border);text-decoration:none;color:inherit;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s,border-color 0.2s;display:block}
-  .ce-pill-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 12px 32px rgba(20,20,20,0.08);border-color:var(--mist-light)}
-  .ce-abbr{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:700;color:var(--black);line-height:1}
-  .ce-en{font-size:0.76rem;font-weight:600;color:var(--mist);margin:0.3rem 0 0.1rem}
-  .ce-nl{font-size:0.7rem;color:var(--gray);font-weight:300}
-  .ce-bar{height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:1rem}
-  .ce-fill{height:100%;background:linear-gradient(90deg,var(--mist),var(--sand));border-radius:2px}
+/* COMPETENCY OVERVIEW STRIP */
+.comp-strip{padding:2.5rem 5rem;background:var(--bg);display:flex;gap:0.8rem;overflow-x:auto;scrollbar-width:none}
+.comp-strip::-webkit-scrollbar{display:none}
+.comp-pill{display:inline-flex;align-items:center;gap:0.6rem;background:var(--white);border:1px solid var(--border);border-radius:50px;padding:0.55rem 1.2rem;font-size:0.72rem;font-weight:600;color:var(--black);text-decoration:none;white-space:nowrap;transition:border-color 0.2s,background 0.2s,transform 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.comp-pill:hover{border-color:var(--mist);background:var(--mist-pale);transform:translateY(-2px)}
+.comp-dot{width:7px;height:7px;border-radius:50%;background:var(--mist)}
 
-  /* SKILL SECTIONS */
-  .skill-section{padding:5rem 5rem;border-bottom:1px solid var(--border)}
-  .skill-section:nth-child(even){background:var(--white)}
-  .skill-section:nth-child(odd){background:var(--warm-white)}
-  .skill-header{display:grid;grid-template-columns:200px 1fr;gap:4rem;align-items:start;margin-bottom:3rem}
-  .skill-big-abbr{font-family:'Fraunces',serif;font-size:6rem;font-weight:700;color:rgba(123,175,200,0.1);line-height:1}
-  .skill-big-label{margin-top:-0.5rem}
-  .skill-name-en{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:0.4rem}
-  .skill-name-nl{font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--mist);margin-bottom:1rem}
-  .skill-definition{color:var(--gray);font-size:0.93rem;line-height:1.82;font-weight:300;max-width:600px}
-  .skill-content{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+/* COMPETENCIES ACCORDION */
+.comps-wrap{padding:2rem 5rem 5rem;background:var(--bg)}
+.comp-item{background:var(--white);border-radius:16px;margin-bottom:1rem;overflow:hidden;border:1px solid var(--border)}
+.comp-trigger{display:flex;align-items:center;width:100%;padding:1.8rem 2rem;background:none;border:none;cursor:pointer;text-align:left;gap:2rem;transition:opacity 0.2s}
+.comp-trigger:hover{opacity:0.8}
+.comp-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:700;color:rgba(123,175,200,0.12);line-height:1;flex-shrink:0;width:4rem}
+.comp-trigger-main{flex:1}
+.comp-name{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:600;margin-bottom:0.2rem}
+.comp-desc{font-size:0.78rem;color:var(--gray);font-weight:300;line-height:1.6}
+.comp-plus{width:20px;height:20px;position:relative;flex-shrink:0}
+.comp-plus::before,.comp-plus::after{content:'';position:absolute;background:var(--gray);border-radius:1px}
+.comp-plus::before{width:1.5px;height:12px;top:4px;left:9.25px;transition:opacity 0.3s ease}
+.comp-plus::after{width:12px;height:1.5px;top:9.25px;left:4px}
+.comp-item.open .comp-plus::before{opacity:0}
+.comp-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.36s ease}
+.comp-inner{overflow:hidden}
+.comp-item.open .comp-body{grid-template-rows:1fr}
+.comp-content{padding:0 2rem 2rem 8rem;border-top:1px solid var(--border);padding-top:1.8rem;margin-top:0}
 
-  .evidence-card{background:var(--white);border-radius:20px;padding:2rem;border:1px solid var(--border);transition:transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s}
-  .evidence-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(20,20,20,0.08)}
-  .skill-section:nth-child(even) .evidence-card{background:var(--warm-white)}
-  .ev-project{font-size:0.66rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--sand);display:flex;align-items:center;gap:0.5rem;margin-bottom:0.8rem}
-  .ev-project::before{content:'';display:block;width:1.2rem;height:1.5px;background:var(--sand)}
-  .ev-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--black);margin-bottom:0.6rem;line-height:1.3}
-  .ev-desc{font-size:0.85rem;color:var(--gray);line-height:1.75;font-weight:300}
-  .ev-desc strong{color:var(--black);font-weight:600}
-  .ev-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:1rem}
-  .ev-tag{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.07em;font-weight:600;color:var(--mist);background:var(--mist-pale);padding:0.2rem 0.6rem;border-radius:50px;border:1px solid var(--mist-light)}
+.ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.ev-card{background:var(--bg);border-radius:12px;padding:1.4rem;border:1px solid var(--border)}
+.ev-proj{font-size:0.63rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--sand);display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem}
+.ev-proj::before{content:'';display:block;width:1rem;height:1.5px;background:var(--sand)}
+.ev-title{font-size:0.87rem;font-weight:600;color:var(--black);margin-bottom:0.4rem;line-height:1.35}
+.ev-text{font-size:0.81rem;color:var(--gray);line-height:1.72;font-weight:300}
+.ev-text strong{color:var(--black);font-weight:600}
 
-  /* TECHNICAL SKILLS */
-  .tech-section{padding:5rem 5rem;background:var(--s-blue);position:relative;overflow:hidden}
-  .tech-section::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(243,145,0,0.08) 0%,transparent 70%);pointer-events:none}
-  .tech-section::after{content:'';position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(109,159,181,0.1) 0%,transparent 70%);pointer-events:none}
-  .tech-inner{position:relative;z-index:1}
-  .tech-tag{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--s-yellow);display:flex;align-items:center;gap:0.7rem;margin-bottom:0.7rem}
-  .tech-tag::before{content:'';display:block;width:2rem;height:1.5px;background:var(--s-yellow)}
-  .tech-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:0.6rem}
-  .tech-title em{font-style:italic;font-weight:300;color:var(--s-yellow)}
-  .tech-sub{color:rgba(255,255,255,0.4);font-size:0.88rem;margin-bottom:3rem;font-weight:300;max-width:540px}
-  .tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
-  .tech-cat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:1.8rem}
-  .tech-cat-title{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--s-yellow);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.5rem}
-  .tech-cat-title::before{content:'';display:block;width:1rem;height:1.5px;background:var(--s-yellow)}
-  .tech-list{list-style:none;display:flex;flex-direction:column;gap:0.55rem}
-  .tech-list li{font-size:0.83rem;color:rgba(255,255,255,0.72);font-weight:300;display:flex;align-items:center;gap:0.6rem}
-  .tech-list li::before{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--s-pastel);flex-shrink:0}
+/* TECH SKILLS */
+.tech-wrap{padding:4rem 5rem 6rem;background:var(--black)}
+.label-light{font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(164,200,220,0.75);display:flex;align-items:center;gap:0.7rem;margin-bottom:0.7rem}
+.label-light::before{content:'';display:block;width:1.8rem;height:1.5px;background:var(--sand);flex-shrink:0}
+.tech-wrap h2{font-family:'Fraunces',serif;font-size:clamp(1.9rem,3.2vw,2.7rem);font-weight:700;line-height:1.15;margin-bottom:0.8rem;color:var(--white)}
+.tech-wrap h2 em{font-style:italic;font-weight:300;color:rgba(164,200,220,0.85)}
+.tech-sub{color:rgba(255,255,255,0.35);font-size:0.88rem;font-weight:300;margin-bottom:3rem;max-width:480px}
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.tech-cat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.6rem}
+.tech-cat-title{font-size:0.67rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist);margin-bottom:1.1rem;display:flex;align-items:center;gap:0.5rem}
+.tech-cat-title::before{content:'';display:block;width:1rem;height:1.5px;background:var(--sand)}
+.tech-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.tech-list li{font-size:0.82rem;color:rgba(255,255,255,0.65);font-weight:300;display:flex;align-items:center;gap:0.6rem}
+.tech-list li::before{content:'';display:block;width:3px;height:3px;border-radius:50%;background:rgba(164,200,220,0.5);flex-shrink:0}
 
-  /* CONTACT */
-  #contact{padding:6rem 5rem;background:var(--black);text-align:center}
-  .contact-inner{max-width:600px;margin:0 auto}
-  .section-tag{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem}
-  .section-tag::before{content:'';display:block;width:2rem;height:1.5px;background:var(--sand);flex-shrink:0}
-  #contact .section-tag{color:var(--mist-mid);justify-content:center}
-  .section-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:1rem}
-  .section-title em{font-style:italic;font-weight:300}
-  #contact .section-title{color:var(--white)}
-  #contact .section-title em{color:var(--mist-mid)}
-  .section-sub{font-size:0.97rem;line-height:1.82;max-width:560px;font-weight:300}
-  #contact .section-sub{color:rgba(255,255,255,0.45);margin:0 auto 2.5rem}
-  .contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-  .contact-link{display:inline-flex;align-items:center;gap:0.6rem;color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.8rem;padding:0.75rem 1.5rem;border:1px solid rgba(255,255,255,0.14);border-radius:50px;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),border-color 0.2s,color 0.2s,background 0.2s}
-  .contact-link:hover{transform:translateY(-4px) scale(1.02);border-color:var(--mist-mid);color:var(--white);background:rgba(123,175,200,0.12)}
-  footer{padding:1.8rem 5rem;background:var(--black);border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center}
-  footer span{font-size:0.74rem;color:rgba(255,255,255,0.28)}
-  footer a{color:var(--sand-mid);font-size:0.74rem;text-decoration:none}
+/* CONTACT */
+.contact-wrap{padding:5rem 5rem;background:var(--black);text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
+.contact-inner{max-width:520px;margin:0 auto}
+.contact-wrap .label-light{justify-content:center}
+.contact-wrap h2{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:0.8rem;color:var(--white)}
+.contact-wrap h2 em{font-style:italic;font-weight:300;color:rgba(164,200,220,0.85)}
+.contact-sub{color:rgba(255,255,255,0.38);font-size:0.9rem;font-weight:300;margin-bottom:2.5rem}
+.contact-links{display:flex;justify-content:center;gap:0.8rem;flex-wrap:wrap}
+.contact-link{display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.58);text-decoration:none;font-size:0.78rem;padding:0.7rem 1.4rem;border:1px solid rgba(255,255,255,0.12);border-radius:50px;transition:border-color 0.2s,color 0.2s,background 0.2s,transform 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.contact-link:hover{border-color:var(--mist);color:var(--white);background:rgba(123,175,200,0.1);transform:translateY(-3px)}
+footer{padding:1.5rem 5rem;background:var(--black);border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center}
+footer span{font-size:0.71rem;color:rgba(255,255,255,0.24)}
+footer a{font-size:0.71rem;color:rgba(196,152,92,0.55);text-decoration:none}
 
-  .fade-up{opacity:0;transform:translateY(28px);animation:fadeUp 0.8s cubic-bezier(0.34,1.2,0.64,1) forwards}
-  @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-  .d1{animation-delay:0.1s}.d2{animation-delay:0.25s}.d3{animation-delay:0.4s}
+.fu{opacity:0;transform:translateY(22px);animation:fadeup 0.7s cubic-bezier(0.34,1.2,0.64,1) forwards}
+@keyframes fadeup{to{opacity:1;transform:translateY(0)}}
+.d1{animation-delay:0.1s}.d2{animation-delay:0.22s}
 
-  @media(max-width:1100px){
-    .page-hero,.ce-intro,.skill-section,.tech-section,#contact{padding-left:2.5rem;padding-right:2.5rem}
-    .ce-overview{grid-template-columns:repeat(3,1fr)}
-    .skill-header{grid-template-columns:1fr;gap:1rem}
-    .skill-content{grid-template-columns:1fr}
-    .tech-grid{grid-template-columns:repeat(2,1fr)}
-  }
-  @media(max-width:900px){
-    nav{padding:1rem 1.5rem}
-    .nav-links{display:none}
-    .page-hero,.ce-intro,.skill-section,.tech-section,#contact,footer{padding-left:1.5rem;padding-right:1.5rem}
-    .ce-overview{grid-template-columns:repeat(2,1fr)}
-    .tech-grid{grid-template-columns:1fr 1fr}
-    footer{flex-direction:column;gap:0.5rem;text-align:center}
-  }
+@media(max-width:1100px){
+  nav,.page-header,.comp-strip,.comps-wrap,.tech-wrap,.contact-wrap,footer{padding-left:2.5rem;padding-right:2.5rem}
+  .comp-content{padding-left:2rem}
+  .ev-grid{grid-template-columns:1fr}
+  .tech-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.4rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .page-header,.comp-strip,.comps-wrap,.tech-wrap,.contact-wrap,footer{padding-left:1.4rem;padding-right:1.4rem}
+  .comp-trigger{padding:1.4rem;gap:1rem}
+  .comp-num{font-size:2rem;width:3rem}
+  .comp-content{padding:0 1.4rem 1.6rem;padding-top:1.4rem}
+  .tech-grid{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:0.5rem;text-align:center}
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">CVK</a>
+  <a href="index.html" class="nav-logo">Charlotte</a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
     <li><a href="projects.html">Projects</a></li>
-    <li><a href="skills.html" class="active">CE-Skills</a></li>
+    <li><a href="skills.html" class="active">CE Skills</a></li>
     <li><a href="reflection.html">Reflection</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
+  <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
 </nav>
+<div class="nav-panel" id="panel">
+  <a href="index.html#about">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="skills.html">CE Skills</a>
+  <a href="reflection.html">Reflection</a>
+  <a href="#contact">Contact</a>
+</div>
 
-<section class="page-hero">
-  <div class="page-eyebrow fade-up"><span class="eyebrow-dot"></span>HvA Commercial Economics &middot; CE-Competency Framework</div>
-  <h1 class="page-title fade-up d1">Five competencies.<br><em>Proven in practice.</em></h1>
-  <p class="page-desc fade-up d2">The Commercial Economics programme develops five core professional competencies. Here is how I demonstrated each one through real work at Stryker &mdash; not just theory, but evidence from projects I owned and delivered.</p>
-</section>
+<div class="page-header">
+  <div class="eyebrow fu"><span class="eyebrow-dot"></span>HvA Commercial Economics &middot; Competency Framework</div>
+  <h1 class="fu d1">Five competencies.<br><em>Proven in practice.</em></h1>
+  <p class="fu d2">The CE programme develops five core professional skills. Here&apos;s how I demonstrated each one through real work at Stryker &mdash; not theory, but evidence from projects I owned.</p>
+</div>
 
-<!-- CE OVERVIEW PILLS -->
-<section class="ce-intro">
-  <div class="ce-overview">
-    <a href="#kd" class="ce-pill-card">
-      <div class="ce-abbr">KD</div>
-      <div class="ce-en">Critical Thinking</div>
-      <div class="ce-nl">Kritisch Denken</div>
-      <div class="ce-bar"><div class="ce-fill" style="width:88%"></div></div>
-    </a>
-    <a href="#sw" class="ce-pill-card">
-      <div class="ce-abbr">SW</div>
-      <div class="ce-en">Teamwork</div>
-      <div class="ce-nl">Samenwerken</div>
-      <div class="ce-bar"><div class="ce-fill" style="width:92%"></div></div>
-    </a>
-    <a href="#cb" class="ce-pill-card">
-      <div class="ce-abbr">CB</div>
-      <div class="ce-en">Commercial Awareness</div>
-      <div class="ce-nl">Commercieel Bewustzijn</div>
-      <div class="ce-bar"><div class="ce-fill" style="width:90%"></div></div>
-    </a>
-    <a href="#av" class="ce-pill-card">
-      <div class="ce-abbr">AV</div>
-      <div class="ce-en">Adaptability</div>
-      <div class="ce-nl">Aanpassingsvermogen</div>
-      <div class="ce-bar"><div class="ce-fill" style="width:85%"></div></div>
-    </a>
-    <a href="#co" class="ce-pill-card">
-      <div class="ce-abbr">CO</div>
-      <div class="ce-en">Communication</div>
-      <div class="ce-nl">Communicatie</div>
-      <div class="ce-bar"><div class="ce-fill" style="width:93%"></div></div>
-    </a>
-  </div>
-</section>
+<div class="comp-strip">
+  <a href="#kd" class="comp-pill"><span class="comp-dot"></span>Critical Thinking</a>
+  <a href="#sw" class="comp-pill"><span class="comp-dot"></span>Teamwork</a>
+  <a href="#cb" class="comp-pill"><span class="comp-dot"></span>Commercial Awareness</a>
+  <a href="#av" class="comp-pill"><span class="comp-dot"></span>Adaptability</a>
+  <a href="#co" class="comp-pill"><span class="comp-dot"></span>Communication</a>
+</div>
 
-<!-- KD: CRITICAL THINKING -->
-<section class="skill-section" id="kd">
-  <div class="skill-header">
-    <div>
-      <div class="skill-big-abbr">KD</div>
-    </div>
-    <div class="skill-big-label">
-      <div class="skill-name-nl">Kritisch Denken</div>
-      <h2 class="skill-name-en">Critical Thinking</h2>
-      <p class="skill-definition">Moving beyond describing what happened to explaining why it happened &mdash; and what it means for what comes next. Critical thinking at HvA CE means identifying patterns in data, challenging assumptions, and turning analysis into recommendation.</p>
-    </div>
-  </div>
-  <div class="skill-content">
-    <div class="evidence-card">
-      <div class="ev-project">Project 02 &mdash; Market Intelligence</div>
-      <h3 class="ev-title">From &ldquo;what&rdquo; to &ldquo;why&rdquo; and &ldquo;what&apos;s next&rdquo;</h3>
-      <div class="ev-desc">
-        <p>The MIS Foot &amp; Orthognathic report was not a data dump &mdash; it was a structured argument. I moved from procedure volume data through competitive positioning to a <strong>portfolio gap assessment</strong> that revealed Small Bone instruments as Stryker&apos;s most underutilised segment relative to market potential.</p>
-        <p style="margin-top:0.8rem">This required cross-referencing internal sales figures against external market data, questioning why a seemingly minor segment had outsized commercial upside, and formulating a clear strategic recommendation &mdash; not just a description of what I found.</p>
-      </div>
-      <div class="ev-tags">
-        <span class="ev-tag">Portfolio Analysis</span><span class="ev-tag">Data Synthesis</span><span class="ev-tag">Strategic Recommendation</span>
-      </div>
-    </div>
-    <div class="evidence-card">
-      <div class="ev-project">Project 03 &mdash; Jetpak Audit</div>
-      <h3 class="ev-title">Root cause analysis under ambiguity</h3>
-      <div class="ev-desc">
-        <p>When only 6 of 26 banners were found, the easy answer was &ldquo;assets are missing.&rdquo; The critical answer asked: <strong>why do assets go missing systematically?</strong> I identified three root causes &mdash; no traceability, outdated logs, no governance owner &mdash; and built a recommendations framework from those causes rather than just documenting the symptom.</p>
-        <p style="margin-top:0.8rem">This demonstrated the ability to think structurally about a problem rather than reactively about its surface, and to link analysis directly to actionable change.</p>
-      </div>
-      <div class="ev-tags">
-        <span class="ev-tag">Root Cause Analysis</span><span class="ev-tag">Structural Thinking</span><span class="ev-tag">Process Design</span>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="comps-wrap">
 
-<!-- SW: TEAMWORK -->
-<section class="skill-section" id="sw">
-  <div class="skill-header">
-    <div>
-      <div class="skill-big-abbr">SW</div>
-    </div>
-    <div class="skill-big-label">
-      <div class="skill-name-nl">Samenwerken</div>
-      <h2 class="skill-name-en">Teamwork</h2>
-      <p class="skill-definition">Contributing to shared goals across diverse teams, taking initiative, supporting others, and managing stakeholder relationships &mdash; including upward and cross-functional. Teamwork in CE means being someone others want on the project.</p>
-    </div>
+  <div class="comp-item open" id="kd">
+    <button class="comp-trigger">
+      <div class="comp-num">01</div>
+      <div class="comp-trigger-main">
+        <div class="comp-name">Critical Thinking</div>
+        <div class="comp-desc">Moving beyond what happened to explain why &mdash; and what it means for what comes next.</div>
+      </div>
+      <div class="comp-plus"></div>
+    </button>
+    <div class="comp-body"><div class="comp-inner"><div class="comp-content">
+      <div class="ev-grid">
+        <div class="ev-card">
+          <div class="ev-proj">Project 02 &mdash; Market Intelligence</div>
+          <div class="ev-title">From &ldquo;what&rdquo; to &ldquo;why&rdquo; and &ldquo;what&apos;s next&rdquo;</div>
+          <div class="ev-text">The MIS Foot report was a structured argument, not a data dump. I moved from procedure volume data through competitive positioning to a <strong>portfolio gap assessment</strong> that identified Small Bone as Stryker&apos;s most underutilised segment &mdash; requiring me to cross-reference sources and formulate a strategic recommendation.</div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-proj">Project 03 &mdash; Jetpak Audit</div>
+          <div class="ev-title">Root cause analysis under ambiguity</div>
+          <div class="ev-text">When only 6 of 26 banners were found, the easy answer was &ldquo;assets are missing.&rdquo; I asked: <strong>why does this happen systematically?</strong> Identifying three structural root causes &mdash; and building recommendations from them &mdash; demonstrated thinking structurally rather than reactively.</div>
+        </div>
+      </div>
+    </div></div></div>
   </div>
-  <div class="skill-content">
-    <div class="evidence-card">
-      <div class="ev-project">Project 01 &mdash; LVO Congress</div>
-      <h3 class="ev-title">7-stakeholder coordination</h3>
-      <div class="ev-desc">
-        <p>The LVO Congress required coordinating seven internal and external stakeholders: Stryker colleagues, the venue team at Gooiland Hilversum, and third-party logistics and materials suppliers. I was the central point of contact &mdash; drafting communications, chasing confirmations, resolving conflicts in schedule, and keeping everyone aligned on the day-of plan.</p>
-        <p style="margin-top:0.8rem"><strong>No delays. No issues on either congress day.</strong> The feedback from colleagues reflected a smooth, professional execution they could rely on.</p>
-      </div>
-      <div class="ev-tags">
-        <span class="ev-tag">Stakeholder Management</span><span class="ev-tag">Cross-functional Coordination</span>
-      </div>
-    </div>
-    <div class="evidence-card">
-      <div class="ev-project">Projects 03 &amp; 05 &mdash; Jetpak &amp; OI Academy</div>
-      <h3 class="ev-title">Contributing as a team member</h3>
-      <div class="ev-desc">
-        <p>At Jetpak, I worked alongside Nazli Tiryaki and Hande Cankaya Keles in a structured three-person audit team &mdash; <strong>distributing tasks, sharing observations in real time</strong>, and synthesising findings collectively before writing up the report.</p>
-        <p style="margin-top:0.8rem">At OI Academy 201, I participated as a colleague alongside sales reps with years more experience. I contributed to group exercises, asked questions that helped the wider group, and built relationships with team members across countries.</p>
-      </div>
-      <div class="ev-tags">
-        <span class="ev-tag">Cross-Cultural Collaboration</span><span class="ev-tag">Field Teamwork</span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- CB: COMMERCIAL AWARENESS -->
-<section class="skill-section" id="cb">
-  <div class="skill-header">
-    <div>
-      <div class="skill-big-abbr">CB</div>
-    </div>
-    <div class="skill-big-label">
-      <div class="skill-name-nl">Commercieel Bewustzijn</div>
-      <h2 class="skill-name-en">Commercial Awareness</h2>
-      <p class="skill-definition">Understanding how markets, customers, and business models interact &mdash; and applying that understanding to make commercially sound decisions. In practice: seeing revenue implications, identifying where value is being left on the table, and connecting marketing activity to business outcomes.</p>
-    </div>
+  <div class="comp-item" id="sw">
+    <button class="comp-trigger">
+      <div class="comp-num">02</div>
+      <div class="comp-trigger-main">
+        <div class="comp-name">Teamwork</div>
+        <div class="comp-desc">Contributing to shared goals across diverse teams and managing stakeholder relationships effectively.</div>
+      </div>
+      <div class="comp-plus"></div>
+    </button>
+    <div class="comp-body"><div class="comp-inner"><div class="comp-content">
+      <div class="ev-grid">
+        <div class="ev-card">
+          <div class="ev-proj">Project 01 &mdash; LVO Congress</div>
+          <div class="ev-title">7-stakeholder coordination</div>
+          <div class="ev-text">I was the central point of contact for seven internal and external stakeholders across the LVO Congress &mdash; drafting communications, chasing confirmations, resolving scheduling conflicts. <strong>No delays on either day.</strong> Feedback from colleagues reflected a smooth, professional execution they could rely on.</div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-proj">Projects 03 &amp; 05 &mdash; Jetpak &amp; OI Academy</div>
+          <div class="ev-title">Field teamwork and peer collaboration</div>
+          <div class="ev-text">At Jetpak I worked in a structured 3-person audit team, distributing tasks and synthesising findings together. At OI Academy I participated alongside sales reps with years more experience &mdash; contributing to group exercises and building relationships across countries.</div>
+        </div>
+      </div>
+    </div></div></div>
   </div>
-  <div class="skill-content">
-    <div class="evidence-card">
-      <div class="ev-project">Project 01 &mdash; LVO Congress</div>
-      <h3 class="ev-title">ROI-first event strategy</h3>
-      <div class="ev-desc">
-        <p>Rather than treating the LVO Congress as a logistics exercise, I approached it as a commercial question: <strong>what return is Stryker generating from congress attendance, and how do we measure it?</strong> The ROI analysis framework I built connected event cost to leads generated, giving the team a methodology they could apply to future event decisions.</p>
-        <p style="margin-top:0.8rem">The 5-congress landscape analysis added a second layer: prioritising which events deserve investment based on audience quality and commercial history &mdash; a direct application of commercial thinking to marketing spend.</p>
-      </div>
-      <div class="ev-tags">
-        <span class="ev-tag">ROI Analysis</span><span class="ev-tag">Marketing Spend Prioritisation</span>
-      </div>
-    </div>
-    <div class="evidence-card">
-      <div class="ev-project">Project 02 &mdash; Market Intelligence</div>
-      <h3 class="ev-title">Portfolio gap as commercial opportunity</h3>
-      <div class="ev-desc">
-        <p>Identifying that Small Bone instruments were underutilised relative to Benelux procedure volumes was not just a research finding &mdash; it was a <strong>commercial signal</strong>. The insight pointed to a potential revenue gap: a segment where Stryker has product capability but insufficient market penetration.</p>
-        <p style="margin-top:0.8rem">Framing the gap as a commercial opportunity rather than a product catalogue observation required understanding how procedure volumes translate to sales potential &mdash; the kind of commercial reasoning that connects market data to revenue growth.</p>
-      </div>
-      <div class="ev-tags">
-        <span class="ev-tag">Market Opportunity Analysis</span><span class="ev-tag">Portfolio Strategy</span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- AV: ADAPTABILITY -->
-<section class="skill-section" id="av">
-  <div class="skill-header">
-    <div>
-      <div class="skill-big-abbr">AV</div>
-    </div>
-    <div class="skill-big-label">
-      <div class="skill-name-nl">Aanpassingsvermogen</div>
-      <h2 class="skill-name-en">Adaptability</h2>
-      <p class="skill-definition">Functioning effectively outside your comfort zone &mdash; whether that means taking on a technically demanding assignment, working across cultures, or proactively reshaping how you work in response to new tools and circumstances.</p>
-    </div>
+  <div class="comp-item" id="cb">
+    <button class="comp-trigger">
+      <div class="comp-num">03</div>
+      <div class="comp-trigger-main">
+        <div class="comp-name">Commercial Awareness</div>
+        <div class="comp-desc">Understanding how markets and business models interact &mdash; and applying that to make commercially sound decisions.</div>
+      </div>
+      <div class="comp-plus"></div>
+    </button>
+    <div class="comp-body"><div class="comp-inner"><div class="comp-content">
+      <div class="ev-grid">
+        <div class="ev-card">
+          <div class="ev-proj">Project 01 &mdash; LVO Congress</div>
+          <div class="ev-title">ROI-first event strategy</div>
+          <div class="ev-text">Rather than treating LVO as a logistics exercise, I built an ROI analysis framework connecting event cost to leads generated &mdash; and a 5-congress landscape analysis to prioritise which events deserve investment based on commercial return. <strong>Marketing spend as a commercial decision.</strong></div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-proj">Project 02 &mdash; Market Intelligence</div>
+          <div class="ev-title">Portfolio gap as revenue signal</div>
+          <div class="ev-text">Identifying Small Bone underutilisation wasn&apos;t a product catalogue observation &mdash; it was a <strong>commercial signal</strong> pointing to a potential revenue gap where Stryker has capability but insufficient market penetration. Translating market data to revenue implication.</div>
+        </div>
+      </div>
+    </div></div></div>
   </div>
-  <div class="skill-content">
-    <div class="evidence-card">
-      <div class="ev-project">Project 04 &mdash; Copilot AI</div>
-      <h3 class="ev-title">Self-directed adoption of new technology</h3>
-      <div class="ev-desc">
-        <p>The Copilot initiative began without a brief, a manager request, or a formal project scope. I identified a tool, <strong>taught myself how to use it effectively</strong>, built use cases from scratch, and then developed the confidence to present it to a 5-country team &mdash; all within the span of a few weeks.</p>
-        <p style="margin-top:0.8rem">This was adaptability not as a reaction to change, but as a deliberate choice to get ahead of it. Recognising that AI was going to change how commercial teams work, and deciding to be the person who helped Stryker adapt rather than waiting to be told to.</p>
-      </div>
-      <div class="ev-tags">
-        <span class="ev-tag">Self-Directed Learning</span><span class="ev-tag">AI Adoption</span><span class="ev-tag">Initiative</span>
-      </div>
-    </div>
-    <div class="evidence-card">
-      <div class="ev-project">Project 05 &mdash; OI Academy 201</div>
-      <h3 class="ev-title">Succeeding in a technical domain outside my background</h3>
-      <div class="ev-desc">
-        <p>As the only non-sales, non-clinical participant in OI Academy 201, I had to <strong>adapt my learning approach</strong> &mdash; no textbook preparation, no prior exposure to surgical anatomy, and a room full of colleagues with years of product experience. I passed with 80%, meeting the threshold, by committing to four full days of focused engagement and finding ways to anchor clinical concepts to what I already knew from market research.</p>
-        <p style="margin-top:0.8rem">The experience also adapted my perspective: I came out with a materially different understanding of what Stryker sells and why it matters.</p>
-      </div>
-      <div class="ev-tags">
-        <span class="ev-tag">Out-of-Comfort-Zone Learning</span><span class="ev-tag">Clinical Domain</span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- CO: COMMUNICATION -->
-<section class="skill-section" id="co">
-  <div class="skill-header">
-    <div>
-      <div class="skill-big-abbr">CO</div>
-    </div>
-    <div class="skill-big-label">
-      <div class="skill-name-nl">Communicatie</div>
-      <h2 class="skill-name-en">Communication</h2>
-      <p class="skill-definition">Crafting and delivering the right message to the right audience in the right format &mdash; whether that is a stakeholder email, a live demo to a multinational team, a written report, or a visual training document. Communication is both written and spoken, internal and external.</p>
-    </div>
+  <div class="comp-item" id="av">
+    <button class="comp-trigger">
+      <div class="comp-num">04</div>
+      <div class="comp-trigger-main">
+        <div class="comp-name">Adaptability</div>
+        <div class="comp-desc">Functioning effectively outside your comfort zone and proactively reshaping how you work in response to new circumstances.</div>
+      </div>
+      <div class="comp-plus"></div>
+    </button>
+    <div class="comp-body"><div class="comp-inner"><div class="comp-content">
+      <div class="ev-grid">
+        <div class="ev-card">
+          <div class="ev-proj">Project 04 &mdash; Copilot AI</div>
+          <div class="ev-title">Self-directed adoption of new technology</div>
+          <div class="ev-text">The Copilot initiative started without a brief. I identified the tool, <strong>taught myself to use it</strong>, built use cases from scratch, and presented to five countries within weeks. Adaptability not as reaction, but as a deliberate choice to get ahead of change.</div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-proj">Project 05 &mdash; OI Academy 201</div>
+          <div class="ev-title">Succeeding outside my background</div>
+          <div class="ev-text">As the only non-clinical participant in OI Academy 201, I had to adapt my learning approach to absorb surgical anatomy at a pace designed for experienced reps. <strong>Passed with 80%.</strong> The experience fundamentally changed how I understand Stryker&apos;s commercial context.</div>
+        </div>
+      </div>
+    </div></div></div>
   </div>
-  <div class="skill-content">
-    <div class="evidence-card">
-      <div class="ev-project">Project 04 &mdash; Copilot AI</div>
-      <h3 class="ev-title">Cross-country live presentation</h3>
-      <div class="ev-desc">
-        <p>Presenting a new technology tool to a team spread across five countries required <strong>adapting the message for a mixed audience</strong> &mdash; some tech-comfortable, some sceptical, some time-pressured. I structured the presentation around the &ldquo;15-minute gift&rdquo; concept: a concrete, tangible outcome that cut through the noise of abstract AI hype.</p>
-        <p style="margin-top:0.8rem">The Cheat Sheet I created after the presentation was a different communication challenge &mdash; distilling complex tool capabilities into a one-page reference a rep could use without guidance. <strong>Design, language, and hierarchy all had to work for a busy commercial audience.</strong></p>
-      </div>
-      <div class="ev-tags">
-        <span class="ev-tag">Multinational Presentation</span><span class="ev-tag">Knowledge Documentation</span>
-      </div>
-    </div>
-    <div class="evidence-card">
-      <div class="ev-project">Projects 01 &amp; 03 &mdash; LVO &amp; Jetpak</div>
-      <h3 class="ev-title">Written communication in high-stakes contexts</h3>
-      <div class="ev-desc">
-        <p>For LVO, I wrote stakeholder communications that needed to be clear, professional, and action-oriented &mdash; coordinating seven parties through a logistics chain with little margin for ambiguity. Colleagues responded positively to the structure and tone of my written outreach.</p>
-        <p style="margin-top:0.8rem">For Jetpak, the audit findings report had to communicate sensitive operational gaps without creating blame or defensiveness &mdash; a communication challenge that required <strong>framing, evidence, and recommendation in a sequence that built trust</strong> rather than triggering defensiveness. The response from Juha Soininen confirmed the report was well-received.</p>
-      </div>
-      <div class="ev-tags">
-        <span class="ev-tag">Stakeholder Communication</span><span class="ev-tag">Report Writing</span><span class="ev-tag">Sensitive Findings</span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- TECHNICAL SKILLS -->
-<section class="tech-section">
-  <div class="tech-inner">
-    <div class="tech-tag">Technical Skills</div>
-    <h2 class="tech-title">Tools I work <em>with</em></h2>
-    <p class="tech-sub">A working toolkit built across academic projects, internship work, and self-directed learning &mdash; from creative software to data tools and AI platforms.</p>
-    <div class="tech-grid">
-      <div class="tech-cat">
-        <div class="tech-cat-title">Design &amp; Creative</div>
-        <ul class="tech-list">
-          <li>Adobe InDesign</li>
-          <li>Adobe Photoshop</li>
-          <li>Adobe Illustrator</li>
-          <li>Affinity Publisher</li>
-          <li>Affinity Photo</li>
-          <li>Canva</li>
-        </ul>
+  <div class="comp-item" id="co">
+    <button class="comp-trigger">
+      <div class="comp-num">05</div>
+      <div class="comp-trigger-main">
+        <div class="comp-name">Communication</div>
+        <div class="comp-desc">Crafting and delivering the right message to the right audience &mdash; written, spoken, internal, and external.</div>
       </div>
-      <div class="tech-cat">
-        <div class="tech-cat-title">Data &amp; Analytics</div>
-        <ul class="tech-list">
-          <li>Microsoft Excel (advanced)</li>
-          <li>Google Analytics</li>
-          <li>Tableau</li>
-          <li>HubSpot CRM</li>
-          <li>Microsoft Forms</li>
-          <li>Luma</li>
-        </ul>
+      <div class="comp-plus"></div>
+    </button>
+    <div class="comp-body"><div class="comp-inner"><div class="comp-content">
+      <div class="ev-grid">
+        <div class="ev-card">
+          <div class="ev-proj">Project 04 &mdash; Copilot AI</div>
+          <div class="ev-title">Cross-country live presentation</div>
+          <div class="ev-text">Presenting to a 5-country mixed audience required adapting for tech-comfortable and sceptical participants alike. I structured the message around the &ldquo;15-minute gift&rdquo; &mdash; a concrete, tangible outcome. The Cheat Sheet added a second communication challenge: <strong>distilling complex capability into a one-page reference for a busy commercial audience.</strong></div>
+        </div>
+        <div class="ev-card">
+          <div class="ev-proj">Projects 01 &amp; 03 &mdash; LVO &amp; Jetpak</div>
+          <div class="ev-title">Written communication in high-stakes contexts</div>
+          <div class="ev-text">LVO stakeholder communications needed to be clear and action-oriented across seven parties. The Jetpak findings report had to flag sensitive operational gaps without creating blame &mdash; <strong>framing, evidence, and recommendation sequenced to build trust rather than defensiveness.</strong></div>
+        </div>
       </div>
-      <div class="tech-cat">
-        <div class="tech-cat-title">Digital &amp; CMS</div>
-        <ul class="tech-list">
-          <li>WordPress</li>
-          <li>CMS Platforms</li>
-          <li>Microsoft Office 365</li>
-          <li>SharePoint</li>
-          <li>Microsoft Teams</li>
-        </ul>
-      </div>
-      <div class="tech-cat">
-        <div class="tech-cat-title">AI &amp; Productivity</div>
-        <ul class="tech-list">
-          <li>Microsoft Copilot</li>
-          <li>ChatGPT</li>
-          <li>Google Gemini</li>
-          <li>Claude</li>
-          <li>Perplexity</li>
-          <li>Prompt Engineering</li>
-        </ul>
-      </div>
+    </div></div></div>
+  </div>
+
+</div>
+
+<!-- TECHNICAL SKILLS (black bg) -->
+<div class="tech-wrap" id="contact">
+  <div class="label-light">Technical Skills</div>
+  <h2>Tools I work <em>with</em></h2>
+  <p class="tech-sub">Built across academic projects, internship work, and self-directed learning.</p>
+  <div class="tech-grid">
+    <div class="tech-cat">
+      <div class="tech-cat-title">Design &amp; Creative</div>
+      <ul class="tech-list">
+        <li>Adobe InDesign</li>
+        <li>Adobe Photoshop</li>
+        <li>Adobe Illustrator</li>
+        <li>Affinity Publisher</li>
+        <li>Canva</li>
+      </ul>
+    </div>
+    <div class="tech-cat">
+      <div class="tech-cat-title">Data &amp; Analytics</div>
+      <ul class="tech-list">
+        <li>Microsoft Excel (advanced)</li>
+        <li>Google Analytics</li>
+        <li>Tableau</li>
+        <li>HubSpot CRM</li>
+        <li>Microsoft Forms</li>
+      </ul>
+    </div>
+    <div class="tech-cat">
+      <div class="tech-cat-title">Digital &amp; CMS</div>
+      <ul class="tech-list">
+        <li>WordPress</li>
+        <li>Microsoft Office 365</li>
+        <li>SharePoint</li>
+        <li>Luma</li>
+      </ul>
+    </div>
+    <div class="tech-cat">
+      <div class="tech-cat-title">AI &amp; Productivity</div>
+      <ul class="tech-list">
+        <li>Microsoft Copilot</li>
+        <li>ChatGPT</li>
+        <li>Google Gemini</li>
+        <li>Claude</li>
+        <li>Perplexity</li>
+      </ul>
     </div>
   </div>
-</section>
+</div>
 
-<section id="contact">
+<div class="contact-wrap">
   <div class="contact-inner">
-    <div class="section-tag">Get in touch</div>
-    <h2 class="section-title">Questions about my <em>profile?</em></h2>
-    <p class="section-sub">I&apos;d love to connect &mdash; whether you want to discuss a competency in more depth or explore what we could work on together.</p>
+    <div class="label-light">Get in touch</div>
+    <h2>Questions about my <em>profile?</em></h2>
+    <p class="contact-sub">Happy to discuss a competency in more depth or explore what we could work on.</p>
     <div class="contact-links">
       <a href="mailto:charlotte.van.den.kerkhoff@hva.nl" class="contact-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        charlotte.van.den.kerkhoff@hva.nl
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email me
       </a>
       <a href="https://www.linkedin.com/in/charlottevandenkerkhoff" target="_blank" class="contact-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
-      </a>
-      <a href="reflection.html" class="contact-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        Read My Reflection
       </a>
     </div>
   </div>
-</section>
-
+</div>
 <footer>
   <span>&copy; 2026 Charlotte van den Kerkhoff</span>
-  <a href="index.html">CVK</a>
+  <a href="#top">Back to top &uarr;</a>
 </footer>
 
+<script>
+const ham=document.getElementById('ham'),panel=document.getElementById('panel');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');panel.classList.toggle('open')});
+panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');panel.classList.remove('open')}));
+document.querySelectorAll('.comp-trigger').forEach(btn=>{
+  btn.addEventListener('click',()=>btn.closest('.comp-item').classList.toggle('open'));
+});
+</script>
 </body>
 </html>

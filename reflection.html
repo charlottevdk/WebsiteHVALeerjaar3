@@ -6,326 +6,332 @@
 <title>Young Professional — Charlotte van den Kerkhoff</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,600;1,9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --warm-white:#FAF7F2;--white:#FFFFFF;
-    --black:#141414;--black-mid:#2C2C2C;
-    --gray:#6A6A6A;--border:#E2DDD6;
-    --mist:#7BAFC8;--mist-mid:#A4C8DC;
-    --mist-light:#D8EAF3;--mist-pale:#EDF5FA;
-    --sand:#C4985C;--sand-mid:#D9B484;
-    --sand-light:#F2E5D0;--sand-pale:#FAF3E8;
-    --s-blue:#1B3A6B;--s-yellow:#F39100;
-    --s-pastel:#6D9FB5;--s-light:#F5F4EF;--s-gray:#B7B5AC;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--warm-white);color:var(--black);overflow-x:hidden}
+:root{
+  --bg:#FAF7F2;--white:#FFFFFF;--black:#141414;
+  --gray:#6A6A6A;--gray-light:#9A9A9A;--border:#E4DFD8;
+  --mist:#7BAFC8;--mist-light:#D8EAF3;--mist-pale:#EDF5FA;
+  --sand:#C4985C;--sand-light:#F2E5D0;
+}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--black);overflow-x:hidden}
 
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.3rem 5rem;background:rgba(250,247,242,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-  .nav-logo{font-family:'Fraunces',serif;font-size:1.65rem;font-weight:700;color:var(--black);text-decoration:none}
-  .nav-links{display:flex;gap:2.8rem;list-style:none;align-items:center}
-  .nav-links a{font-size:0.74rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
-  .nav-links a:hover,.nav-links a.active{color:var(--black)}
-  .nav-cta{background:var(--black)!important;color:var(--white)!important;padding:0.58rem 1.55rem;border-radius:50px;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),background 0.2s!important}
-  .nav-cta:hover{background:var(--mist)!important;transform:translateY(-3px) scale(1.03)!important}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5rem;background:rgba(250,247,242,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Fraunces',serif;font-style:italic;font-size:1.35rem;font-weight:600;color:var(--black);text-decoration:none}
+.nav-links{display:flex;gap:2.4rem;list-style:none;align-items:center}
+.nav-links a{font-size:0.71rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--black)}
+.nav-cta{background:var(--black)!important;color:var(--white)!important;padding:0.5rem 1.3rem;border-radius:50px;transition:background 0.2s,transform 0.3s cubic-bezier(0.34,1.56,0.64,1)!important}
+.nav-cta:hover{background:var(--mist)!important;transform:translateY(-2px)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--black);transition:transform 0.28s ease,opacity 0.28s ease;border-radius:1px}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-panel{display:none;position:fixed;top:61px;left:0;right:0;z-index:190;background:var(--bg);border-bottom:1px solid var(--border);padding:1rem 2rem 1.5rem;flex-direction:column}
+.nav-panel.open{display:flex}
+.nav-panel a{font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--border);transition:color 0.2s}
+.nav-panel a:last-child{border-bottom:none}
+.nav-panel a:hover{color:var(--black)}
 
-  /* HERO */
-  .page-hero{padding:9rem 5rem 5rem;background:var(--black);position:relative;overflow:hidden}
-  .page-hero::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(123,175,200,0.12) 0%,transparent 70%);pointer-events:none}
-  .page-hero::after{content:'';position:absolute;bottom:-60px;left:20%;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(196,152,92,0.08) 0%,transparent 70%);pointer-events:none}
-  .page-eyebrow{display:inline-flex;align-items:center;gap:0.7rem;background:rgba(123,175,200,0.1);color:var(--mist-mid);border:1px solid rgba(123,175,200,0.25);padding:0.45rem 1.1rem;border-radius:50px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2rem;position:relative;z-index:1}
-  .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--mist);flex-shrink:0}
-  .page-title{font-family:'Fraunces',serif;font-size:clamp(3rem,5.5vw,5.2rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.5rem;color:var(--white);position:relative;z-index:1}
-  .page-title em{font-style:italic;font-weight:300;color:var(--mist-mid);display:block}
-  .page-desc{color:rgba(255,255,255,0.5);font-size:1rem;line-height:1.88;max-width:600px;font-weight:300;margin-bottom:3rem;position:relative;z-index:1}
-  .hero-divider{display:flex;gap:3rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.1);position:relative;z-index:1}
-  .hero-stat{}
-  .hero-stat-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:700;color:var(--white);line-height:1}
-  .hero-stat-accent{color:var(--mist-mid)}
-  .hero-stat-label{font-size:0.7rem;color:rgba(255,255,255,0.35);margin-top:0.2rem;font-weight:300;line-height:1.45}
+/* PAGE HEADER — dark but uses only black */
+.page-header{padding:8rem 5rem 5rem;background:var(--black);position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(123,175,200,0.1) 0%,transparent 70%);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:0.6rem;background:rgba(123,175,200,0.1);color:rgba(164,200,220,0.85);border:1px solid rgba(123,175,200,0.2);border-radius:50px;padding:0.4rem 1rem;font-size:0.67rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.8rem;position:relative;z-index:1}
+.eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--mist)}
+.page-header h1{font-family:'Fraunces',serif;font-size:clamp(2.8rem,5vw,4.8rem);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:1.2rem;color:var(--white);position:relative;z-index:1}
+.page-header h1 em{font-style:italic;font-weight:300;color:rgba(164,200,220,0.85);display:block}
+.page-header p{color:rgba(255,255,255,0.45);font-size:0.95rem;line-height:1.85;max-width:520px;font-weight:300;margin-bottom:3rem;position:relative;z-index:1}
+.header-stats{display:flex;gap:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);position:relative;z-index:1;flex-wrap:wrap}
+.hstat-val{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--white);line-height:1}
+.hstat-val em{font-style:normal;color:var(--mist);font-size:1.2rem}
+.hstat-lbl{font-size:0.66rem;color:rgba(255,255,255,0.32);font-weight:300;margin-top:0.2rem;line-height:1.45}
 
-  /* REFLECTION SECTIONS */
-  .refl-section{padding:5.5rem 5rem;border-bottom:1px solid var(--border)}
-  .refl-section:nth-child(odd){background:var(--white)}
-  .refl-section:nth-child(even){background:var(--warm-white)}
+/* REFLECTION ACCORDION */
+.refl-wrap{padding:3rem 5rem 5rem;background:var(--bg)}
+.refl-item{background:var(--white);border-radius:16px;margin-bottom:1rem;overflow:hidden;border:1px solid var(--border)}
+.refl-trigger{display:flex;align-items:center;width:100%;padding:1.8rem 2rem;background:none;border:none;cursor:pointer;text-align:left;gap:1.5rem;transition:opacity 0.2s}
+.refl-trigger:hover{opacity:0.8}
+.refl-trigger-icon{width:2.4rem;height:2.4rem;border-radius:12px;background:var(--mist-pale);border:1px solid var(--mist-light);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.refl-trigger-main{flex:1}
+.refl-label{font-size:0.63rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--mist);margin-bottom:0.2rem;display:flex;align-items:center;gap:0.5rem}
+.refl-label::before{content:'';display:block;width:1rem;height:1.5px;background:var(--sand)}
+.refl-title{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600}
+.refl-plus{width:20px;height:20px;position:relative;flex-shrink:0}
+.refl-plus::before,.refl-plus::after{content:'';position:absolute;background:var(--gray);border-radius:1px}
+.refl-plus::before{width:1.5px;height:12px;top:4px;left:9.25px;transition:opacity 0.3s ease}
+.refl-plus::after{width:12px;height:1.5px;top:9.25px;left:4px}
+.refl-item.open .refl-plus::before{opacity:0}
+.refl-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.36s ease}
+.refl-inner{overflow:hidden}
+.refl-item.open .refl-body{grid-template-rows:1fr}
+.refl-content{padding:0 2rem 2rem 5.9rem;border-top:1px solid var(--border);padding-top:1.8rem}
+.refl-text{color:var(--gray);font-size:0.89rem;line-height:1.9;font-weight:300;margin-bottom:1.5rem}
+.refl-text p{margin-bottom:0.9rem}
+.refl-text p:last-child{margin-bottom:0}
+.refl-text strong{color:var(--black);font-weight:600}
+.insight{background:var(--mist-pale);border-radius:12px;padding:1.3rem 1.5rem;border-left:2.5px solid var(--mist);margin-bottom:0.8rem}
+.insight-label{font-size:0.63rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist);margin-bottom:0.4rem}
+.insight-text{font-size:0.83rem;color:var(--black);line-height:1.7;font-weight:400}
 
-  .section-tag{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--mist);display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem}
-  .section-tag::before{content:'';display:block;width:2rem;height:1.5px;background:var(--sand);flex-shrink:0}
-  .section-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:1.5rem}
-  .section-title em{font-style:italic;font-weight:300;color:var(--mist)}
+/* DEVELOPMENT SECTION */
+.dev-wrap{padding:4rem 5rem;background:var(--white)}
+.label{font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--mist);display:flex;align-items:center;gap:0.7rem;margin-bottom:0.7rem}
+.label::before{content:'';display:block;width:1.8rem;height:1.5px;background:var(--sand);flex-shrink:0}
+.dev-wrap h2{font-family:'Fraunces',serif;font-size:clamp(1.9rem,3.2vw,2.7rem);font-weight:700;line-height:1.15;margin-bottom:0.8rem}
+.dev-wrap h2 em{font-style:italic;font-weight:300;color:var(--mist)}
+.dev-sub{color:var(--gray);font-size:0.9rem;font-weight:300;margin-bottom:2.5rem;max-width:500px}
+.dev-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.dev-card{background:var(--bg);border-radius:14px;padding:1.6rem;border:1px solid var(--border);transition:transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s,border-color 0.2s}
+.dev-card:hover{transform:translateY(-6px);box-shadow:0 10px 24px rgba(20,20,20,0.07);border-color:var(--mist-light)}
+.dev-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:700;color:rgba(123,175,200,0.12);line-height:1;margin-bottom:0.4rem}
+.dev-title{font-size:0.9rem;font-weight:600;color:var(--black);margin-bottom:0.4rem}
+.dev-text{font-size:0.82rem;color:var(--gray);line-height:1.72;font-weight:300}
 
-  .refl-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:1rem}
-  .refl-body{color:var(--gray);font-size:0.95rem;line-height:1.9;font-weight:300}
-  .refl-body p{margin-bottom:1.2rem}
-  .refl-body p:last-child{margin-bottom:0}
-  .refl-body strong{color:var(--black);font-weight:600}
+/* FUTURE / LOOKING AHEAD — clean, no dark blue */
+.future-wrap{padding:5rem 5rem;background:var(--bg)}
+.future-wrap h2{font-family:'Fraunces',serif;font-size:clamp(1.9rem,3.2vw,2.7rem);font-weight:700;line-height:1.15;margin-bottom:1.5rem}
+.future-wrap h2 em{font-style:italic;font-weight:300;color:var(--mist)}
+.future-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.future-text{color:var(--gray);font-size:0.9rem;line-height:1.9;font-weight:300}
+.future-text p{margin-bottom:0.9rem}
+.future-text p:last-child{margin-bottom:0}
+.future-text strong{color:var(--black);font-weight:600}
+.criteria{display:flex;flex-direction:column;gap:0.9rem}
+.criterion{background:var(--white);border-radius:12px;padding:1.4rem;border:1px solid var(--border)}
+.crit-label{font-size:0.63rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist);margin-bottom:0.35rem;display:flex;align-items:center;gap:0.5rem}
+.crit-label::before{content:'';display:block;width:0.9rem;height:1.5px;background:var(--sand)}
+.crit-text{font-size:0.82rem;color:var(--gray);font-weight:300;line-height:1.65}
 
-  .insight-card{background:var(--mist-pale);border-radius:20px;padding:2rem;border:1px solid var(--mist-light);margin-bottom:1.2rem}
-  .refl-section:nth-child(even) .insight-card{background:var(--white)}
-  .ic-label{font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--mist);margin-bottom:0.7rem;display:flex;align-items:center;gap:0.5rem}
-  .ic-label::before{content:'';display:block;width:1.2rem;height:1.5px;background:var(--sand)}
-  .ic-text{font-size:0.88rem;color:var(--black-mid);line-height:1.72;font-weight:400}
+/* CONTACT */
+.contact-wrap{padding:6rem 5rem;background:var(--black);text-align:center}
+.contact-inner{max-width:520px;margin:0 auto}
+.label-light{font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(164,200,220,0.75);display:flex;align-items:center;gap:0.7rem;margin-bottom:0.7rem}
+.label-light::before{content:'';display:block;width:1.8rem;height:1.5px;background:var(--sand);flex-shrink:0}
+.contact-wrap .label-light{justify-content:center}
+.contact-wrap h2{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;margin-bottom:0.8rem;color:var(--white)}
+.contact-wrap h2 em{font-style:italic;font-weight:300;color:rgba(164,200,220,0.85)}
+.contact-sub{color:rgba(255,255,255,0.38);font-size:0.9rem;font-weight:300;margin-bottom:2.5rem}
+.contact-links{display:flex;justify-content:center;gap:0.8rem;flex-wrap:wrap}
+.contact-link{display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.58);text-decoration:none;font-size:0.78rem;padding:0.7rem 1.4rem;border:1px solid rgba(255,255,255,0.12);border-radius:50px;transition:border-color 0.2s,color 0.2s,background 0.2s,transform 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.contact-link:hover{border-color:var(--mist);color:var(--white);background:rgba(123,175,200,0.1);transform:translateY(-3px)}
+footer{padding:1.5rem 5rem;background:var(--black);border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center}
+footer span{font-size:0.71rem;color:rgba(255,255,255,0.24)}
+footer a{font-size:0.71rem;color:rgba(196,152,92,0.55);text-decoration:none}
 
-  /* DEVELOPMENT POINTS */
-  .dev-section{padding:5.5rem 5rem;background:var(--white)}
-  .dev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:3rem}
-  .dev-card{background:var(--warm-white);border-radius:20px;padding:2rem;border:1px solid var(--border);transition:transform 0.32s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.32s,border-color 0.2s}
-  .dev-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 14px 36px rgba(20,20,20,0.08);border-color:var(--mist-light)}
-  .dev-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:700;color:rgba(123,175,200,0.12);line-height:1;margin-bottom:0.5rem}
-  .dev-title{font-size:0.95rem;font-weight:600;color:var(--black);margin-bottom:0.5rem}
-  .dev-body{font-size:0.84rem;color:var(--gray);line-height:1.75;font-weight:300}
+.fu{opacity:0;transform:translateY(22px);animation:fadeup 0.7s cubic-bezier(0.34,1.2,0.64,1) forwards}
+@keyframes fadeup{to{opacity:1;transform:translateY(0)}}
+.d1{animation-delay:0.1s}.d2{animation-delay:0.22s}
 
-  /* FUTURE DIRECTION */
-  .future-section{padding:6rem 5rem;background:var(--s-blue);position:relative;overflow:hidden}
-  .future-section::before{content:'';position:absolute;top:-80px;right:-80px;width:460px;height:460px;background:radial-gradient(circle,rgba(243,145,0,0.08) 0%,transparent 70%);pointer-events:none}
-  .future-section::after{content:'';position:absolute;bottom:-60px;left:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(109,159,181,0.1) 0%,transparent 70%);pointer-events:none}
-  .future-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-  .future-tag{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--s-yellow);display:flex;align-items:center;gap:0.7rem;margin-bottom:0.7rem}
-  .future-tag::before{content:'';display:block;width:2rem;height:1.5px;background:var(--s-yellow)}
-  .future-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:1.4rem}
-  .future-title em{font-style:italic;font-weight:300;color:var(--s-yellow)}
-  .future-body{color:rgba(255,255,255,0.5);font-size:0.93rem;line-height:1.88;font-weight:300}
-  .future-body p{margin-bottom:1rem}
-  .future-body strong{color:rgba(255,255,255,0.85);font-weight:600}
-  .future-criteria{display:flex;flex-direction:column;gap:1rem}
-  .criterion{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:1.6rem}
-  .criterion-label{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--s-yellow);margin-bottom:0.5rem}
-  .criterion-text{font-size:0.85rem;color:rgba(255,255,255,0.62);font-weight:300;line-height:1.65}
-
-  /* CONTACT */
-  #contact{padding:6rem 5rem;background:var(--black);text-align:center}
-  .contact-inner{max-width:600px;margin:0 auto}
-  #contact .section-tag{color:var(--mist-mid);justify-content:center}
-  #contact .section-title{color:var(--white)}
-  #contact .section-title em{color:var(--mist-mid)}
-  #contact .section-sub{color:rgba(255,255,255,0.45);margin:0 auto 2.5rem}
-  .section-sub{font-size:0.97rem;line-height:1.82;max-width:560px;font-weight:300;color:var(--gray)}
-  .contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-  .contact-link{display:inline-flex;align-items:center;gap:0.6rem;color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.8rem;padding:0.75rem 1.5rem;border:1px solid rgba(255,255,255,0.14);border-radius:50px;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),border-color 0.2s,color 0.2s,background 0.2s}
-  .contact-link:hover{transform:translateY(-4px) scale(1.02);border-color:var(--mist-mid);color:var(--white);background:rgba(123,175,200,0.12)}
-  footer{padding:1.8rem 5rem;background:var(--black);border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center}
-  footer span{font-size:0.74rem;color:rgba(255,255,255,0.28)}
-  footer a{color:var(--sand-mid);font-size:0.74rem;text-decoration:none}
-
-  .fade-up{opacity:0;transform:translateY(28px);animation:fadeUp 0.8s cubic-bezier(0.34,1.2,0.64,1) forwards}
-  @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-  .d1{animation-delay:0.1s}.d2{animation-delay:0.25s}.d3{animation-delay:0.4s}
-
-  @media(max-width:1100px){
-    .page-hero,.refl-section,.dev-section,.future-section,#contact{padding-left:2.5rem;padding-right:2.5rem}
-    .refl-grid,.future-inner{grid-template-columns:1fr;gap:2.5rem}
-    .dev-grid{grid-template-columns:1fr}
-    .hero-divider{gap:2rem}
-  }
-  @media(max-width:900px){
-    nav{padding:1rem 1.5rem}
-    .nav-links{display:none}
-    .page-hero,.refl-section,.dev-section,.future-section,#contact,footer{padding-left:1.5rem;padding-right:1.5rem}
-    footer{flex-direction:column;gap:0.5rem;text-align:center}
-    .hero-divider{flex-wrap:wrap;gap:1.5rem}
-  }
+@media(max-width:1100px){
+  nav,.page-header,.refl-wrap,.dev-wrap,.future-wrap,.contact-wrap,footer{padding-left:2.5rem;padding-right:2.5rem}
+  .refl-content{padding-left:2rem}
+  .dev-grid,.future-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.4rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .page-header,.refl-wrap,.dev-wrap,.future-wrap,.contact-wrap,footer{padding-left:1.4rem;padding-right:1.4rem}
+  .refl-trigger{padding:1.4rem}
+  .refl-content{padding:0 1.4rem 1.6rem;padding-top:1.4rem}
+  .header-stats{gap:1.8rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center}
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">CVK</a>
+  <a href="index.html" class="nav-logo">Charlotte</a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
     <li><a href="projects.html">Projects</a></li>
-    <li><a href="skills.html">CE-Skills</a></li>
+    <li><a href="skills.html">CE Skills</a></li>
     <li><a href="reflection.html" class="active">Reflection</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
+  <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
 </nav>
+<div class="nav-panel" id="panel">
+  <a href="index.html#about">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="skills.html">CE Skills</a>
+  <a href="reflection.html">Reflection</a>
+  <a href="#contact">Contact</a>
+</div>
 
-<!-- DARK HERO -->
-<section class="page-hero">
-  <div class="page-eyebrow fade-up"><span class="eyebrow-dot"></span>Young Professional Reflection &middot; HvA Commercial Economics</div>
-  <h1 class="page-title fade-up d1">Who I am becoming<br><em>as a professional.</em></h1>
-  <p class="page-desc fade-up d2">After six months at Stryker Orthopaedic Instruments Northern Europe, I have more than project results to show for it. I have a clearer sense of the work I want to do, the environments I thrive in, and the professional I am becoming.</p>
-  <div class="hero-divider fade-up d3">
-    <div class="hero-stat">
-      <div class="hero-stat-num">6</div>
-      <div class="hero-stat-label">Months at Stryker<br>OI Northern Europe</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">5</div>
-      <div class="hero-stat-label">Projects owned<br>and delivered</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">8.2</div>
-      <div class="hero-stat-label">Academic GPA<br>Valedictorian</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">4</div>
-      <div class="hero-stat-label">Development areas<br>identified for growth</div>
-    </div>
+<div class="page-header">
+  <div class="eyebrow fu"><span class="eyebrow-dot"></span>Young Professional Reflection &middot; HvA Commercial Economics</div>
+  <h1 class="fu d1">Who I am becoming<br><em>as a professional.</em></h1>
+  <p class="fu d2">Six months at Stryker gave me more than project results. It gave me a clearer sense of the work I want to do, the environments I thrive in, and the professional I&apos;m becoming.</p>
+  <div class="header-stats">
+    <div><div class="hstat-val">6</div><div class="hstat-lbl">Months at Stryker</div></div>
+    <div><div class="hstat-val">5</div><div class="hstat-lbl">Projects delivered</div></div>
+    <div><div class="hstat-val">8.2</div><div class="hstat-lbl">GPA &mdash; Valedictorian</div></div>
+    <div><div class="hstat-val">4</div><div class="hstat-lbl">Development areas identified</div></div>
   </div>
-</section>
+</div>
 
-<!-- INDUSTRY FIT -->
-<section class="refl-section" id="industry">
-  <div class="section-tag">Industry Fit</div>
-  <h2 class="section-title">Why MedTech is the <em>right field</em></h2>
-  <div class="refl-grid">
-    <div class="refl-body">
-      <p>Before Stryker, I knew I liked marketing. I was less certain about which <em>type</em> of marketing, for which kind of organisation, in which kind of market. The internship answered that question in a way six months of lectures could not.</p>
-      <p><strong>MedTech combines the two things I find most motivating: analytical rigour and patient impact.</strong> The decisions a company like Stryker makes about which instruments to develop, how to position them, and which procedures to target have real consequences for surgical outcomes. That proximity to purpose is not something I want to give up.</p>
-      <p>At the same time, MedTech is a commercially demanding environment. You need to understand clinical evidence, competitive dynamics, procedure volumes, and budget cycles simultaneously. That complexity &mdash; far from putting me off &mdash; is exactly what makes the work interesting. The MIS Foot market intelligence report showed me what it looks like to do that kind of thinking well.</p>
-      <p>I came in thinking I might go into consumer marketing after graduating. I leave certain that I want to stay in healthcare or medtech, where the stakes make the rigour worthwhile.</p>
-    </div>
-    <div>
-      <div class="insight-card">
-        <div class="ic-label">Key Insight</div>
-        <div class="ic-text">Purpose and commercial rigour are not in tension in MedTech &mdash; they reinforce each other. Good marketing helps better instruments reach more surgeons, which improves patient outcomes. That alignment between commercial success and clinical value is what makes this sector feel meaningful to me.</div>
-      </div>
-      <div class="insight-card">
-        <div class="ic-label">What confirmed it</div>
-        <div class="ic-text">OI Academy 201 gave me a direct view of the clinical environment Stryker sells into. Sitting in a room learning about surgical anatomy and instrument technique gave me a visceral sense of what is at stake when a product works &mdash; or doesn&apos;t. I didn&apos;t expect that experience to affect me, but it did.</div>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="refl-wrap">
 
-<!-- WORK TYPE -->
-<section class="refl-section" id="worktype">
-  <div class="section-tag">Work Type</div>
-  <h2 class="section-title">The kind of work I do <em>best</em></h2>
-  <div class="refl-grid">
-    <div class="refl-body">
-      <p>Not all marketing work is the same. Some of it is execution &mdash; producing content, managing calendars, routing approvals. Some of it is analytical &mdash; reading markets, identifying patterns, building frameworks for decisions. Some of it is creative &mdash; finding the right message for the right audience.</p>
-      <p>I have done all three during my internship, and I now have a much clearer sense of where I add the most value: <strong>at the intersection of analysis and communication</strong>. I am energised by projects where I have to synthesise information into a clear narrative &mdash; whether that is a market intelligence report, an event ROI analysis, or a Copilot use case for a commercial team.</p>
-      <p>I am less energised by pure administration and repetitive execution tasks. This isn&apos;t a refusal to do them &mdash; it&apos;s an honest recognition of where I produce my best work and where I grow the most. At Stryker, I was fortunate to have <strong>a manager who gave me ownership</strong> over projects rather than just assigning tasks within someone else&apos;s project. That model brings the best out of me.</p>
-    </div>
-    <div>
-      <div class="insight-card">
-        <div class="ic-label">Where I thrive</div>
-        <div class="ic-text">Projects with a clear problem to solve, latitude to determine the approach, and a meaningful deliverable at the end. The MIS Foot report, the Jetpak audit, the Copilot initiative &mdash; all three had these qualities, and all three produced work I&apos;m proud of.</div>
+  <div class="refl-item open">
+    <button class="refl-trigger">
+      <div class="refl-trigger-icon">🏥</div>
+      <div class="refl-trigger-main">
+        <div class="refl-label">Industry Fit</div>
+        <div class="refl-title">Why MedTech is the right field</div>
       </div>
-      <div class="insight-card">
-        <div class="ic-label">What I&apos;ve learned about myself</div>
-        <div class="ic-text">I need to understand the &ldquo;why&rdquo; behind what I&apos;m doing. When I understand the commercial or strategic purpose of a project, I naturally invest more, push further, and produce better work. When that context is absent, I&apos;m less effective. Going forward, I will proactively seek out that context &mdash; and offer it to others.</div>
+      <div class="refl-plus"></div>
+    </button>
+    <div class="refl-body"><div class="refl-inner"><div class="refl-content">
+      <div class="refl-text">
+        <p>Before Stryker, I knew I liked marketing. I was less certain about which type, for which organisation, in which market. The internship answered that in a way six months of lectures couldn&apos;t.</p>
+        <p><strong>MedTech combines the two things I find most motivating: analytical rigour and patient impact.</strong> The decisions Stryker makes about which instruments to develop, how to position them, and which procedures to target have real consequences for surgical outcomes. That proximity to purpose is not something I want to give up.</p>
+        <p>I came in thinking I might go into consumer marketing after graduating. I leave certain I want to stay in healthcare or medtech, where the stakes make the rigour worthwhile.</p>
       </div>
-    </div>
+      <div class="insight">
+        <div class="insight-label">Key insight</div>
+        <div class="insight-text">Purpose and commercial rigour reinforce each other in MedTech. Good marketing helps better instruments reach more surgeons, which improves patient outcomes. That alignment is what makes this sector feel meaningful to me.</div>
+      </div>
+    </div></div></div>
   </div>
-</section>
 
-<!-- COMPANY TYPE -->
-<section class="refl-section" id="environment">
-  <div class="section-tag">Work Environment</div>
-  <h2 class="section-title">The kind of company I want to <em>grow in</em></h2>
-  <div class="refl-grid">
-    <div class="refl-body">
-      <p>Stryker is a multinational with deep data infrastructure, a structured performance culture, and a genuinely warm team dynamic. Those three things together are rarer than they sound. Many large organisations have the structure without the warmth, or the warmth without the ambition. Stryker had all three.</p>
-      <p><strong>Working within a 5-country Northern Europe team</strong> meant constant cross-cultural exposure &mdash; different communication styles, different relationships to hierarchy, different paces of work. That was sometimes uncomfortable, but mostly exhilarating. I want to keep working internationally.</p>
-      <p>Critically, my manager Juha Soininen gave me <strong>full ownership of my projects</strong> from day one. He did not over-manage or micromanage. He set expectations, made himself available, and let me take responsibility for the quality of my output. That approach &mdash; stretching, trusting, and then recognising the result &mdash; is what I want from a future employer. It is also, I think, what I will eventually want to offer as a manager myself.</p>
-      <p>I want to work for an organisation that is data-driven, internationally oriented, and commercially ambitious &mdash; but that has not sacrificed its people culture in the process. Stryker showed me that combination exists.</p>
-    </div>
-    <div>
-      <div class="insight-card">
-        <div class="ic-label">What I need from a workplace</div>
-        <div class="ic-text">Autonomy over meaningful projects, a team I can learn from, and an environment that values rigour. I function best when I am trusted to determine the approach rather than given a checklist to follow.</div>
+  <div class="refl-item">
+    <button class="refl-trigger">
+      <div class="refl-trigger-icon">⚙️</div>
+      <div class="refl-trigger-main">
+        <div class="refl-label">Work Type</div>
+        <div class="refl-title">The kind of work I do best</div>
       </div>
-      <div class="insight-card">
-        <div class="ic-label">What Stryker gave me</div>
-        <div class="ic-text">A manager who championed my initiative. Colleagues who treated me as a peer rather than an intern. Projects that mattered to the business. The combination made me a better professional and a more confident one.</div>
+      <div class="refl-plus"></div>
+    </button>
+    <div class="refl-body"><div class="refl-inner"><div class="refl-content">
+      <div class="refl-text">
+        <p>Not all marketing work is the same. I have done execution, analysis, and creative communication during my internship &mdash; and I now know I add the most value <strong>at the intersection of analysis and communication</strong>.</p>
+        <p>I&apos;m energised by projects where I synthesise information into a clear narrative &mdash; an intelligence report, an event ROI analysis, a Copilot use case for a commercial team. At Stryker, Juha gave me <strong>ownership over projects rather than tasks within someone else&apos;s project</strong>. That model brings the best out of me.</p>
       </div>
-      <div class="insight-card">
-        <div class="ic-label">What I take forward</div>
-        <div class="ic-text">The bar. I now know what good looks like &mdash; how a high-performing commercial team operates, what it means to own a project professionally, and the standard of output that earns respect in a demanding business environment.</div>
+      <div class="insight">
+        <div class="insight-label">What I&apos;ve learned about myself</div>
+        <div class="insight-text">I need to understand the &ldquo;why&rdquo; behind what I&apos;m doing. When I understand the commercial or strategic purpose of a project, I naturally invest more and produce better work. Going forward, I&apos;ll proactively seek that context &mdash; and offer it to others.</div>
       </div>
-    </div>
+    </div></div></div>
   </div>
-</section>
+
+  <div class="refl-item">
+    <button class="refl-trigger">
+      <div class="refl-trigger-icon">🌍</div>
+      <div class="refl-trigger-main">
+        <div class="refl-label">Work Environment</div>
+        <div class="refl-title">The kind of company I want to grow in</div>
+      </div>
+      <div class="refl-plus"></div>
+    </button>
+    <div class="refl-body"><div class="refl-inner"><div class="refl-content">
+      <div class="refl-text">
+        <p>Stryker is a multinational with deep data infrastructure, a structured performance culture, and a genuinely warm team dynamic. Those three things together are rarer than they sound.</p>
+        <p>Working within a <strong>5-country Northern Europe team</strong> meant constant cross-cultural exposure &mdash; different communication styles, different relationships to hierarchy. That was sometimes uncomfortable, but mostly exhilarating. I want to keep working internationally.</p>
+        <p>Juha gave me <strong>full ownership of my projects from day one</strong>: set expectations, made himself available, let me take responsibility for the quality of output. That approach &mdash; stretching, trusting, then recognising the result &mdash; is what I want from a future employer and what I&apos;ll eventually want to offer as a manager myself.</p>
+      </div>
+      <div class="insight">
+        <div class="insight-label">What I take forward</div>
+        <div class="insight-text">The bar. I now know what good looks like &mdash; how a high-performing commercial team operates, what it means to own a project professionally, and the standard of output that earns respect in a demanding business environment.</div>
+      </div>
+    </div></div></div>
+  </div>
+
+</div>
 
 <!-- DEVELOPMENT POINTS -->
-<section class="dev-section" id="development">
-  <div class="section-tag">Areas for Growth</div>
-  <h2 class="section-title">Where I want to develop <em>further</em></h2>
-  <p class="section-sub" style="max-width:600px">Honest reflection means naming the gaps as clearly as the strengths. These four areas are where I know I have room to grow &mdash; and where I am actively investing.</p>
+<div class="dev-wrap">
+  <div class="label">Areas for Growth</div>
+  <h2>Where I want to <em>develop further</em></h2>
+  <p class="dev-sub">Honest reflection means naming the gaps as clearly as the strengths.</p>
   <div class="dev-grid">
     <div class="dev-card">
       <div class="dev-num">01</div>
-      <div class="dev-title">Advanced Data Analytics &mdash; Power BI &amp; SQL</div>
-      <div class="dev-body">My analysis work at Stryker relied on Excel and qualitative synthesis. I could see throughout the internship that Power BI and SQL skills would have made my market intelligence work faster and more visually compelling. These are tools I am actively learning, and I want my next role to accelerate that development &mdash; working in a data environment where dashboards and queries are part of daily work, not a specialist function.</div>
+      <div class="dev-title">Advanced Analytics &mdash; Power BI &amp; SQL</div>
+      <div class="dev-text">My analysis work relied on Excel and qualitative synthesis. Power BI and SQL would have made my intelligence work faster and more visually compelling. I&apos;m actively learning these &mdash; I want my next role to accelerate that development in a data environment where dashboards are daily work.</div>
     </div>
     <div class="dev-card">
       <div class="dev-num">02</div>
       <div class="dev-title">Senior Management Presentations</div>
-      <div class="dev-body">I presented the Copilot initiative and several project findings to my direct team with confidence. Presenting to C-suite or senior management &mdash; in a setting where time is limited, stakes are high, and the audience is sceptical &mdash; is a different skill. I want to put myself in those rooms earlier in my career rather than later, and I need to actively seek opportunities to present upward, not just laterally.</div>
+      <div class="dev-text">I presented to my direct team with confidence. Presenting to C-suite &mdash; limited time, high stakes, sceptical audience &mdash; is a different skill. I want to put myself in those rooms earlier in my career rather than later, and I&apos;ll actively seek opportunities to present upward.</div>
     </div>
     <div class="dev-card">
       <div class="dev-num">03</div>
       <div class="dev-title">Cross-Cultural Communication Depth</div>
-      <div class="dev-body">Working across a 5-country Northern Europe team gave me exposure to different communication styles, but I was mostly communicating in English &mdash; my strongest language. Building fluency in reading cultural signals more subtly, particularly in written communication, is an area I want to deepen. This is not a skill that can be learned from a course; it comes from time spent working closely with diverse teams.</div>
+      <div class="dev-text">The 5-country team gave me exposure, but mostly in English. Building fluency in reading cultural signals more subtly &mdash; especially in written communication &mdash; is something that only comes from time spent working closely with diverse teams over years.</div>
     </div>
     <div class="dev-card">
       <div class="dev-num">04</div>
-      <div class="dev-title">Regulatory &amp; Clinical Knowledge (MDR / CE Marking)</div>
-      <div class="dev-body">The Medical Device Regulation (MDR) framework and CE marking requirements are fundamental to how Stryker markets its products in Europe. During my internship, I encountered this context regularly but never dove deep into it. Understanding how regulatory constraints shape commercial and marketing decisions in MedTech is a genuine competitive advantage for a marketing professional in this sector &mdash; and something I want to develop as I continue in the field.</div>
+      <div class="dev-title">Regulatory Knowledge &mdash; MDR &amp; CE Marking</div>
+      <div class="dev-text">The EU Medical Device Regulation framework and CE marking are fundamental to how Stryker markets in Europe. I encountered this context regularly but never went deep. Understanding how regulatory constraints shape commercial decisions in MedTech is a genuine advantage for a marketing professional in this sector.</div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- FUTURE DIRECTION -->
-<section class="future-section" id="future">
-  <div class="future-inner">
-    <div>
-      <div class="future-tag">Looking Ahead</div>
-      <h2 class="future-title">Where I am going <em>from here</em></h2>
-      <div class="future-body">
-        <p>My goal after graduating is to secure a <strong>graduate internship or entry-level role at an international, data-driven organisation</strong> &mdash; preferably in MedTech, life sciences, or a similarly complex B2B sector where marketing requires genuine analytical depth alongside creative and communicative skill.</p>
-        <p>I am not looking for a generalist marketing role. I want to be in an environment where I am surrounded by people who are excellent at what they do, where data informs decisions rather than decorates them, and where I have real ownership of work that matters.</p>
-        <p>Stryker gave me a blueprint. I now know what I am looking for &mdash; and more importantly, I know what I have to offer. The combination of <strong>analytical thinking, commercial awareness, strong communication, and the adaptability to operate across domains</strong> is not common in a graduate. I want to find the organisation that will make the most of it.</p>
-      </div>
+<!-- LOOKING AHEAD — clean warm white, no dark blue -->
+<div class="future-wrap">
+  <div class="label">Looking Ahead</div>
+  <h2>Where I&apos;m going <em>from here</em></h2>
+  <div class="future-grid">
+    <div class="future-text">
+      <p>My goal after graduating is to secure a <strong>graduate role or internship at an international, data-driven organisation</strong> &mdash; preferably in MedTech, life sciences, or a similarly complex B2B sector where marketing requires genuine analytical depth alongside communicative skill.</p>
+      <p>I&apos;m not looking for a generalist marketing role. I want an environment where I&apos;m surrounded by people who are excellent at what they do, where data informs decisions, and where I have real ownership of work that matters.</p>
+      <p>Stryker gave me a blueprint. I now know what I&apos;m looking for &mdash; and what I have to offer. The combination of <strong>analytical thinking, commercial awareness, communication, and adaptability</strong> is not common in a graduate. I want to find the organisation that makes the most of it.</p>
     </div>
-    <div class="future-criteria">
+    <div class="criteria">
       <div class="criterion">
-        <div class="criterion-label">Organisation Type</div>
-        <div class="criterion-text">International, data-driven, with genuine product complexity &mdash; ideally MedTech, life sciences, or comparable B2B sector. Must have a performance culture that also values people.</div>
+        <div class="crit-label">Organisation type</div>
+        <div class="crit-text">International, data-driven, MedTech or complex B2B. Performance culture that also values people.</div>
       </div>
       <div class="criterion">
-        <div class="criterion-label">Role Characteristics</div>
-        <div class="criterion-text">Project ownership from early on. Analytical and communicative in equal measure. Cross-functional exposure. A manager who leads by trusting and stretching, not by controlling.</div>
+        <div class="crit-label">Role characteristics</div>
+        <div class="crit-text">Project ownership early on. Analytical and communicative in equal measure. A manager who leads by trusting, not controlling.</div>
       </div>
       <div class="criterion">
-        <div class="criterion-label">Development Priorities</div>
-        <div class="criterion-text">Power BI and SQL capability. Senior stakeholder exposure. International team dynamics. Regulatory market understanding in healthcare sectors.</div>
+        <div class="crit-label">Development priorities</div>
+        <div class="crit-text">Power BI and SQL. Senior stakeholder exposure. International team dynamics. Regulatory understanding in healthcare.</div>
       </div>
       <div class="criterion">
-        <div class="criterion-label">Longer-Term Ambition</div>
-        <div class="criterion-text">A commercial leadership role &mdash; marketing director or commercial strategy &mdash; at a company where the product genuinely improves lives. The combination of purpose and performance is non-negotiable.</div>
+        <div class="crit-label">Longer-term ambition</div>
+        <div class="crit-text">A commercial leadership role at a company where the product genuinely improves lives. Purpose and performance &mdash; both non-negotiable.</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<section id="contact">
+<!-- CONTACT -->
+<section id="contact" class="contact-wrap">
   <div class="contact-inner">
-    <div class="section-tag">Get in touch</div>
-    <h2 class="section-title">Let&apos;s build something <em>together</em></h2>
-    <p class="section-sub">If what you&apos;ve read resonates &mdash; or if you&apos;re looking for someone with exactly this kind of profile &mdash; I&apos;d love to have a conversation.</p>
+    <div class="label-light">Get in touch</div>
+    <h2>Let&apos;s connect <em>properly</em></h2>
+    <p class="contact-sub">If what you&apos;ve read resonates, I&apos;d love to have a conversation.</p>
     <div class="contact-links">
       <a href="mailto:charlotte.van.den.kerkhoff@hva.nl" class="contact-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        charlotte.van.den.kerkhoff@hva.nl
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email me
       </a>
       <a href="https://www.linkedin.com/in/charlottevandenkerkhoff" target="_blank" class="contact-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
-      <a href="projects.html" class="contact-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        View My Projects
-      </a>
+      <a href="projects.html" class="contact-link">View my projects</a>
     </div>
   </div>
 </section>
-
 <footer>
   <span>&copy; 2026 Charlotte van den Kerkhoff</span>
-  <a href="index.html">CVK</a>
+  <a href="#top">Back to top &uarr;</a>
 </footer>
 
+<script>
+const ham=document.getElementById('ham'),panel=document.getElementById('panel');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');panel.classList.toggle('open')});
+panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');panel.classList.remove('open')}));
+document.querySelectorAll('.refl-trigger').forEach(btn=>{
+  btn.addEventListener('click',()=>btn.closest('.refl-item').classList.toggle('open'));
+});
+</script>
 </body>
 </html>
