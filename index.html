@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charlotte van den Kerkhoff — Marketing Professional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --white: #ffffff;
+    --mid: #4a5568;
+    --light-grey: #e8e4dc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 4rem;
+    background: rgba(13,27,42,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; letter-spacing: 0.05em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.7);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important;
+    padding: 0.5rem 1.4rem; border-radius: 2px;
+    font-weight: 500 !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.03) 100%);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 2.5rem; height: 1px;
+    background: var(--gold);
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 900; line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+  .hero-name span { color: var(--gold); font-style: italic; }
+  .hero-desc {
+    font-size: 1.05rem; line-height: 1.8;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px; margin-bottom: 2.5rem;
+  }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 0.85rem 2rem; font-weight: 500;
+    font-size: 0.85rem; letter-spacing: 0.08em;
+    text-transform: uppercase; text-decoration: none;
+    border-radius: 2px; transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-secondary {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: var(--white); padding: 0.85rem 2rem;
+    font-weight: 500; font-size: 0.85rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px;
+    transition: all 0.2s; display: inline-block;
+  }
+  .btn-secondary:hover {
+    border-color: var(--gold); color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .hero-visual {
+    position: relative; z-index: 2;
+    display: flex; justify-content: flex-end;
+    align-items: center;
+  }
+  .hero-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px; padding: 2.5rem;
+    width: 360px; backdrop-filter: blur(8px);
+  }
+  .hero-card-label {
+    font-size: 0.72rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .hero-card-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  .hero-card-divider {
+    height: 1px; background: rgba(255,255,255,0.1);
+    margin-bottom: 1.5rem;
+  }
+  .stat-row { display: flex; gap: 2rem; margin-bottom: 1.5rem; }
+  .stat { }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 900; color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.75rem; color: rgba(255,255,255,0.5);
+    margin-top: 0.2rem; line-height: 1.3;
+  }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    font-size: 0.72rem; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold-light); padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+  }
+
+  /* ---- SECTION BASE ---- */
+  section { padding: 6rem 4rem; }
+  .section-eyebrow {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .section-eyebrow::before {
+    content: ''; display: block; width: 2rem; height: 1px;
+    background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    color: rgba(255,255,255,0.55);
+    font-size: 1rem; line-height: 1.7;
+    max-width: 580px;
+  }
+
+  /* ---- ABOUT ---- */
+  #about {
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start; margin-top: 3rem;
+  }
+  .about-text p {
+    color: rgba(255,255,255,0.7); line-height: 1.9;
+    margin-bottom: 1.2rem;
+  }
+  .about-text p strong { color: var(--white); }
+  .strength-list { list-style: none; margin-top: 2rem; }
+  .strength-list li {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .strength-list li:last-child { border-bottom: none; }
+  .strength-icon {
+    width: 2rem; height: 2rem; flex-shrink: 0;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; color: var(--gold);
+  }
+  .strength-text strong {
+    display: block; font-size: 0.9rem; margin-bottom: 0.2rem;
+  }
+  .strength-text span {
+    font-size: 0.82rem; color: rgba(255,255,255,0.5);
+  }
+
+  /* ---- PROJECTS ---- */
+  .projects-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-end; margin-bottom: 3rem;
+  }
+  .project-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .project-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px; padding: 2rem;
+    transition: all 0.3s; cursor: pointer;
+    text-decoration: none; color: inherit;
+    display: block;
+  }
+  .project-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    background: rgba(201,168,76,0.05);
+    transform: translateY(-4px);
+  }
+  .project-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 900;
+    color: rgba(201,168,76,0.2); line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .project-title {
+    font-weight: 500; font-size: 1rem;
+    margin-bottom: 0.6rem; line-height: 1.3;
+  }
+  .project-desc {
+    font-size: 0.83rem; color: rgba(255,255,255,0.5);
+    line-height: 1.6; margin-bottom: 1.2rem;
+  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .project-tag {
+    font-size: 0.68rem; text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold); padding: 0.2rem 0.5rem;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 2px;
+  }
+  .project-arrow {
+    display: block; text-align: right;
+    color: rgba(201,168,76,0.4);
+    font-size: 1.2rem; margin-top: 1rem;
+    transition: color 0.2s;
+  }
+  .project-card:hover .project-arrow { color: var(--gold); }
+
+  /* ---- SKILLS ---- */
+  #skills {
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1rem; margin-top: 3rem;
+  }
+  .skill-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px; padding: 1.5rem 1.2rem;
+    text-align: center; transition: all 0.3s;
+  }
+  .skill-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    background: rgba(201,168,76,0.04);
+  }
+  .skill-icon { font-size: 1.6rem; margin-bottom: 0.8rem; }
+  .skill-name {
+    font-weight: 500; font-size: 0.85rem;
+    margin-bottom: 0.3rem; color: var(--gold);
+  }
+  .skill-full { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+  .skill-dots { display: flex; justify-content: center; gap: 0.3rem; margin-top: 0.8rem; }
+  .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(201,168,76,0.2);
+  }
+  .dot.filled { background: var(--gold); }
+
+  /* ---- REFLECTION ---- */
+  .reflection-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 3rem; margin-top: 3rem;
+  }
+  .reflection-block {
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+  .reflection-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);
+  }
+  .reflection-block p {
+    font-size: 0.88rem; line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+  }
+  .reflection-block ul {
+    list-style: none; margin-top: 0.8rem;
+  }
+  .reflection-block ul li {
+    font-size: 0.85rem; color: rgba(255,255,255,0.6);
+    padding: 0.4rem 0;
+    display: flex; align-items: flex-start; gap: 0.6rem;
+  }
+  .reflection-block ul li::before {
+    content: '→'; color: var(--gold); flex-shrink: 0;
+    font-size: 0.8rem; margin-top: 0.1rem;
+  }
+
+  /* ---- CONTACT ---- */
+  #contact {
+    text-align: center;
+    background: linear-gradient(180deg, var(--navy) 0%, rgba(201,168,76,0.05) 100%);
+  }
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+  .contact-links {
+    display: flex; justify-content: center;
+    gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap;
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    font-size: 0.85rem; transition: color 0.2s;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 2px;
+  }
+  .contact-link:hover { color: var(--gold); border-color: rgba(201,168,76,0.4); }
+
+  /* ---- FOOTER ---- */
+  footer {
+    padding: 1.5rem 4rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem; color: rgba(255,255,255,0.3);
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ---- ANIMATIONS ---- */
+  .fade-up {
+    opacity: 0; transform: translateY(24px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.35s; }
+  .delay-4 { animation-delay: 0.5s; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+    .hero-visual { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid, .reflection-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .project-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">CVK</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="skills.html">CE-Skills</a></li>
+    <li><a href="reflection.html">Reflection</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow fade-up">Marketing Professional · HvA Commercial Economics</p>
+    <h1 class="hero-name fade-up delay-1">Charlotte<br>van den <span>Kerkhoff</span></h1>
+    <p class="hero-desc fade-up delay-2">
+      Data-driven marketing intern at Stryker Orthopaedic Instruments Northern Europe.
+      Turning complex market data into actionable strategy — across events, research, and AI adoption.
+    </p>
+    <div class="hero-buttons fade-up delay-3">
+      <a href="projects.html" class="btn-primary">View My Work</a>
+      <a href="reflection.html" class="btn-secondary">Young Professional</a>
+    </div>
+  </div>
+  <div class="hero-visual fade-up delay-4">
+    <div class="hero-card">
+      <div class="hero-card-label">Current Position</div>
+      <div class="hero-card-value">Marketing Intern NE<br>Stryker OI</div>
+      <div class="hero-card-divider"></div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-num">5</div>
+          <div class="stat-label">Major projects<br>completed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">80%</div>
+          <div class="stat-label">OI Academy 201<br>score</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Countries<br>collaborated</div>
+        </div>
+      </div>
+      <div class="tag-row">
+        <span class="tag">Event Management</span>
+        <span class="tag">Market Intelligence</span>
+        <span class="tag">AI Adoption</span>
+        <span class="tag">MedTech</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-eyebrow">About me</div>
+  <h2 class="section-title">Who I am as a professional</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a third-year <strong>Commercial Economics student at the Hogeschool van Amsterdam</strong>, currently completing my internship at Stryker Orthopaedic Instruments Northern Europe — a global leader in medical technology.</p>
+      <p>Over the past six months, I've operated at the intersection of <strong>marketing strategy, market intelligence, and operational excellence</strong>. From organising the LVO Congress in Hilversum to conducting a full warehouse audit in Mechelen, and introducing Microsoft Copilot to a pan-European team — I thrive when I can combine analytical thinking with clear communication.</p>
+      <p>I bring energy, structure, and curiosity to every project. I'm not afraid to question the status quo and I'm at my best when I have ownership and autonomy over a project with real business impact.</p>
+      <a href="reflection.html" class="btn-primary" style="margin-top:1rem;">Read my full reflection →</a>
+    </div>
+    <div>
+      <ul class="strength-list">
+        <li>
+          <div class="strength-icon">💡</div>
+          <div class="strength-text">
+            <strong>Critical Thinking</strong>
+            <span>Not just collecting data, but asking why — and what Stryker should do about it</span>
+          </div>
+        </li>
+        <li>
+          <div class="strength-icon">🤝</div>
+          <div class="strength-text">
+            <strong>Cross-functional Collaboration</strong>
+            <span>Bridging marketing, sales, compliance and logistics across NL, BE, FI, NO, SE</span>
+          </div>
+        </li>
+        <li>
+          <div class="strength-icon">📊</div>
+          <div class="strength-text">
+            <strong>Commercial Awareness</strong>
+            <span>Translating event investment into measurable leads; market data into portfolio advice</span>
+          </div>
+        </li>
+        <li>
+          <div class="strength-icon">⚡</div>
+          <div class="strength-text">
+            <strong>Adaptability</strong>
+            <span>From medical product training to AI demos — I pick up new domains fast</span>
+          </div>
+        </li>
+        <li>
+          <div class="strength-icon">🎯</div>
+          <div class="strength-text">
+            <strong>Communication</strong>
+            <span>Making complex information clear — whether for a surgeon, a sales rep, or a CFO</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-header">
+    <div>
+      <div class="section-eyebrow">My work</div>
+      <h2 class="section-title">Projects at Stryker</h2>
+    </div>
+    <a href="projects.html" class="btn-secondary">View all →</a>
+  </div>
+  <div class="project-grid">
+    <a href="projects.html#event" class="project-card">
+      <div class="project-num">01</div>
+      <div class="project-title">LVO Congress & Event Management</div>
+      <div class="project-desc">End-to-end organisation of the LVO Congress 2026 in Hilversum — from compliance approval and logistics to lead generation via MS Forms.</div>
+      <div class="project-tags">
+        <span class="project-tag">Event Management</span>
+        <span class="project-tag">ROI</span>
+        <span class="project-tag">Compliance</span>
+      </div>
+      <span class="project-arrow">→</span>
+    </a>
+    <a href="projects.html#market" class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-title">Market Intelligence — MIS Foot & Orthognathic</div>
+      <div class="project-desc">Full market analysis of minimally invasive foot surgery trends in the Benelux, including competitive positioning and strategic recommendations for the sales team.</div>
+      <div class="project-tags">
+        <span class="project-tag">Research</span>
+        <span class="project-tag">MedTech</span>
+        <span class="project-tag">Strategy</span>
+      </div>
+      <span class="project-arrow">→</span>
+    </a>
+    <a href="projects.html#jetpak" class="project-card">
+      <div class="project-num">03</div>
+      <div class="project-title">Jetpak Warehouse Audit & Inventory System</div>
+      <div class="project-desc">On-site audit of Stryker's marketing materials warehouse in Mechelen. Identified root causes of inventory failures and proposed a kit-based traceability system.</div>
+      <div class="project-tags">
+        <span class="project-tag">Operations</span>
+        <span class="project-tag">Stakeholder Mgmt</span>
+      </div>
+      <span class="project-arrow">→</span>
+    </a>
+    <a href="projects.html#ai" class="project-card">
+      <div class="project-num">04</div>
+      <div class="project-title">Microsoft Copilot Adoption Initiative</div>
+      <div class="project-desc">Designed and delivered 'The 15-Minute Gift' demo to the Northern Europe team across 5 countries. Created a Stryker-specific Copilot Cheat Sheet.</div>
+      <div class="project-tags">
+        <span class="project-tag">AI</span>
+        <span class="project-tag">Training</span>
+        <span class="project-tag">Change Mgmt</span>
+      </div>
+      <span class="project-arrow">→</span>
+    </a>
+    <a href="projects.html#training" class="project-card">
+      <div class="project-num">05</div>
+      <div class="project-title">OI Academy 201 — Technical Certification</div>
+      <div class="project-desc">Completed Stryker's official sales training for Orthopaedic Instruments alongside the commercial team. Scored 80% on the final assessment.</div>
+      <div class="project-tags">
+        <span class="project-tag">Product Knowledge</span>
+        <span class="project-tag">MedTech</span>
+      </div>
+      <span class="project-arrow">→</span>
+    </a>
+    <a href="reflection.html" class="project-card" style="background:rgba(201,168,76,0.05); border-color:rgba(201,168,76,0.25);">
+      <div class="project-num" style="color:rgba(201,168,76,0.5);">→</div>
+      <div class="project-title">Young Professional Reflection</div>
+      <div class="project-desc">Looking back at what this internship has brought me — and looking forward at where I want to go next in my career.</div>
+      <div class="project-tags">
+        <span class="project-tag">Reflection</span>
+        <span class="project-tag">Growth</span>
+      </div>
+      <span class="project-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-eyebrow">CE-Skills</div>
+  <h2 class="section-title">Professional Competencies</h2>
+  <p class="section-sub">The five CE-skills framework from HvA Commercial Economics — developed and demonstrated throughout my internship at Stryker.</p>
+  <div class="skills-grid">
+    <a href="skills.html#kd" class="skill-card" style="text-decoration:none;color:inherit;">
+      <div class="skill-icon">🧠</div>
+      <div class="skill-name">KD</div>
+      <div class="skill-full">Kritisch Denken</div>
+      <div class="skill-dots">
+        <div class="dot filled"></div><div class="dot filled"></div>
+        <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+      </div>
+    </a>
+    <a href="skills.html#sw" class="skill-card" style="text-decoration:none;color:inherit;">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-name">SW</div>
+      <div class="skill-full">Samenwerken</div>
+      <div class="skill-dots">
+        <div class="dot filled"></div><div class="dot filled"></div>
+        <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+      </div>
+    </a>
+    <a href="skills.html#cb" class="skill-card" style="text-decoration:none;color:inherit;">
+      <div class="skill-icon">💼</div>
+      <div class="skill-name">CB</div>
+      <div class="skill-full">Commercieel Bewustzijn</div>
+      <div class="skill-dots">
+        <div class="dot filled"></div><div class="dot filled"></div>
+        <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+      </div>
+    </a>
+    <a href="skills.html#av" class="skill-card" style="text-decoration:none;color:inherit;">
+      <div class="skill-icon">⚡</div>
+      <div class="skill-name">AV</div>
+      <div class="skill-full">Aanpassingsvermogen</div>
+      <div class="skill-dots">
+        <div class="dot filled"></div><div class="dot filled"></div>
+        <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+      </div>
+    </a>
+    <a href="skills.html#co" class="skill-card" style="text-decoration:none;color:inherit;">
+      <div class="skill-icon">📢</div>
+      <div class="skill-name">CO</div>
+      <div class="skill-full">Communicatie</div>
+      <div class="skill-dots">
+        <div class="dot filled"></div><div class="dot filled"></div>
+        <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+      </div>
+    </a>
+  </div>
+  <div style="text-align:center;margin-top:2.5rem;">
+    <a href="skills.html" class="btn-secondary">Explore all CE-Skills →</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-eyebrow" style="justify-content:center;">Get in touch</div>
+    <h2 class="section-title">Let's connect</h2>
+    <p class="section-sub" style="margin:0 auto 1rem;">Interested in working together, or want to know more about my work at Stryker? I'd love to hear from you.</p>
+    <div class="contact-links">
+      <a href="mailto:charlotte.van.den.kerkhoff@hva.nl" class="contact-link">✉️ charlotte.van.den.kerkhoff@hva.nl</a>
+      <a href="https://www.linkedin.com/in/charlottevandenkerkhoff" target="_blank" class="contact-link">💼 LinkedIn</a>
+      <a href="projects.html" class="btn-primary">View My Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Charlotte van den Kerkhoff</span>
+  <span>HvA Commercial Economics · Stage Jaar 3 · <a href="#">Digital Professional Brand</a></span>
+</footer>
+
+</body>
+</html>
