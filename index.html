@@ -5,398 +5,185 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Charlotte van den Kerkhoff — Marketing Professional</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0d1b2a;
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --cream: #f5f0e8;
-    --white: #ffffff;
-    --mid: #4a5568;
-    --light-grey: #e8e4dc;
+    --cream: #FAF8F4;
+    --cream-mid: #F0EDE6;
+    --cream-dark: #E3DDD3;
+    --green: #1C3A2E;
+    --green-mid: #2D5243;
+    --green-pale: #EBF1ED;
+    --gold: #C8A96E;
+    --gold-light: #E2C98C;
+    --gold-pale: #F7F0E3;
+    --charcoal: #1C1C1C;
+    --gray: #6B6B6B;
+    --white: #FFFFFF;
+    --s-blue: #1B3A6B;
+    --s-yellow: #F39100;
+    --s-pastel: #6D9FB5;
+    --s-light: #F5F4EF;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--charcoal); overflow-x: hidden; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--navy);
-    color: var(--white);
-    overflow-x: hidden;
-  }
-
-  /* ---- NAV ---- */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.4rem 4rem;
-    background: rgba(13,27,42,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 1.2rem 5rem;
+    background: rgba(250,248,244,0.94); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.07);
   }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem; letter-spacing: 0.05em;
-    color: var(--gold);
-    text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: rgba(255,255,255,0.7);
-    text-decoration: none; transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    background: var(--gold); color: var(--navy) !important;
-    padding: 0.5rem 1.4rem; border-radius: 2px;
-    font-weight: 500 !important;
-  }
-  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+  .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:600; letter-spacing:0.04em; color:var(--green); text-decoration:none; }
+  .nav-links { display:flex; gap:2.5rem; list-style:none; align-items:center; }
+  .nav-links a { font-size:0.78rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--gray); text-decoration:none; transition:color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color:var(--green); }
+  .nav-cta { background:var(--green)!important; color:var(--white)!important; padding:0.55rem 1.5rem; border-radius:100px; box-shadow:0 3px 14px rgba(28,58,46,0.28); transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.28s ease!important; }
+  .nav-cta:hover { transform:translateY(-3px) scale(1.03)!important; box-shadow:0 7px 22px rgba(28,58,46,0.33)!important; color:var(--white)!important; }
 
-  /* ---- HERO ---- */
-  .hero {
-    min-height: 100vh;
-    display: grid; grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 8rem 4rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; top: 0; right: 0;
-    width: 55%; height: 100%;
-    background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.03) 100%);
-    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
-  }
-  .hero-text { position: relative; z-index: 2; }
-  .hero-eyebrow {
-    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--gold);
-    display: flex; align-items: center; gap: 0.8rem;
-    margin-bottom: 1.5rem;
-  }
-  .hero-eyebrow::before {
-    content: ''; display: block; width: 2.5rem; height: 1px;
-    background: var(--gold);
-  }
-  .hero-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    font-weight: 900; line-height: 1.05;
-    margin-bottom: 1.5rem;
-  }
-  .hero-name span { color: var(--gold); font-style: italic; }
-  .hero-desc {
-    font-size: 1.05rem; line-height: 1.8;
-    color: rgba(255,255,255,0.65);
-    max-width: 480px; margin-bottom: 2.5rem;
-  }
-  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--gold); color: var(--navy);
-    padding: 0.85rem 2rem; font-weight: 500;
-    font-size: 0.85rem; letter-spacing: 0.08em;
-    text-transform: uppercase; text-decoration: none;
-    border-radius: 2px; transition: all 0.2s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-  .btn-secondary {
-    border: 1px solid rgba(255,255,255,0.25);
-    color: var(--white); padding: 0.85rem 2rem;
-    font-weight: 500; font-size: 0.85rem;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    text-decoration: none; border-radius: 2px;
-    transition: all 0.2s; display: inline-block;
-  }
-  .btn-secondary:hover {
-    border-color: var(--gold); color: var(--gold);
-    transform: translateY(-2px);
-  }
-  .hero-visual {
-    position: relative; z-index: 2;
-    display: flex; justify-content: flex-end;
-    align-items: center;
-  }
-  .hero-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 4px; padding: 2.5rem;
-    width: 360px; backdrop-filter: blur(8px);
-  }
-  .hero-card-label {
-    font-size: 0.72rem; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-  .hero-card-value {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem; font-weight: 700;
-    margin-bottom: 1.5rem;
-  }
-  .hero-card-divider {
-    height: 1px; background: rgba(255,255,255,0.1);
-    margin-bottom: 1.5rem;
-  }
-  .stat-row { display: flex; gap: 2rem; margin-bottom: 1.5rem; }
-  .stat { }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem; font-weight: 900; color: var(--gold);
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: 0.75rem; color: rgba(255,255,255,0.5);
-    margin-top: 0.2rem; line-height: 1.3;
-  }
-  .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .tag {
-    font-size: 0.72rem; letter-spacing: 0.06em;
-    text-transform: uppercase;
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.25);
-    color: var(--gold-light); padding: 0.3rem 0.7rem;
-    border-radius: 2px;
-  }
+  /* BUTTONS */
+  .btn-primary { background:var(--green); color:var(--white); padding:0.9rem 2.3rem; border-radius:100px; font-family:'Jost',sans-serif; font-weight:500; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; display:inline-block; box-shadow:0 5px 18px rgba(28,58,46,0.26),0 2px 6px rgba(28,58,46,0.15); transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease; }
+  .btn-primary:hover { transform:translateY(-5px) scale(1.03); box-shadow:0 12px 30px rgba(28,58,46,0.3),0 5px 12px rgba(28,58,46,0.18); color:var(--white); }
+  .btn-primary:active { transform:translateY(-1px) scale(0.99); }
+  .btn-secondary { background:transparent; color:var(--green); padding:0.9rem 2.3rem; border-radius:100px; font-family:'Jost',sans-serif; font-weight:500; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; display:inline-block; border:1.5px solid var(--green); box-shadow:0 3px 12px rgba(28,58,46,0.1); transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease,background 0.2s; }
+  .btn-secondary:hover { transform:translateY(-5px) scale(1.03); background:var(--green-pale); box-shadow:0 10px 26px rgba(28,58,46,0.14),0 4px 10px rgba(28,58,46,0.1); color:var(--green); }
+  .btn-secondary:active { transform:translateY(-1px) scale(0.99); }
+  .btn-gold { background:var(--gold); color:var(--white); padding:0.9rem 2.3rem; border-radius:100px; font-family:'Jost',sans-serif; font-weight:500; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; display:inline-block; box-shadow:0 5px 18px rgba(200,169,110,0.38),0 2px 6px rgba(200,169,110,0.2); transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease; }
+  .btn-gold:hover { transform:translateY(-5px) scale(1.03); box-shadow:0 12px 30px rgba(200,169,110,0.42),0 5px 12px rgba(200,169,110,0.25); color:var(--white); }
+  .btn-gold:active { transform:translateY(-1px) scale(0.99); }
 
-  /* ---- SECTION BASE ---- */
-  section { padding: 6rem 4rem; }
-  .section-eyebrow {
-    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--gold);
-    display: flex; align-items: center; gap: 0.8rem;
-    margin-bottom: 1rem;
-  }
-  .section-eyebrow::before {
-    content: ''; display: block; width: 2rem; height: 1px;
-    background: var(--gold);
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
-    font-weight: 700; line-height: 1.15;
-    margin-bottom: 1rem;
-  }
-  .section-sub {
-    color: rgba(255,255,255,0.55);
-    font-size: 1rem; line-height: 1.7;
-    max-width: 580px;
-  }
+  /* HERO */
+  .hero { min-height:100vh; display:grid; grid-template-columns:1fr 420px; gap:5rem; align-items:center; padding:8rem 5rem 5rem; position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 65% 80% at 80% 50%, var(--green-pale) 0%, transparent 68%); pointer-events:none; }
+  .hero-text { position:relative; z-index:2; }
+  .hero-eyebrow { display:inline-flex; align-items:center; gap:0.7rem; background:var(--white); color:var(--green-mid); padding:0.45rem 1.1rem; border-radius:100px; font-size:0.73rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:2rem; box-shadow:0 2px 12px rgba(0,0,0,0.07); border:1px solid var(--cream-dark); }
+  .eyebrow-dot { width:7px; height:7px; border-radius:50%; background:var(--gold); }
+  .hero-name { font-family:'Cormorant Garamond',serif; font-size:clamp(3.2rem,5.5vw,5.2rem); font-weight:600; line-height:1.06; margin-bottom:1.8rem; color:var(--charcoal); }
+  .hero-name em { font-style:italic; color:var(--green); }
+  .hero-desc { font-size:1rem; line-height:1.88; color:var(--gray); max-width:440px; margin-bottom:2.5rem; }
+  .hero-buttons { display:flex; gap:1rem; flex-wrap:wrap; }
+  .hero-stats { display:flex; gap:3rem; margin-top:3.5rem; padding-top:2.5rem; border-top:1px solid var(--cream-dark); }
+  .stat-num { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:700; color:var(--green); line-height:1; }
+  .stat-label { font-size:0.73rem; color:var(--gray); margin-top:0.2rem; line-height:1.4; }
 
-  /* ---- ABOUT ---- */
-  #about {
-    background: rgba(255,255,255,0.02);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-  .about-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; align-items: start; margin-top: 3rem;
-  }
-  .about-text p {
-    color: rgba(255,255,255,0.7); line-height: 1.9;
-    margin-bottom: 1.2rem;
-  }
-  .about-text p strong { color: var(--white); }
-  .strength-list { list-style: none; margin-top: 2rem; }
-  .strength-list li {
-    display: flex; align-items: flex-start; gap: 1rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
-  .strength-list li:last-child { border-bottom: none; }
-  .strength-icon {
-    width: 2rem; height: 2rem; flex-shrink: 0;
-    background: rgba(201,168,76,0.12);
-    border: 1px solid rgba(201,168,76,0.25);
-    border-radius: 2px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.85rem; color: var(--gold);
-  }
-  .strength-text strong {
-    display: block; font-size: 0.9rem; margin-bottom: 0.2rem;
-  }
-  .strength-text span {
-    font-size: 0.82rem; color: rgba(255,255,255,0.5);
-  }
+  /* PHOTO */
+  .hero-visual { position:relative; z-index:2; display:flex; justify-content:center; align-items:center; }
+  .photo-wrap { position:relative; width:380px; height:500px; }
+  .photo-bg { position:absolute; top:-24px; right:-24px; width:100%; height:100%; background:linear-gradient(135deg,var(--green-pale) 0%,var(--cream-mid) 100%); border-radius:48% 52% 46% 54%/44% 46% 54% 56%; z-index:0; }
+  .photo-dot { position:absolute; bottom:-12px; left:-12px; width:72px; height:72px; border-radius:50%; background:var(--gold-pale); border:2px solid var(--gold); z-index:0; }
+  .photo-dot-2 { position:absolute; top:40px; right:-30px; width:36px; height:36px; border-radius:50%; background:var(--green); opacity:0.18; z-index:0; }
+  .photo-frame { position:relative; z-index:1; width:100%; height:100%; border-radius:44% 56% 46% 54%/40% 42% 58% 60%; overflow:hidden; box-shadow:0 24px 64px rgba(28,58,46,0.18),0 8px 24px rgba(28,58,46,0.1); background:linear-gradient(160deg,var(--green-pale) 0%,var(--cream-dark) 100%); }
+  .photo-frame img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
 
-  /* ---- PROJECTS ---- */
-  .projects-header {
-    display: flex; justify-content: space-between;
-    align-items: flex-end; margin-bottom: 3rem;
-  }
-  .project-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  .project-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 4px; padding: 2rem;
-    transition: all 0.3s; cursor: pointer;
-    text-decoration: none; color: inherit;
-    display: block;
-  }
-  .project-card:hover {
-    border-color: rgba(201,168,76,0.4);
-    background: rgba(201,168,76,0.05);
-    transform: translateY(-4px);
-  }
-  .project-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem; font-weight: 900;
-    color: rgba(201,168,76,0.2); line-height: 1;
-    margin-bottom: 1rem;
-  }
-  .project-title {
-    font-weight: 500; font-size: 1rem;
-    margin-bottom: 0.6rem; line-height: 1.3;
-  }
-  .project-desc {
-    font-size: 0.83rem; color: rgba(255,255,255,0.5);
-    line-height: 1.6; margin-bottom: 1.2rem;
-  }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .project-tag {
-    font-size: 0.68rem; text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--gold); padding: 0.2rem 0.5rem;
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 2px;
-  }
-  .project-arrow {
-    display: block; text-align: right;
-    color: rgba(201,168,76,0.4);
-    font-size: 1.2rem; margin-top: 1rem;
-    transition: color 0.2s;
-  }
-  .project-card:hover .project-arrow { color: var(--gold); }
+  /* SECTIONS */
+  section { padding:6rem 5rem; }
+  .section-tag { display:flex; align-items:center; gap:0.7rem; color:var(--green-mid); font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.8rem; }
+  .section-tag::before { content:''; display:block; width:2rem; height:1.5px; background:var(--gold); flex-shrink:0; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,2.8rem); font-weight:600; line-height:1.2; color:var(--charcoal); margin-bottom:1rem; }
+  .section-title em { color:var(--green); font-style:italic; }
+  .section-sub { color:var(--gray); font-size:0.97rem; line-height:1.78; max-width:560px; }
 
-  /* ---- SKILLS ---- */
-  #skills {
-    background: rgba(255,255,255,0.02);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-  .skills-grid {
-    display: grid; grid-template-columns: repeat(5, 1fr);
-    gap: 1rem; margin-top: 3rem;
-  }
-  .skill-card {
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 4px; padding: 1.5rem 1.2rem;
-    text-align: center; transition: all 0.3s;
-  }
-  .skill-card:hover {
-    border-color: rgba(201,168,76,0.4);
-    background: rgba(201,168,76,0.04);
-  }
-  .skill-icon { font-size: 1.6rem; margin-bottom: 0.8rem; }
-  .skill-name {
-    font-weight: 500; font-size: 0.85rem;
-    margin-bottom: 0.3rem; color: var(--gold);
-  }
-  .skill-full { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
-  .skill-dots { display: flex; justify-content: center; gap: 0.3rem; margin-top: 0.8rem; }
-  .dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: rgba(201,168,76,0.2);
-  }
-  .dot.filled { background: var(--gold); }
+  /* ABOUT */
+  #about { background:var(--white); }
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; margin-top:3rem; }
+  .about-text p { color:var(--gray); line-height:1.92; margin-bottom:1.2rem; font-size:0.97rem; }
+  .about-text p strong { color:var(--charcoal); font-weight:600; }
+  .strength-list { list-style:none; }
+  .strength-item { display:flex; align-items:flex-start; gap:1.2rem; padding:1.2rem 0; border-bottom:1px solid var(--cream-mid); }
+  .strength-item:last-child { border-bottom:none; }
+  .strength-icon { width:2.6rem; height:2.6rem; flex-shrink:0; background:var(--green-pale); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.05rem; }
+  .strength-text strong { display:block; font-size:0.9rem; font-weight:600; color:var(--charcoal); margin-bottom:0.2rem; }
+  .strength-text span { font-size:0.82rem; color:var(--gray); line-height:1.55; }
 
-  /* ---- REFLECTION ---- */
-  .reflection-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 3rem; margin-top: 3rem;
-  }
-  .reflection-block {
-    border-left: 2px solid var(--gold);
-    padding-left: 1.5rem;
-  }
-  .reflection-block h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);
-  }
-  .reflection-block p {
-    font-size: 0.88rem; line-height: 1.8;
-    color: rgba(255,255,255,0.6);
-  }
-  .reflection-block ul {
-    list-style: none; margin-top: 0.8rem;
-  }
-  .reflection-block ul li {
-    font-size: 0.85rem; color: rgba(255,255,255,0.6);
-    padding: 0.4rem 0;
-    display: flex; align-items: flex-start; gap: 0.6rem;
-  }
-  .reflection-block ul li::before {
-    content: '→'; color: var(--gold); flex-shrink: 0;
-    font-size: 0.8rem; margin-top: 0.1rem;
-  }
+  /* STRYKER */
+  #stryker-projects { background:var(--s-blue); padding:6rem 5rem; position:relative; overflow:hidden; }
+  #stryker-projects::before { content:''; position:absolute; top:-120px; right:-120px; width:560px; height:560px; background:radial-gradient(circle,rgba(243,145,0,0.1) 0%,transparent 70%); pointer-events:none; }
+  #stryker-projects::after { content:''; position:absolute; bottom:-80px; left:-80px; width:360px; height:360px; background:radial-gradient(circle,rgba(109,159,181,0.12) 0%,transparent 70%); pointer-events:none; }
+  .stryker-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:3rem; position:relative; z-index:1; }
+  .stryker-tag { font-size:0.7rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--s-yellow); display:flex; align-items:center; gap:0.7rem; margin-bottom:0.7rem; }
+  .stryker-tag::before { content:''; display:block; width:2rem; height:1.5px; background:var(--s-yellow); }
+  .stryker-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,2.8rem); font-weight:600; color:var(--white); line-height:1.2; }
+  .stryker-title em { color:var(--s-yellow); font-style:italic; }
+  .stryker-sub { color:rgba(255,255,255,0.45); font-size:0.88rem; margin-top:0.5rem; }
+  .project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; position:relative; z-index:1; }
+  .project-card { background:var(--s-light); border-radius:18px; padding:2rem; text-decoration:none; color:var(--charcoal); display:block; position:relative; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.18); transition:transform 0.32s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.32s ease; }
+  .project-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--s-yellow); transform:scaleX(0); transform-origin:left; transition:transform 0.3s ease; }
+  .project-card:hover { transform:translateY(-10px) scale(1.01); box-shadow:0 18px 48px rgba(0,0,0,0.24); }
+  .project-card:hover::after { transform:scaleX(1); }
+  .project-num { font-family:'Cormorant Garamond',serif; font-size:3.2rem; font-weight:700; color:rgba(27,58,107,0.12); line-height:1; margin-bottom:0.8rem; }
+  .project-name { font-weight:600; font-size:0.95rem; color:var(--s-blue); margin-bottom:0.6rem; line-height:1.4; }
+  .project-desc { font-size:0.82rem; color:var(--gray); line-height:1.7; margin-bottom:1.2rem; }
+  .project-tags { display:flex; flex-wrap:wrap; gap:0.4rem; }
+  .project-tag { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.07em; font-weight:600; color:var(--s-blue); padding:0.22rem 0.65rem; background:rgba(27,58,107,0.08); border-radius:100px; }
+  .project-arrow { display:block; text-align:right; margin-top:1rem; color:var(--s-pastel); font-size:1.1rem; transition:color 0.2s,transform 0.2s; }
+  .project-card:hover .project-arrow { color:var(--s-yellow); transform:translateX(5px); }
+  .project-card.card-special { background:rgba(255,255,255,0.06); border:1.5px solid rgba(243,145,0,0.4); }
+  .project-card.card-special .project-num { color:rgba(243,145,0,0.18); }
+  .project-card.card-special .project-name { color:var(--s-yellow); }
+  .project-card.card-special .project-desc { color:rgba(255,255,255,0.55); }
+  .project-card.card-special .project-tag { color:var(--s-yellow); background:rgba(243,145,0,0.1); }
 
-  /* ---- CONTACT ---- */
-  #contact {
-    text-align: center;
-    background: linear-gradient(180deg, var(--navy) 0%, rgba(201,168,76,0.05) 100%);
-  }
-  .contact-inner { max-width: 600px; margin: 0 auto; }
-  .contact-links {
-    display: flex; justify-content: center;
-    gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap;
-  }
-  .contact-link {
-    display: flex; align-items: center; gap: 0.6rem;
-    color: rgba(255,255,255,0.6); text-decoration: none;
-    font-size: 0.85rem; transition: color 0.2s;
-    padding: 0.6rem 1.2rem;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 2px;
-  }
-  .contact-link:hover { color: var(--gold); border-color: rgba(201,168,76,0.4); }
+  /* SKILLS */
+  #skills { background:var(--cream); }
+  .skills-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1.2rem; margin-top:3rem; }
+  .skill-card { background:var(--white); border-radius:18px; padding:1.8rem 1.2rem; text-align:center; box-shadow:0 2px 18px rgba(0,0,0,0.05),0 1px 4px rgba(0,0,0,0.04); text-decoration:none; color:inherit; transition:transform 0.32s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.32s ease; display:block; }
+  .skill-card:hover { transform:translateY(-10px) scale(1.02); box-shadow:0 14px 36px rgba(28,58,46,0.13),0 5px 14px rgba(28,58,46,0.08); }
+  .skill-icon { font-size:1.7rem; margin-bottom:0.8rem; }
+  .skill-abbr { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:700; color:var(--green); line-height:1; margin-bottom:0.3rem; }
+  .skill-name { font-size:0.73rem; color:var(--gray); font-weight:400; line-height:1.3; }
+  .skill-bar { height:3px; background:var(--cream-dark); border-radius:2px; overflow:hidden; margin-top:1rem; }
+  .skill-fill { height:100%; background:linear-gradient(90deg,var(--green),var(--gold)); border-radius:2px; }
 
-  /* ---- FOOTER ---- */
-  footer {
-    padding: 1.5rem 4rem;
-    border-top: 1px solid rgba(255,255,255,0.07);
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.78rem; color: rgba(255,255,255,0.3);
-  }
-  footer a { color: var(--gold); text-decoration: none; }
+  /* CONTACT */
+  #contact { background:var(--green); text-align:center; }
+  .contact-inner { max-width:620px; margin:0 auto; }
+  #contact .section-tag { color:var(--gold-light); justify-content:center; }
+  #contact .section-tag::before { background:var(--gold); }
+  #contact .section-title { color:var(--white); }
+  #contact .section-title em { color:var(--gold-light); }
+  #contact .section-sub { color:rgba(255,255,255,0.6); margin:0 auto 2rem; }
+  .contact-links { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:2rem; }
+  .contact-link { display:flex; align-items:center; gap:0.6rem; color:rgba(255,255,255,0.72); text-decoration:none; font-size:0.82rem; padding:0.72rem 1.5rem; border:1px solid rgba(255,255,255,0.2); border-radius:100px; box-shadow:0 2px 10px rgba(0,0,0,0.1); transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),border-color 0.2s,color 0.2s,background 0.2s,box-shadow 0.3s; }
+  .contact-link:hover { transform:translateY(-4px) scale(1.02); border-color:var(--gold-light); color:var(--white); background:rgba(255,255,255,0.08); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
 
-  /* ---- ANIMATIONS ---- */
-  .fade-up {
-    opacity: 0; transform: translateY(24px);
-    animation: fadeUp 0.7s ease forwards;
-  }
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.35s; }
-  .delay-4 { animation-delay: 0.5s; }
+  /* FOOTER */
+  footer { padding:1.8rem 5rem; background:var(--charcoal); display:flex; justify-content:space-between; align-items:center; font-size:0.76rem; color:rgba(255,255,255,0.3); }
+  footer a { color:var(--gold); text-decoration:none; }
 
-  @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
-    .hero-visual { display: none; }
-    section { padding: 4rem 1.5rem; }
-    .about-grid, .reflection-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .project-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: repeat(2, 1fr); }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  /* ANIMATIONS */
+  .fade-up { opacity:0; transform:translateY(28px); animation:fadeUp 0.8s cubic-bezier(0.34,1.2,0.64,1) forwards; }
+  @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+  .d1 { animation-delay:0.1s; }
+  .d2 { animation-delay:0.25s; }
+  .d3 { animation-delay:0.4s; }
+  .d4 { animation-delay:0.55s; }
+  .d5 { animation-delay:0.7s; }
+
+  @media (max-width:1100px) {
+    .hero { grid-template-columns:1fr; text-align:center; padding:7rem 2.5rem 4rem; gap:3rem; }
+    .hero-visual { justify-content:center; }
+    .hero-buttons { justify-content:center; }
+    .hero-stats { justify-content:center; }
+    .hero-desc { max-width:100%; }
+    .photo-wrap { width:280px; height:360px; }
+  }
+  @media (max-width:900px) {
+    nav { padding:1rem 1.5rem; }
+    .nav-links { display:none; }
+    section,#stryker-projects,footer { padding-left:1.5rem; padding-right:1.5rem; }
+    .about-grid { grid-template-columns:1fr; gap:2.5rem; }
+    .project-grid { grid-template-columns:1fr; }
+    .skills-grid { grid-template-columns:repeat(2,1fr); }
+    footer { flex-direction:column; gap:0.5rem; text-align:center; }
+    .stryker-header { flex-direction:column; align-items:flex-start; gap:1.5rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">CVK</a>
   <ul class="nav-links">
@@ -408,252 +195,198 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <p class="hero-eyebrow fade-up">Marketing Professional · HvA Commercial Economics</p>
-    <h1 class="hero-name fade-up delay-1">Charlotte<br>van den <span>Kerkhoff</span></h1>
-    <p class="hero-desc fade-up delay-2">
+    <div class="hero-eyebrow fade-up">
+      <span class="eyebrow-dot"></span>
+      Marketing Professional &middot; HvA Commercial Economics
+    </div>
+    <h1 class="hero-name fade-up d1">
+      Charlotte<br>van den <em>Kerkhoff</em>
+    </h1>
+    <p class="hero-desc fade-up d2">
       Data-driven marketing intern at Stryker Orthopaedic Instruments Northern Europe.
-      Turning complex market data into actionable strategy — across events, research, and AI adoption.
+      Turning complex market data into actionable strategy &mdash; across events, research, and AI adoption.
     </p>
-    <div class="hero-buttons fade-up delay-3">
+    <div class="hero-buttons fade-up d3">
       <a href="projects.html" class="btn-primary">View My Work</a>
       <a href="reflection.html" class="btn-secondary">Young Professional</a>
     </div>
-  </div>
-  <div class="hero-visual fade-up delay-4">
-    <div class="hero-card">
-      <div class="hero-card-label">Current Position</div>
-      <div class="hero-card-value">Marketing Intern NE<br>Stryker OI</div>
-      <div class="hero-card-divider"></div>
-      <div class="stat-row">
-        <div class="stat">
-          <div class="stat-num">5</div>
-          <div class="stat-label">Major projects<br>completed</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">80%</div>
-          <div class="stat-label">OI Academy 201<br>score</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">6</div>
-          <div class="stat-label">Countries<br>collaborated</div>
-        </div>
+    <div class="hero-stats fade-up d4">
+      <div>
+        <div class="stat-num">5</div>
+        <div class="stat-label">Major projects<br>completed</div>
       </div>
-      <div class="tag-row">
-        <span class="tag">Event Management</span>
-        <span class="tag">Market Intelligence</span>
-        <span class="tag">AI Adoption</span>
-        <span class="tag">MedTech</span>
+      <div>
+        <div class="stat-num">80%</div>
+        <div class="stat-label">OI Academy 201<br>score</div>
+      </div>
+      <div>
+        <div class="stat-num">6</div>
+        <div class="stat-label">Countries<br>collaborated</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual fade-up d5">
+    <!-- Save your photo as charlotte.jpg in this same folder -->
+    <div class="photo-wrap">
+      <div class="photo-bg"></div>
+      <div class="photo-dot"></div>
+      <div class="photo-dot-2"></div>
+      <div class="photo-frame">
+        <img src="charlotte.jpg" alt="Charlotte van den Kerkhoff">
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-  <div class="section-eyebrow">About me</div>
-  <h2 class="section-title">Who I am as a professional</h2>
+  <div class="section-tag">About me</div>
+  <h2 class="section-title">Who I am as a <em>professional</em></h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>I'm a third-year <strong>Commercial Economics student at the Hogeschool van Amsterdam</strong>, currently completing my internship at Stryker Orthopaedic Instruments Northern Europe — a global leader in medical technology.</p>
-      <p>Over the past six months, I've operated at the intersection of <strong>marketing strategy, market intelligence, and operational excellence</strong>. From organising the LVO Congress in Hilversum to conducting a full warehouse audit in Mechelen, and introducing Microsoft Copilot to a pan-European team — I thrive when I can combine analytical thinking with clear communication.</p>
-      <p>I bring energy, structure, and curiosity to every project. I'm not afraid to question the status quo and I'm at my best when I have ownership and autonomy over a project with real business impact.</p>
-      <a href="reflection.html" class="btn-primary" style="margin-top:1rem;">Read my full reflection →</a>
+      <p>I&rsquo;m a third-year <strong>Commercial Economics student at the Hogeschool van Amsterdam</strong>, currently completing my internship at Stryker Orthopaedic Instruments Northern Europe &mdash; a global leader in medical technology.</p>
+      <p>Over the past six months, I&rsquo;ve operated at the intersection of <strong>marketing strategy, market intelligence, and operational excellence</strong>. From organising the LVO Congress in Hilversum to conducting a full warehouse audit in Mechelen, and introducing Microsoft Copilot to a pan-European team &mdash; I thrive when I can combine analytical thinking with clear communication.</p>
+      <p>I bring energy, structure, and curiosity to every project. I&rsquo;m not afraid to question the status quo and I&rsquo;m at my best when I have ownership and autonomy over a project with real business impact.</p>
+      <a href="reflection.html" class="btn-primary" style="margin-top:1.8rem;">Read my full reflection &rarr;</a>
     </div>
-    <div>
-      <ul class="strength-list">
-        <li>
-          <div class="strength-icon">💡</div>
-          <div class="strength-text">
-            <strong>Critical Thinking</strong>
-            <span>Not just collecting data, but asking why — and what Stryker should do about it</span>
-          </div>
-        </li>
-        <li>
-          <div class="strength-icon">🤝</div>
-          <div class="strength-text">
-            <strong>Cross-functional Collaboration</strong>
-            <span>Bridging marketing, sales, compliance and logistics across NL, BE, FI, NO, SE</span>
-          </div>
-        </li>
-        <li>
-          <div class="strength-icon">📊</div>
-          <div class="strength-text">
-            <strong>Commercial Awareness</strong>
-            <span>Translating event investment into measurable leads; market data into portfolio advice</span>
-          </div>
-        </li>
-        <li>
-          <div class="strength-icon">⚡</div>
-          <div class="strength-text">
-            <strong>Adaptability</strong>
-            <span>From medical product training to AI demos — I pick up new domains fast</span>
-          </div>
-        </li>
-        <li>
-          <div class="strength-icon">🎯</div>
-          <div class="strength-text">
-            <strong>Communication</strong>
-            <span>Making complex information clear — whether for a surgeon, a sales rep, or a CFO</span>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <ul class="strength-list">
+      <li class="strength-item">
+        <div class="strength-icon">💡</div>
+        <div class="strength-text"><strong>Critical Thinking</strong><span>Not just collecting data, but asking why &mdash; and what Stryker should do about it</span></div>
+      </li>
+      <li class="strength-item">
+        <div class="strength-icon">🤝</div>
+        <div class="strength-text"><strong>Cross-functional Collaboration</strong><span>Bridging marketing, sales, compliance and logistics across NL, BE, FI, NO, SE</span></div>
+      </li>
+      <li class="strength-item">
+        <div class="strength-icon">📊</div>
+        <div class="strength-text"><strong>Commercial Awareness</strong><span>Translating event investment into measurable leads; market data into portfolio advice</span></div>
+      </li>
+      <li class="strength-item">
+        <div class="strength-icon">⚡</div>
+        <div class="strength-text"><strong>Adaptability</strong><span>From medical product training to AI demos &mdash; I pick up new domains fast</span></div>
+      </li>
+      <li class="strength-item">
+        <div class="strength-icon">🗣️</div>
+        <div class="strength-text"><strong>Communication</strong><span>Making complex information clear &mdash; whether for a surgeon, a sales rep, or a CFO</span></div>
+      </li>
+    </ul>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="projects-header">
+<section id="stryker-projects">
+  <div class="stryker-header">
     <div>
-      <div class="section-eyebrow">My work</div>
-      <h2 class="section-title">Projects at Stryker</h2>
+      <div class="stryker-tag">My work &middot; Stryker OI Northern Europe</div>
+      <h2 class="stryker-title">Projects that <em>made an impact</em></h2>
+      <p class="stryker-sub">Five projects completed Feb&ndash;Jun 2026. All deliverables sanitised per Stryker&rsquo;s confidentiality policy.</p>
     </div>
-    <a href="projects.html" class="btn-secondary">View all →</a>
+    <a href="projects.html" class="btn-gold" style="flex-shrink:0;">View all &rarr;</a>
   </div>
   <div class="project-grid">
     <a href="projects.html#event" class="project-card">
       <div class="project-num">01</div>
-      <div class="project-title">LVO Congress & Event Management</div>
-      <div class="project-desc">End-to-end organisation of the LVO Congress 2026 in Hilversum — from compliance approval and logistics to lead generation via MS Forms.</div>
-      <div class="project-tags">
-        <span class="project-tag">Event Management</span>
-        <span class="project-tag">ROI</span>
-        <span class="project-tag">Compliance</span>
-      </div>
-      <span class="project-arrow">→</span>
+      <div class="project-name">LVO Congress &amp; Event Management</div>
+      <div class="project-desc">End-to-end organisation of the LVO Congress 2026 &mdash; from compliance approval and logistics to lead generation via MS Forms.</div>
+      <div class="project-tags"><span class="project-tag">Event Management</span><span class="project-tag">ROI</span><span class="project-tag">Compliance</span></div>
+      <span class="project-arrow">&rarr;</span>
     </a>
     <a href="projects.html#market" class="project-card">
       <div class="project-num">02</div>
-      <div class="project-title">Market Intelligence — MIS Foot & Orthognathic</div>
-      <div class="project-desc">Full market analysis of minimally invasive foot surgery trends in the Benelux, including competitive positioning and strategic recommendations for the sales team.</div>
-      <div class="project-tags">
-        <span class="project-tag">Research</span>
-        <span class="project-tag">MedTech</span>
-        <span class="project-tag">Strategy</span>
-      </div>
-      <span class="project-arrow">→</span>
+      <div class="project-name">Market Intelligence &mdash; MIS Foot &amp; Orthognathic</div>
+      <div class="project-desc">Full market analysis of MIS foot surgery trends in the Benelux, with strategic recommendations for the sales team.</div>
+      <div class="project-tags"><span class="project-tag">Research</span><span class="project-tag">Strategy</span><span class="project-tag">MedTech</span></div>
+      <span class="project-arrow">&rarr;</span>
     </a>
     <a href="projects.html#jetpak" class="project-card">
       <div class="project-num">03</div>
-      <div class="project-title">Jetpak Warehouse Audit & Inventory System</div>
-      <div class="project-desc">On-site audit of Stryker's marketing materials warehouse in Mechelen. Identified root causes of inventory failures and proposed a kit-based traceability system.</div>
-      <div class="project-tags">
-        <span class="project-tag">Operations</span>
-        <span class="project-tag">Stakeholder Mgmt</span>
-      </div>
-      <span class="project-arrow">→</span>
+      <div class="project-name">Jetpak Warehouse Audit &amp; Inventory System</div>
+      <div class="project-desc">On-site audit of Stryker&rsquo;s marketing materials warehouse in Mechelen. Proposed a kit-based traceability system.</div>
+      <div class="project-tags"><span class="project-tag">Operations</span><span class="project-tag">Stakeholder Mgmt</span></div>
+      <span class="project-arrow">&rarr;</span>
     </a>
     <a href="projects.html#ai" class="project-card">
       <div class="project-num">04</div>
-      <div class="project-title">Microsoft Copilot Adoption Initiative</div>
-      <div class="project-desc">Designed and delivered 'The 15-Minute Gift' demo to the Northern Europe team across 5 countries. Created a Stryker-specific Copilot Cheat Sheet.</div>
-      <div class="project-tags">
-        <span class="project-tag">AI</span>
-        <span class="project-tag">Training</span>
-        <span class="project-tag">Change Mgmt</span>
-      </div>
-      <span class="project-arrow">→</span>
+      <div class="project-name">Microsoft Copilot Adoption Initiative</div>
+      <div class="project-desc">Designed &lsquo;The 15-Minute Gift&rsquo; demo for the Northern Europe team across 5 countries. Built a Stryker-specific Copilot Cheat Sheet.</div>
+      <div class="project-tags"><span class="project-tag">AI</span><span class="project-tag">Training</span><span class="project-tag">Change Mgmt</span></div>
+      <span class="project-arrow">&rarr;</span>
     </a>
     <a href="projects.html#training" class="project-card">
       <div class="project-num">05</div>
-      <div class="project-title">OI Academy 201 — Technical Certification</div>
-      <div class="project-desc">Completed Stryker's official sales training for Orthopaedic Instruments alongside the commercial team. Scored 80% on the final assessment.</div>
-      <div class="project-tags">
-        <span class="project-tag">Product Knowledge</span>
-        <span class="project-tag">MedTech</span>
-      </div>
-      <span class="project-arrow">→</span>
+      <div class="project-name">OI Academy 201 &mdash; Technical Certification</div>
+      <div class="project-desc">Completed Stryker&rsquo;s official sales training alongside the commercial team. Scored 80% on the final assessment.</div>
+      <div class="project-tags"><span class="project-tag">Product Knowledge</span><span class="project-tag">MedTech</span></div>
+      <span class="project-arrow">&rarr;</span>
     </a>
-    <a href="reflection.html" class="project-card" style="background:rgba(201,168,76,0.05); border-color:rgba(201,168,76,0.25);">
-      <div class="project-num" style="color:rgba(201,168,76,0.5);">→</div>
-      <div class="project-title">Young Professional Reflection</div>
-      <div class="project-desc">Looking back at what this internship has brought me — and looking forward at where I want to go next in my career.</div>
-      <div class="project-tags">
-        <span class="project-tag">Reflection</span>
-        <span class="project-tag">Growth</span>
-      </div>
-      <span class="project-arrow">→</span>
+    <a href="reflection.html" class="project-card card-special">
+      <div class="project-num">&#10022;</div>
+      <div class="project-name">Young Professional Reflection</div>
+      <div class="project-desc">Looking back at what this internship brought me &mdash; and forward at where I want to go next in my career.</div>
+      <div class="project-tags"><span class="project-tag">Reflection</span><span class="project-tag">Growth</span></div>
+      <span class="project-arrow">&rarr;</span>
     </a>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
-  <div class="section-eyebrow">CE-Skills</div>
-  <h2 class="section-title">Professional Competencies</h2>
-  <p class="section-sub">The five CE-skills framework from HvA Commercial Economics — developed and demonstrated throughout my internship at Stryker.</p>
+  <div class="section-tag">CE-Skills</div>
+  <h2 class="section-title">Professional <em>Competencies</em></h2>
+  <p class="section-sub">The five CE-skills framework from HvA Commercial Economics &mdash; developed and demonstrated throughout my internship at Stryker.</p>
   <div class="skills-grid">
-    <a href="skills.html#kd" class="skill-card" style="text-decoration:none;color:inherit;">
+    <a href="skills.html#kd" class="skill-card">
       <div class="skill-icon">🧠</div>
-      <div class="skill-name">KD</div>
-      <div class="skill-full">Kritisch Denken</div>
-      <div class="skill-dots">
-        <div class="dot filled"></div><div class="dot filled"></div>
-        <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
-      </div>
+      <div class="skill-abbr">KD</div>
+      <div class="skill-name">Kritisch Denken</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
     </a>
-    <a href="skills.html#sw" class="skill-card" style="text-decoration:none;color:inherit;">
+    <a href="skills.html#sw" class="skill-card">
       <div class="skill-icon">🤝</div>
-      <div class="skill-name">SW</div>
-      <div class="skill-full">Samenwerken</div>
-      <div class="skill-dots">
-        <div class="dot filled"></div><div class="dot filled"></div>
-        <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
-      </div>
+      <div class="skill-abbr">SW</div>
+      <div class="skill-name">Samenwerken</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
     </a>
-    <a href="skills.html#cb" class="skill-card" style="text-decoration:none;color:inherit;">
+    <a href="skills.html#cb" class="skill-card">
       <div class="skill-icon">💼</div>
-      <div class="skill-name">CB</div>
-      <div class="skill-full">Commercieel Bewustzijn</div>
-      <div class="skill-dots">
-        <div class="dot filled"></div><div class="dot filled"></div>
-        <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
-      </div>
+      <div class="skill-abbr">CB</div>
+      <div class="skill-name">Commercieel Bewustzijn</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
     </a>
-    <a href="skills.html#av" class="skill-card" style="text-decoration:none;color:inherit;">
+    <a href="skills.html#av" class="skill-card">
       <div class="skill-icon">⚡</div>
-      <div class="skill-name">AV</div>
-      <div class="skill-full">Aanpassingsvermogen</div>
-      <div class="skill-dots">
-        <div class="dot filled"></div><div class="dot filled"></div>
-        <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
-      </div>
+      <div class="skill-abbr">AV</div>
+      <div class="skill-name">Aanpassingsvermogen</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
     </a>
-    <a href="skills.html#co" class="skill-card" style="text-decoration:none;color:inherit;">
-      <div class="skill-icon">📢</div>
-      <div class="skill-name">CO</div>
-      <div class="skill-full">Communicatie</div>
-      <div class="skill-dots">
-        <div class="dot filled"></div><div class="dot filled"></div>
-        <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
-      </div>
+    <a href="skills.html#co" class="skill-card">
+      <div class="skill-icon">🗣️</div>
+      <div class="skill-abbr">CO</div>
+      <div class="skill-name">Communicatie</div>
+      <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
     </a>
   </div>
-  <div style="text-align:center;margin-top:2.5rem;">
-    <a href="skills.html" class="btn-secondary">Explore all CE-Skills →</a>
+  <div style="text-align:center;margin-top:2.8rem;">
+    <a href="skills.html" class="btn-secondary">Explore all CE-Skills &rarr;</a>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
-    <div class="section-eyebrow" style="justify-content:center;">Get in touch</div>
-    <h2 class="section-title">Let's connect</h2>
-    <p class="section-sub" style="margin:0 auto 1rem;">Interested in working together, or want to know more about my work at Stryker? I'd love to hear from you.</p>
+    <div class="section-tag">Get in touch</div>
+    <h2 class="section-title">Let&rsquo;s <em>connect</em></h2>
+    <p class="section-sub">Interested in working together, or want to know more about my work at Stryker? I&rsquo;d love to hear from you.</p>
     <div class="contact-links">
-      <a href="mailto:charlotte.van.den.kerkhoff@hva.nl" class="contact-link">✉️ charlotte.van.den.kerkhoff@hva.nl</a>
-      <a href="https://www.linkedin.com/in/charlottevandenkerkhoff" target="_blank" class="contact-link">💼 LinkedIn</a>
-      <a href="projects.html" class="btn-primary">View My Portfolio</a>
+      <a href="mailto:charlotte.van.den.kerkhoff@hva.nl" class="contact-link">&#9993; charlotte.van.den.kerkhoff@hva.nl</a>
+      <a href="https://www.linkedin.com/in/charlottevandenkerkhoff" target="_blank" class="contact-link">LinkedIn</a>
+      <a href="projects.html" class="btn-gold">View My Portfolio</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <span>© 2026 Charlotte van den Kerkhoff</span>
-  <span>HvA Commercial Economics · Stage Jaar 3 · <a href="#">Digital Professional Brand</a></span>
+  <span>&copy; 2026 Charlotte van den Kerkhoff</span>
+  <span>HvA Commercial Economics &middot; Stage Jaar 3 &middot; <a href="#">Digital Professional Brand</a></span>
 </footer>
 
 </body>

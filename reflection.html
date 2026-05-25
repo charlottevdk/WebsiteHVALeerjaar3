@@ -3,87 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Young Professional — Charlotte van den Kerkhoff</title>
+<title>Young Professional &mdash; Charlotte van den Kerkhoff</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --navy:#0d1b2a; --gold:#c9a84c; --gold-light:#e8c97a; --white:#ffffff; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { font-family:'DM Sans',sans-serif; background:var(--navy); color:var(--white); }
-  nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1.4rem 4rem; background:rgba(13,27,42,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,168,76,0.15); }
-  .nav-logo { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--gold); text-decoration:none; }
-  .nav-links { display:flex; gap:2.5rem; list-style:none; }
-  .nav-links a { font-size:0.82rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s; }
-  .nav-links a:hover, .nav-links a.active { color:var(--gold); }
-  .nav-cta { background:var(--gold); color:var(--navy) !important; padding:0.5rem 1.4rem; border-radius:2px; font-weight:500 !important; }
-
-  .page-header { padding:10rem 4rem 5rem; background:linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 60%); border-bottom:1px solid rgba(255,255,255,0.07); }
-  .breadcrumb { font-size:0.78rem; color:rgba(255,255,255,0.35); margin-bottom:1rem; }
-  .breadcrumb a { color:var(--gold); text-decoration:none; }
-  .page-title { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:900; line-height:1.1; }
-  .page-title span { color:var(--gold); font-style:italic; }
-  .page-sub { color:rgba(255,255,255,0.5); margin-top:1rem; font-size:1rem; line-height:1.8; max-width:620px; }
-
-  .content { max-width:860px; margin:0 auto; padding:5rem 4rem; }
-
-  .reflection-q {
-    margin-bottom:4rem; padding-bottom:4rem;
-    border-bottom:1px solid rgba(255,255,255,0.07);
+  :root {
+    --cream:#FAF8F4; --cream-mid:#F0EDE6; --cream-dark:#E3DDD3;
+    --green:#1C3A2E; --green-mid:#2D5243; --green-pale:#EBF1ED;
+    --gold:#C8A96E; --gold-light:#E2C98C; --gold-pale:#F7F0E3;
+    --charcoal:#1C1C1C; --gray:#6B6B6B; --white:#FFFFFF;
   }
-  .reflection-q:last-child { border-bottom:none; }
-  .q-eyebrow { font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem; display:flex; align-items:center; gap:0.6rem; }
-  .q-eyebrow::before { content:''; display:block; width:1.5rem; height:1px; background:var(--gold); }
-  .q-title { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; margin-bottom:1.5rem; line-height:1.3; }
-  .q-body p { color:rgba(255,255,255,0.68); line-height:1.9; font-size:0.93rem; margin-bottom:1rem; }
-  .q-body p strong { color:var(--white); }
-  .verdict {
-    display:inline-flex; align-items:center; gap:0.6rem;
-    background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.25);
-    color:var(--gold); padding:0.5rem 1rem;
-    font-size:0.8rem; font-weight:500; border-radius:2px;
-    margin:1rem 0 1.5rem;
-  }
+  *{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
+  body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden}
 
-  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin:1.5rem 0; }
-  .col-block { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:4px; padding:1.5rem; }
-  .col-block h4 { font-size:0.82rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); margin-bottom:0.8rem; }
-  .col-block ul { list-style:none; }
-  .col-block ul li { font-size:0.85rem; color:rgba(255,255,255,0.6); padding:0.35rem 0; display:flex; gap:0.5rem; line-height:1.5; }
-  .col-block ul li::before { content:'✓'; color:var(--gold); flex-shrink:0; }
-  .col-block ul li.gap::before { content:'→'; color:rgba(255,255,255,0.3); }
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5rem;background:rgba(250,248,244,0.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.07)}
+  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:0.04em;color:var(--green);text-decoration:none}
+  .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+  .nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--green)}
+  .nav-cta{background:var(--green)!important;color:var(--white)!important;padding:0.55rem 1.5rem;border-radius:100px;box-shadow:0 3px 14px rgba(28,58,46,0.28);transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.28s ease!important}
+  .nav-cta:hover{transform:translateY(-3px) scale(1.03)!important;box-shadow:0 7px 22px rgba(28,58,46,0.33)!important;color:var(--white)!important}
 
-  .develop-list { list-style:none; margin:1rem 0; }
-  .develop-item { display:flex; gap:1.5rem; padding:1.2rem 0; border-bottom:1px solid rgba(255,255,255,0.06); align-items:flex-start; }
-  .develop-item:last-child { border-bottom:none; }
-  .develop-num { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:900; color:rgba(201,168,76,0.25); flex-shrink:0; line-height:1; }
-  .develop-text strong { display:block; font-size:0.9rem; color:var(--white); margin-bottom:0.3rem; }
-  .develop-text span { font-size:0.83rem; color:rgba(255,255,255,0.5); line-height:1.6; }
+  .btn-primary{background:var(--green);color:var(--white);padding:0.9rem 2.3rem;border-radius:100px;font-family:'Jost',sans-serif;font-weight:500;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;display:inline-block;box-shadow:0 5px 18px rgba(28,58,46,0.26),0 2px 6px rgba(28,58,46,0.15);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease}
+  .btn-primary:hover{transform:translateY(-5px) scale(1.03);box-shadow:0 12px 30px rgba(28,58,46,0.3),0 5px 12px rgba(28,58,46,0.18);color:var(--white)}
+  .btn-secondary{background:transparent;color:var(--green);padding:0.9rem 2.3rem;border-radius:100px;font-family:'Jost',sans-serif;font-weight:500;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;display:inline-block;border:1.5px solid var(--green);box-shadow:0 3px 12px rgba(28,58,46,0.1);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease,background 0.2s}
+  .btn-secondary:hover{transform:translateY(-5px) scale(1.03);background:var(--green-pale);box-shadow:0 10px 26px rgba(28,58,46,0.14);color:var(--green)}
 
-  .future-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:1.5rem 0; }
-  .future-card { background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.18); border-radius:4px; padding:1.2rem; }
-  .future-card h4 { font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); margin-bottom:0.5rem; }
-  .future-card p { font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.6; }
+  /* PAGE HEADER */
+  .page-header{padding:9rem 5rem 5rem;background:linear-gradient(135deg,var(--green-pale) 0%,var(--white) 60%);border-bottom:1px solid var(--cream-dark)}
+  .breadcrumb{font-size:0.75rem;color:rgba(0,0,0,0.3);margin-bottom:1.2rem}
+  .breadcrumb a{color:var(--green);text-decoration:none}
+  .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.08}
+  .page-title em{color:var(--green);font-style:italic}
+  .page-sub{color:var(--gray);margin-top:1rem;font-size:0.97rem;line-height:1.78;max-width:620px}
 
-  .closing { background:rgba(255,255,255,0.02); border:1px solid rgba(201,168,76,0.2); border-radius:4px; padding:2.5rem; margin:2rem 0; text-align:center; }
-  .closing blockquote { font-family:'Playfair Display',serif; font-size:1.2rem; font-style:italic; color:var(--gold-light); line-height:1.6; margin-bottom:1rem; }
-  .closing cite { font-size:0.8rem; color:rgba(255,255,255,0.4); }
+  /* CONTENT */
+  .content{max-width:860px;margin:0 auto;padding:5rem 5rem 6rem}
 
-  .cta-row { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:3rem; }
-  .btn-primary { background:var(--gold); color:var(--navy); padding:0.85rem 2rem; font-weight:500; font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:all 0.2s; display:inline-block; }
-  .btn-primary:hover { background:var(--gold-light); transform:translateY(-2px); }
-  .btn-secondary { border:1px solid rgba(255,255,255,0.2); color:var(--white); padding:0.85rem 2rem; font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border-radius:2px; transition:all 0.2s; display:inline-block; }
-  .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+  .reflection-q{margin-bottom:4rem;padding-bottom:4rem;border-bottom:1px solid var(--cream-dark)}
+  .reflection-q:last-child{border-bottom:none}
 
-  footer { padding:1.5rem 4rem; border-top:1px solid rgba(255,255,255,0.07); display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; color:rgba(255,255,255,0.3); }
-  footer a { color:var(--gold); text-decoration:none; }
+  .q-eyebrow{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--green-mid);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.7rem;font-weight:600}
+  .q-eyebrow::before{content:'';display:block;width:1.8rem;height:1.5px;background:var(--gold)}
+  .q-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;margin-bottom:0.8rem;line-height:1.25;color:var(--charcoal)}
+  .q-title em{color:var(--green);font-style:italic}
 
-  @media(max-width:900px) {
-    nav { padding:1rem 1.5rem; }
-    .nav-links { display:none; }
-    .page-header, .content { padding-left:1.5rem; padding-right:1.5rem; }
-    .two-col, .future-grid { grid-template-columns:1fr; }
-    footer { flex-direction:column; gap:0.5rem; }
+  .verdict{display:inline-flex;align-items:center;gap:0.6rem;background:var(--green-pale);color:var(--green-mid);padding:0.45rem 1.1rem;font-size:0.78rem;font-weight:600;border-radius:100px;margin:0.8rem 0 1.5rem;border:1px solid rgba(28,58,46,0.15)}
+  .verdict-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+
+  .q-body p{color:var(--gray);line-height:1.92;font-size:0.96rem;margin-bottom:1rem}
+  .q-body p strong{color:var(--charcoal);font-weight:600}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0}
+  .col-block{background:var(--white);border:1px solid var(--cream-dark);border-radius:14px;padding:1.6rem;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+  .col-block h4{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--green-mid);margin-bottom:1rem;font-weight:600}
+  .col-block ul{list-style:none}
+  .col-block ul li{font-size:0.86rem;color:var(--gray);padding:0.35rem 0;display:flex;gap:0.6rem;line-height:1.55}
+  .col-block ul li::before{content:'→';color:var(--gold);flex-shrink:0;font-size:0.8rem}
+  .col-block ul li.gap::before{content:'○';color:var(--gray);flex-shrink:0;font-size:0.8rem}
+
+  .develop-list{list-style:none;margin:1rem 0}
+  .develop-item{display:flex;gap:1.5rem;padding:1.4rem 0;border-bottom:1px solid var(--cream-dark);align-items:flex-start}
+  .develop-item:last-child{border-bottom:none}
+  .develop-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:rgba(28,58,46,0.15);flex-shrink:0;line-height:1;min-width:2.5rem}
+  .develop-text strong{display:block;font-size:0.92rem;font-weight:600;color:var(--charcoal);margin-bottom:0.3rem}
+  .develop-text span{font-size:0.85rem;color:var(--gray);line-height:1.65}
+
+  .future-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin:1.5rem 0}
+  .future-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:14px;padding:1.4rem;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+  .future-card h4{font-size:0.73rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--green-mid);margin-bottom:0.6rem;font-weight:600}
+  .future-card p{font-size:0.84rem;color:var(--gray);line-height:1.65}
+
+  .closing-block{background:var(--green);border-radius:18px;padding:3rem;margin:2.5rem 0;text-align:center;box-shadow:0 8px 32px rgba(28,58,46,0.2)}
+  .closing-block blockquote{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--gold-light);line-height:1.65;margin-bottom:1rem}
+  .closing-block cite{font-size:0.78rem;color:rgba(255,255,255,0.45)}
+
+  .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:3.5rem}
+
+  footer{padding:1.8rem 5rem;background:var(--charcoal);display:flex;justify-content:space-between;align-items:center;font-size:0.76rem;color:rgba(255,255,255,0.3)}
+  footer a{color:var(--gold);text-decoration:none}
+
+  @media(max-width:900px){
+    nav{padding:1rem 1.5rem} .nav-links{display:none}
+    .page-header,.content{padding-left:1.5rem;padding-right:1.5rem}
+    .two-col,.future-grid{grid-template-columns:1fr}
+    footer{flex-direction:column;gap:0.5rem}
   }
 </style>
 </head>
@@ -102,31 +106,29 @@
 
 <div class="page-header">
   <div class="breadcrumb"><a href="index.html">Home</a> / Young Professional</div>
-  <h1 class="page-title">Young<br><span>Professional</span></h1>
-  <p class="page-sub">Six months at Stryker OI Northern Europe taught me a lot — about medical technology, about international business, and about myself as a professional. This is my honest reflection on where I've been, what I've learned, and where I want to go.</p>
+  <h1 class="page-title">Young<br><em>Professional</em></h1>
+  <p class="page-sub">Six months at Stryker OI Northern Europe taught me a lot &mdash; about medical technology, about international business, and about myself as a professional. This is my honest reflection on where I&rsquo;ve been, what I&rsquo;ve learned, and where I want to go.</p>
 </div>
 
 <div class="content">
 
-  <!-- Q1: SECTOR -->
   <div class="reflection-q">
     <div class="q-eyebrow">Industry fit</div>
-    <h2 class="q-title">Does the MedTech sector suit me?</h2>
-    <div class="verdict">✓ Yes — with conviction</div>
+    <h2 class="q-title">Does the MedTech sector <em>suit me?</em></h2>
+    <div class="verdict"><span class="verdict-dot"></span> Yes &mdash; with conviction</div>
     <div class="q-body">
-      <p>Medical technology was an entirely unfamiliar world for me before this internship. Surgical power tools, operating room protocols, compliance regulations, Key Opinion Leader strategies — none of this was part of my vocabulary six months ago.</p>
-      <p>What surprised me most was how <strong>commercially rigorous</strong> the sector is. Every decision — which product to display at a congress, which surgeon to target first, which market to enter — is grounded in data, competitive analysis, and a clear link to patient outcomes. That combination of analytical depth and real-world impact is exactly what I want from a career.</p>
-      <p>I also discovered a genuine interest in the intersection of <strong>healthcare and technology</strong>. The MIS Foot research project made me realise how much innovation is happening in surgical technique — and how much marketing can do to accelerate adoption and, ultimately, improve patient care.</p>
+      <p>Medical technology was an entirely unfamiliar world for me before this internship. Surgical power tools, operating room protocols, compliance regulations, Key Opinion Leader strategies &mdash; none of this was part of my vocabulary six months ago.</p>
+      <p>What surprised me most was how <strong>commercially rigorous</strong> the sector is. Every decision &mdash; which product to display at a congress, which surgeon to target first, which market to enter &mdash; is grounded in data, competitive analysis, and a clear link to patient outcomes. That combination of analytical depth and real-world impact is exactly what I want from a career.</p>
+      <p>I also discovered a genuine interest in the intersection of <strong>healthcare and technology</strong>. The MIS Foot research project made me realise how much innovation is happening in surgical technique &mdash; and how much marketing can do to accelerate adoption and, ultimately, improve patient care.</p>
     </div>
   </div>
 
-  <!-- Q2: TYPE OF WORK -->
   <div class="reflection-q">
     <div class="q-eyebrow">Work type fit</div>
-    <h2 class="q-title">Does this type of work suit me?</h2>
-    <div class="verdict">✓ Yes — especially the strategic and communicative parts</div>
+    <h2 class="q-title">Does this type of work <em>suit me?</em></h2>
+    <div class="verdict"><span class="verdict-dot"></span> Yes &mdash; especially the strategic and communicative parts</div>
     <div class="q-body">
-      <p>My work at Stryker spanned four very different types of activity: <strong>event management, market research, operational problem-solving, and knowledge sharing</strong>. I learned a lot about where I get energy and where I don't.</p>
+      <p>My work at Stryker spanned four very different types of activity: <strong>event management, market research, operational problem-solving, and knowledge sharing</strong>. I learned a lot about where I get energy and where I don&rsquo;t.</p>
       <div class="two-col">
         <div class="col-block">
           <h4>Where I thrived</h4>
@@ -141,50 +143,47 @@
           <h4>Where I grew the most</h4>
           <ul>
             <li class="gap">Presenting to senior international audiences</li>
-            <li class="gap">Adapting scope when reality didn't match the plan</li>
+            <li class="gap">Adapting scope when reality didn&rsquo;t match the plan</li>
             <li class="gap">Technical product knowledge (outside comfort zone)</li>
             <li class="gap">Navigating complex multi-party compliance processes</li>
           </ul>
         </div>
       </div>
-      <p>I noticed that I lose energy on purely administrative tasks — updating spreadsheets, tracking fields in Cvent. But give me a problem that needs structure, a clear analytical framework, and a stakeholder who needs to understand the outcome, and I'm in my element.</p>
+      <p>I noticed that I lose energy on purely administrative tasks &mdash; updating spreadsheets, tracking fields in Cvent. But give me a problem that needs structure, a clear analytical framework, and a stakeholder who needs to understand the outcome, and I&rsquo;m in my element.</p>
     </div>
   </div>
 
-  <!-- Q3: TYPE OF COMPANY -->
   <div class="reflection-q">
     <div class="q-eyebrow">Company type fit</div>
-    <h2 class="q-title">Does a multinational like Stryker suit me?</h2>
-    <div class="verdict">✓ Yes — the scale and ambition energise me</div>
+    <h2 class="q-title">Does a multinational like Stryker <em>suit me?</em></h2>
+    <div class="verdict"><span class="verdict-dot"></span> Yes &mdash; the scale and ambition energise me</div>
     <div class="q-body">
-      <p>Stryker is a global company with a high-performance culture. Results matter, standards are high, and the pace is fast. For some people, that's intimidating. For me, it was motivating.</p>
+      <p>Stryker is a global company with a high-performance culture. Results matter, standards are high, and the pace is fast. For some people, that&rsquo;s intimidating. For me, it was motivating.</p>
       <p>What I valued most was being treated as a <strong>genuine contributor from day one</strong>. Juha included me in management-level email threads, gave me ownership of real deliverables, and asked for my input in strategic discussions. That level of trust accelerated my development significantly.</p>
-      <p>The international dimension was also formative. Working alongside colleagues from Finland, Belgium, Norway, Sweden and the Netherlands — and presenting to all of them in one Teams session — gave me a much clearer sense of what international collaboration actually demands: cultural awareness, clear written communication, and the confidence to take up space in a room even when you're the youngest person in it.</p>
+      <p>The international dimension was also formative. Working alongside colleagues from Finland, Belgium, Norway, Sweden and the Netherlands &mdash; and presenting to all of them in one Teams session &mdash; gave me a much clearer sense of what international collaboration actually demands: cultural awareness, clear written communication, and the confidence to take up space in a room even when you&rsquo;re the youngest person in it.</p>
     </div>
   </div>
 
-  <!-- Q4: CULTURE -->
   <div class="reflection-q">
     <div class="q-eyebrow">Culture fit</div>
-    <h2 class="q-title">Does the Stryker culture suit me?</h2>
-    <div class="verdict">✓ Strong fit — especially the autonomy and ambition</div>
+    <h2 class="q-title">Does the Stryker culture <em>suit me?</em></h2>
+    <div class="verdict"><span class="verdict-dot"></span> Strong fit &mdash; especially the autonomy and ambition</div>
     <div class="q-body">
-      <p>Stryker's culture is results-driven and ambitious, but also genuinely collegial. My manager was supportive and direct — he gave feedback clearly, celebrated wins, and pushed me to keep raising the bar. Colleagues across the team were welcoming and responsive, even when I was asking questions that added to their workload.</p>
+      <p>Stryker&rsquo;s culture is results-driven and ambitious, but also genuinely collegial. My manager was supportive and direct &mdash; he gave feedback clearly, celebrated wins, and pushed me to keep raising the bar. Colleagues across the team were welcoming and responsive, even when I was asking questions that added to their workload.</p>
       <p>I particularly valued the <strong>trust culture</strong>: nobody micromanaged me. I was expected to plan my own projects, meet my own deadlines, and come to 1:1s with an agenda. That kind of autonomy brought out the best in me.</p>
     </div>
   </div>
 
-  <!-- DEVELOPMENT -->
   <div class="reflection-q">
     <div class="q-eyebrow">Development plan</div>
-    <h2 class="q-title">What do I still want to learn?</h2>
+    <h2 class="q-title">What do I still <em>want to learn?</em></h2>
     <div class="q-body">
       <ul class="develop-list">
         <li class="develop-item">
           <div class="develop-num">01</div>
           <div class="develop-text">
-            <strong>Data Analytics — Power BI & SQL</strong>
-            <span>I relied on Excel and manual analysis throughout this internship. I want to build the technical skills to create interactive dashboards and handle larger datasets independently — so I'm not bottlenecked by data volume or format.</span>
+            <strong>Data Analytics &mdash; Power BI &amp; SQL</strong>
+            <span>I relied on Excel and manual analysis throughout this internship. I want to build the technical skills to create interactive dashboards and handle larger datasets independently &mdash; so I&rsquo;m not bottlenecked by data volume or format.</span>
           </div>
         </li>
         <li class="develop-item">
@@ -198,26 +197,25 @@
           <div class="develop-num">03</div>
           <div class="develop-text">
             <strong>Cross-cultural Communication</strong>
-            <span>Working across five countries gave me a foundation. But I want to understand more deeply how cultural context shapes communication styles — particularly in negotiations and conflict resolution.</span>
+            <span>Working across five countries gave me a foundation. But I want to understand more deeply how cultural context shapes communication styles &mdash; particularly in negotiations and conflict resolution.</span>
           </div>
         </li>
         <li class="develop-item">
           <div class="develop-num">04</div>
           <div class="develop-text">
             <strong>MedTech Regulatory Framework</strong>
-            <span>CE marking, MDR compliance, clinical evidence requirements — these are the rules of the game in medical technology. For a future career in this space, I need a stronger foundation here.</span>
+            <span>CE marking, MDR compliance, clinical evidence requirements &mdash; these are the rules of the game in medical technology. For a future career in this space, I need a stronger foundation here.</span>
           </div>
         </li>
       </ul>
     </div>
   </div>
 
-  <!-- FUTURE -->
   <div class="reflection-q">
     <div class="q-eyebrow">Looking forward</div>
-    <h2 class="q-title">What kind of professional do I want to be?</h2>
+    <h2 class="q-title">What kind of professional <em>do I want to be?</em></h2>
     <div class="q-body">
-      <p>This internship gave me a much clearer picture of where I want to land. I want to work in an environment that is <strong>international, data-driven, and commercially ambitious</strong> — ideally in medical technology, life sciences, or an adjacent sector where work has a genuine impact on people's lives.</p>
+      <p>This internship gave me a much clearer picture of where I want to land. I want to work in an environment that is <strong>international, data-driven, and commercially ambitious</strong> &mdash; ideally in medical technology, life sciences, or an adjacent sector where work has a genuine impact on people&rsquo;s lives.</p>
       <div class="future-grid">
         <div class="future-card">
           <h4>Ideal company</h4>
@@ -235,10 +233,9 @@
     </div>
   </div>
 
-  <!-- CLOSING -->
-  <div class="closing">
-    <blockquote>"We need to work smarter, not harder. And if we have these tools and Stryker is providing them for us, why not use them for our benefit?"</blockquote>
-    <cite>— Juha Soininen, Marketing Manager Northern Europe — closing my Copilot training session, April 2026</cite>
+  <div class="closing-block">
+    <blockquote>&ldquo;We need to work smarter, not harder. And if we have these tools and Stryker is providing them for us, why not use them for our benefit?&rdquo;</blockquote>
+    <cite>&mdash; Juha Soininen, Marketing Manager Northern Europe &mdash; closing my Copilot training session, April 2026</cite>
   </div>
 
   <div class="cta-row">
@@ -250,8 +247,8 @@
 </div>
 
 <footer>
-  <span>© 2026 Charlotte van den Kerkhoff</span>
-  <span><a href="index.html">Home</a> · <a href="projects.html">Projects</a> · <a href="skills.html">CE-Skills</a></span>
+  <span>&copy; 2026 Charlotte van den Kerkhoff</span>
+  <span><a href="index.html">Home</a> &middot; <a href="projects.html">Projects</a> &middot; <a href="skills.html">CE-Skills</a></span>
 </footer>
 
 </body>

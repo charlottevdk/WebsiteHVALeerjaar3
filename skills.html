@@ -3,82 +3,90 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CE-Skills — Charlotte van den Kerkhoff</title>
+<title>CE-Skills &mdash; Charlotte van den Kerkhoff</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --navy:#0d1b2a; --gold:#c9a84c; --gold-light:#e8c97a; --white:#ffffff; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { font-family:'DM Sans',sans-serif; background:var(--navy); color:var(--white); }
-  nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:1.4rem 4rem; background:rgba(13,27,42,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,168,76,0.15); }
-  .nav-logo { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--gold); text-decoration:none; }
-  .nav-links { display:flex; gap:2.5rem; list-style:none; }
-  .nav-links a { font-size:0.82rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s; }
-  .nav-links a:hover, .nav-links a.active { color:var(--gold); }
-  .nav-cta { background:var(--gold); color:var(--navy) !important; padding:0.5rem 1.4rem; border-radius:2px; font-weight:500 !important; }
-
-  .page-header { padding:10rem 4rem 4rem; border-bottom:1px solid rgba(255,255,255,0.07); }
-  .breadcrumb { font-size:0.78rem; color:rgba(255,255,255,0.35); margin-bottom:1rem; }
-  .breadcrumb a { color:var(--gold); text-decoration:none; }
-  .page-title { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:900; }
-  .page-title span { color:var(--gold); font-style:italic; }
-  .page-sub { color:rgba(255,255,255,0.5); margin-top:0.8rem; font-size:1rem; line-height:1.7; max-width:600px; }
-
-  .skills-container { padding:5rem 4rem; }
-
-  .skill-section {
-    display:grid; grid-template-columns:280px 1fr; gap:4rem;
-    padding:4rem 0; border-bottom:1px solid rgba(255,255,255,0.07);
-    scroll-margin-top:6rem;
+  :root {
+    --cream:#FAF8F4; --cream-mid:#F0EDE6; --cream-dark:#E3DDD3;
+    --green:#1C3A2E; --green-mid:#2D5243; --green-pale:#EBF1ED;
+    --gold:#C8A96E; --gold-light:#E2C98C; --gold-pale:#F7F0E3;
+    --charcoal:#1C1C1C; --gray:#6B6B6B; --white:#FFFFFF;
+    --s-blue:#1B3A6B; --s-yellow:#F39100; --s-pastel:#6D9FB5; --s-light:#F5F4EF;
   }
-  .skill-section:last-child { border-bottom:none; }
+  *{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
+  body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--charcoal);overflow-x:hidden}
 
-  .skill-sidebar { position:sticky; top:7rem; align-self:start; }
-  .skill-abbr { font-family:'Playfair Display',serif; font-size:5rem; font-weight:900; color:rgba(201,168,76,0.15); line-height:1; }
-  .skill-name-full { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:var(--gold); margin-bottom:0.5rem; }
-  .skill-name-nl { font-size:0.82rem; color:rgba(255,255,255,0.4); letter-spacing:0.08em; margin-bottom:1.5rem; }
-  .skill-score { margin-bottom:1.5rem; }
-  .score-label { font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:0.5rem; }
-  .score-bar { height:4px; background:rgba(255,255,255,0.08); border-radius:2px; overflow:hidden; }
-  .score-fill { height:100%; background:var(--gold); border-radius:2px; transition:width 1s ease; }
-  .proof-links { display:flex; flex-direction:column; gap:0.4rem; margin-top:1rem; }
-  .proof-link { font-size:0.75rem; color:var(--gold); display:flex; align-items:center; gap:0.4rem; }
-  .proof-link::before { content:'→'; }
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 5rem;background:rgba(250,248,244,0.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.07)}
+  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;letter-spacing:0.04em;color:var(--green);text-decoration:none}
+  .nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+  .nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
+  .nav-links a:hover,.nav-links a.active{color:var(--green)}
+  .nav-cta{background:var(--green)!important;color:var(--white)!important;padding:0.55rem 1.5rem;border-radius:100px;box-shadow:0 3px 14px rgba(28,58,46,0.28);transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.28s ease!important}
+  .nav-cta:hover{transform:translateY(-3px) scale(1.03)!important;box-shadow:0 7px 22px rgba(28,58,46,0.33)!important;color:var(--white)!important}
 
-  .skill-body h3 { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--gold); margin:1.5rem 0 0.6rem; }
-  .skill-body h3:first-child { margin-top:0; }
-  .skill-body p { color:rgba(255,255,255,0.65); line-height:1.85; font-size:0.92rem; margin-bottom:0.8rem; }
-  .skill-body p strong { color:var(--white); }
-  .skill-body ul { list-style:none; margin:0.5rem 0 1rem; }
-  .skill-body ul li { color:rgba(255,255,255,0.6); font-size:0.88rem; padding:0.4rem 0; display:flex; gap:0.7rem; line-height:1.6; }
-  .skill-body ul li::before { content:'→'; color:var(--gold); flex-shrink:0; font-size:0.8rem; margin-top:0.2rem; }
-  .example-card { background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.18); border-radius:4px; padding:1.2rem 1.5rem; margin:1rem 0; }
-  .example-card .ex-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); margin-bottom:0.4rem; }
-  .example-card p { color:rgba(255,255,255,0.7) !important; font-size:0.88rem !important; margin:0 !important; }
-  .quote-block { border-left:2px solid var(--gold); padding:1rem 1.5rem; margin:1.5rem 0; background:rgba(201,168,76,0.04); }
-  .quote-block p { color:rgba(255,255,255,0.75) !important; font-style:italic; }
-  .quote-block cite { font-size:0.78rem; color:rgba(255,255,255,0.4); font-style:normal; margin-top:0.4rem; display:block; }
+  .btn-secondary{background:transparent;color:var(--green);padding:0.85rem 2rem;border-radius:100px;font-family:'Jost',sans-serif;font-weight:500;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;display:inline-block;border:1.5px solid var(--green);box-shadow:0 3px 12px rgba(28,58,46,0.1);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease,background 0.2s}
+  .btn-secondary:hover{transform:translateY(-5px) scale(1.03);background:var(--green-pale);box-shadow:0 10px 26px rgba(28,58,46,0.14);color:var(--green)}
 
-  .matrix-intro { padding:3rem 4rem; background:rgba(255,255,255,0.02); border-top:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07); }
-  .matrix-title { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; margin-bottom:2rem; }
-  .matrix { width:100%; border-collapse:collapse; }
-  .matrix th, .matrix td { padding:0.8rem 1rem; border:1px solid rgba(255,255,255,0.08); font-size:0.82rem; }
-  .matrix th { background:rgba(201,168,76,0.08); color:var(--gold); font-weight:500; letter-spacing:0.05em; text-align:left; }
-  .matrix td { color:rgba(255,255,255,0.6); }
-  .matrix td:first-child { color:var(--white); font-weight:500; }
-  .check { color:var(--gold); font-weight:700; }
+  /* PAGE HEADER */
+  .page-header{padding:9rem 5rem 4rem;background:var(--white);border-bottom:1px solid var(--cream-dark)}
+  .breadcrumb{font-size:0.75rem;color:rgba(0,0,0,0.3);margin-bottom:1.2rem}
+  .breadcrumb a{color:var(--green);text-decoration:none}
+  .page-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.08}
+  .page-title em{color:var(--green);font-style:italic}
+  .page-sub{color:var(--gray);margin-top:0.9rem;font-size:0.97rem;line-height:1.75;max-width:600px}
 
-  footer { padding:1.5rem 4rem; border-top:1px solid rgba(255,255,255,0.07); display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; color:rgba(255,255,255,0.3); }
-  footer a { color:var(--gold); text-decoration:none; }
+  /* MATRIX */
+  .matrix-section{padding:3.5rem 5rem;background:var(--white);border-bottom:1px solid var(--cream-dark)}
+  .matrix-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;margin-bottom:1.8rem}
+  .matrix-title em{color:var(--green);font-style:italic}
+  .matrix{width:100%;border-collapse:collapse}
+  .matrix th,.matrix td{padding:0.85rem 1rem;border:1px solid var(--cream-dark);font-size:0.82rem;text-align:left}
+  .matrix th{background:var(--green-pale);color:var(--green-mid);font-weight:600;letter-spacing:0.04em}
+  .matrix td{color:var(--gray)}
+  .matrix td:first-child{color:var(--charcoal);font-weight:500}
+  .check{color:var(--green);font-weight:700}
 
-  @media(max-width:900px) {
-    nav { padding:1rem 1.5rem; }
-    .nav-links { display:none; }
-    .page-header, .skills-container, .matrix-intro { padding-left:1.5rem; padding-right:1.5rem; }
-    .skill-section { grid-template-columns:1fr; gap:2rem; }
-    .skill-sidebar { position:static; }
-    footer { flex-direction:column; gap:0.5rem; }
+  /* SKILLS */
+  .skills-container{padding:4rem 5rem 6rem}
+  .skill-section{display:grid;grid-template-columns:260px 1fr;gap:4.5rem;padding:4.5rem 0;border-bottom:1px solid var(--cream-dark);scroll-margin-top:6rem}
+  .skill-section:last-child{border-bottom:none}
+  .skill-sidebar{position:sticky;top:7rem;align-self:start}
+  .skill-abbr-large{font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:700;color:rgba(28,58,46,0.07);line-height:1;margin-bottom:0.2rem}
+  .skill-name-en{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--green);margin-bottom:0.2rem}
+  .skill-name-nl{font-size:0.8rem;color:var(--gray);letter-spacing:0.08em;margin-bottom:1.5rem}
+  .score-label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:0.5rem;font-weight:500}
+  .score-bar{height:5px;background:var(--cream-dark);border-radius:3px;overflow:hidden;margin-bottom:1.5rem}
+  .score-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:3px;transition:width 1.2s ease}
+  .proof-links{display:flex;flex-direction:column;gap:0.4rem}
+  .proof-link{font-size:0.74rem;color:var(--green-mid);display:flex;align-items:center;gap:0.5rem;font-weight:500}
+  .proof-link::before{content:'→';color:var(--gold);font-size:0.75rem}
+
+  .skill-body h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--green);margin:1.8rem 0 0.7rem}
+  .skill-body h3:first-child{margin-top:0}
+  .skill-body p{color:var(--gray);line-height:1.88;font-size:0.94rem;margin-bottom:0.9rem}
+  .skill-body p strong{color:var(--charcoal);font-weight:600}
+  .skill-body ul{list-style:none;margin:0.5rem 0 1rem}
+  .skill-body ul li{color:var(--gray);font-size:0.9rem;padding:0.4rem 0;display:flex;align-items:flex-start;gap:0.8rem;line-height:1.65}
+  .skill-body ul li::before{content:'→';color:var(--gold);flex-shrink:0;font-size:0.85rem;margin-top:0.1rem}
+
+  .example-card{background:var(--green-pale);border-left:3px solid var(--green);border-radius:0 12px 12px 0;padding:1.2rem 1.5rem;margin:1.2rem 0}
+  .ex-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--green-mid);margin-bottom:0.4rem;font-weight:600}
+  .example-card p{color:var(--charcoal)!important;font-size:0.9rem!important;margin:0!important;font-style:italic}
+
+  .quote-block{border-left:2.5px solid var(--gold);padding:1rem 1.6rem;margin:1.6rem 0;background:var(--gold-pale);border-radius:0 12px 12px 0}
+  .quote-block p{color:var(--charcoal)!important;font-style:italic;font-size:0.92rem!important;line-height:1.75!important;margin:0!important}
+  .quote-block cite{font-size:0.76rem;color:var(--gray);font-style:normal;margin-top:0.5rem;display:block}
+
+  footer{padding:1.8rem 5rem;background:var(--charcoal);display:flex;justify-content:space-between;align-items:center;font-size:0.76rem;color:rgba(255,255,255,0.3)}
+  footer a{color:var(--gold);text-decoration:none}
+
+  @media(max-width:900px){
+    nav{padding:1rem 1.5rem} .nav-links{display:none}
+    .page-header,.matrix-section,.skills-container{padding-left:1.5rem;padding-right:1.5rem}
+    .skill-section{grid-template-columns:1fr;gap:2rem}
+    .skill-sidebar{position:static}
+    footer{flex-direction:column;gap:0.5rem}
   }
 </style>
 </head>
@@ -97,13 +105,12 @@
 
 <div class="page-header">
   <div class="breadcrumb"><a href="index.html">Home</a> / CE-Skills</div>
-  <h1 class="page-title">CE-<span>Skills</span></h1>
-  <p class="page-sub">The five professional competencies of the HvA Commercial Economics programme — demonstrated across my internship at Stryker OI Northern Europe. Each skill appears at least twice in my verantwoordingsverslag.</p>
+  <h1 class="page-title">CE-<em>Skills</em></h1>
+  <p class="page-sub">The five professional competencies of the HvA Commercial Economics programme &mdash; demonstrated across my internship at Stryker OI Northern Europe. Each skill appears at least twice in my verantwoordingsverslag.</p>
 </div>
 
-<!-- COVERAGE MATRIX -->
-<div class="matrix-intro">
-  <div class="matrix-title">Skills Coverage — Overview</div>
+<div class="matrix-section">
+  <h2 class="matrix-title">Skills Coverage &mdash; <em>Overview</em></h2>
   <table class="matrix">
     <tr>
       <th>CE-Skill</th>
@@ -113,156 +120,141 @@
       <th>Par. 2.4 Werkafspraken</th>
       <th>Par. 2.5 Vertegenwoordiger</th>
     </tr>
-    <tr><td>KD — Kritisch Denken</td><td class="check">✓ 2.1.1</td><td></td><td></td><td class="check">✓ 2.4.1</td><td></td></tr>
-    <tr><td>SW — Samenwerken</td><td></td><td class="check">✓ 2.2.1</td><td></td><td class="check">✓ 2.4.1 · 2.4.2</td><td class="check">✓ 2.5.2</td></tr>
-    <tr><td>CB — Commercieel Bewustzijn</td><td class="check">✓ 2.1.1</td><td></td><td class="check">✓ 2.3.1</td><td></td><td class="check">✓ 2.5.1</td></tr>
-    <tr><td>AV — Aanpassingsvermogen</td><td></td><td></td><td class="check">✓ 2.3.2</td><td class="check">✓ 2.4.1</td><td class="check">✓ 2.5.2</td></tr>
-    <tr><td>CO — Communicatie</td><td></td><td class="check">✓ 2.2.1</td><td class="check">✓ 2.3.1 · 2.3.2</td><td></td><td class="check">✓ 2.5.1</td></tr>
+    <tr><td>KD &mdash; Kritisch Denken</td><td class="check">&#10003; 2.1.1</td><td></td><td></td><td class="check">&#10003; 2.4.1</td><td></td></tr>
+    <tr><td>SW &mdash; Samenwerken</td><td></td><td class="check">&#10003; 2.2.1</td><td></td><td class="check">&#10003; 2.4.1 &middot; 2.4.2</td><td class="check">&#10003; 2.5.2</td></tr>
+    <tr><td>CB &mdash; Commercieel Bewustzijn</td><td class="check">&#10003; 2.1.1</td><td></td><td class="check">&#10003; 2.3.1</td><td></td><td class="check">&#10003; 2.5.1</td></tr>
+    <tr><td>AV &mdash; Aanpassingsvermogen</td><td></td><td></td><td class="check">&#10003; 2.3.2</td><td class="check">&#10003; 2.4.1</td><td class="check">&#10003; 2.5.2</td></tr>
+    <tr><td>CO &mdash; Communicatie</td><td></td><td class="check">&#10003; 2.2.1</td><td class="check">&#10003; 2.3.1 &middot; 2.3.2</td><td></td><td class="check">&#10003; 2.5.1</td></tr>
   </table>
 </div>
 
 <div class="skills-container">
 
-  <!-- KD -->
   <div class="skill-section" id="kd">
     <div class="skill-sidebar">
-      <div class="skill-abbr">KD</div>
-      <div class="skill-name-full">Critical Thinking</div>
+      <div class="skill-abbr-large">KD</div>
+      <div class="skill-name-en">Critical Thinking</div>
       <div class="skill-name-nl">Kritisch Denken</div>
-      <div class="skill-score">
-        <div class="score-label">Development level</div>
-        <div class="score-bar"><div class="score-fill" style="width:92%"></div></div>
-      </div>
+      <div class="score-label">Development level</div>
+      <div class="score-bar"><div class="score-fill" style="width:92%"></div></div>
       <div class="proof-links">
-        <span class="proof-link">Par. 2.1.1 — Market Intelligence</span>
-        <span class="proof-link">Par. 2.4.1 — Jetpak Audit</span>
+        <span class="proof-link">Par. 2.1.1 &mdash; Market Intelligence</span>
+        <span class="proof-link">Par. 2.4.1 &mdash; Jetpak Audit</span>
       </div>
     </div>
     <div class="skill-body">
       <h3>How I understand this skill</h3>
-      <p>Critical thinking means more than reading sources and summarising them. It means <strong>questioning assumptions, connecting dots, and producing conclusions that are actionable</strong> — not just accurate. At Stryker, I learned to ask not just "what does the data say?" but "what should we do about it, and by when?"</p>
-      <h3>Evidence 1 — MIS Foot Market Research</h3>
-      <p>My MIS Foot research report didn't stop at trend analysis. I interrogated why the Benelux was 3–4 years behind France in adoption, analysed the competitive landscape, identified the surgeon learning curve as a key barrier, and translated all of this into a prioritised action plan for the sales team.</p>
+      <p>Critical thinking means more than reading sources and summarising them. It means <strong>questioning assumptions, connecting dots, and producing conclusions that are actionable</strong> &mdash; not just accurate. At Stryker, I learned to ask not just &ldquo;what does the data say?&rdquo; but &ldquo;what should we do about it, and by when?&rdquo;</p>
+      <h3>Evidence 1 &mdash; MIS Foot Market Research</h3>
+      <p>My MIS Foot research report didn&rsquo;t stop at trend analysis. I interrogated why the Benelux was 3&ndash;4 years behind France in adoption, analysed the competitive landscape, identified the surgeon learning curve as a key barrier, and translated all of this into a prioritised action plan for the sales team.</p>
       <div class="example-card">
         <div class="ex-label">Key insight from the report</div>
-        <p>The competitor with the strongest training programme wins the market — not the one with the best product. Stryker's response should be an enablement strategy, not a product push.</p>
+        <p>The competitor with the strongest training programme wins the market &mdash; not the one with the best product. Stryker&rsquo;s response should be an enablement strategy, not a product push.</p>
       </div>
-      <h3>Evidence 2 — Jetpak Warehouse Audit</h3>
-      <p>When the warehouse visit didn't deliver what we had planned, I analysed why. Rather than reporting "we couldn't finish the inventory," I identified the root causes: no traceability system, no governance structure, outdated records, no return-reporting process. My findings report reframed the audit as providing valuable root cause insight — a more honest and useful output.</p>
+      <h3>Evidence 2 &mdash; Jetpak Warehouse Audit</h3>
+      <p>When the warehouse visit didn&rsquo;t deliver what we had planned, I analysed why. Rather than reporting &ldquo;we couldn&rsquo;t finish the inventory,&rdquo; I identified the root causes: no traceability system, no governance structure, outdated records, no return-reporting process. My findings report reframed the audit as providing valuable root cause insight &mdash; a more honest and useful output.</p>
     </div>
   </div>
 
-  <!-- SW -->
   <div class="skill-section" id="sw">
     <div class="skill-sidebar">
-      <div class="skill-abbr">SW</div>
-      <div class="skill-name-full">Collaboration</div>
+      <div class="skill-abbr-large">SW</div>
+      <div class="skill-name-en">Collaboration</div>
       <div class="skill-name-nl">Samenwerken</div>
-      <div class="skill-score">
-        <div class="score-label">Development level</div>
-        <div class="score-bar"><div class="score-fill" style="width:80%"></div></div>
-      </div>
+      <div class="score-label">Development level</div>
+      <div class="score-bar"><div class="score-fill" style="width:80%"></div></div>
       <div class="proof-links">
-        <span class="proof-link">Par. 2.2.1 — LVO Stakeholders</span>
-        <span class="proof-link">Par. 2.4.1 — Jetpak Team</span>
-        <span class="proof-link">Par. 2.5.2 — OI Academy</span>
+        <span class="proof-link">Par. 2.2.1 &mdash; LVO Stakeholders</span>
+        <span class="proof-link">Par. 2.4.1 &mdash; Jetpak Team</span>
+        <span class="proof-link">Par. 2.5.2 &mdash; OI Academy</span>
       </div>
     </div>
     <div class="skill-body">
       <h3>How I understand this skill</h3>
-      <p>Effective collaboration isn't just being easy to work with. It means <strong>choosing the right people, communicating clearly, and creating conditions for others to contribute meaningfully</strong>. At Stryker I regularly worked across departments, countries, and seniority levels.</p>
-      <h3>Evidence 1 — LVO Congress Stakeholder Coordination</h3>
-      <p>For the LVO Congress I coordinated seven stakeholders simultaneously — events manager, two sales reps, marketing manager, compliance, congress organisation and a colleague on setup. I mapped each person's priorities, addressed potential conflicts proactively, and kept everyone aligned via a single, structured update email.</p>
-      <h3>Evidence 2 — Jetpak Collaboration + Feedback</h3>
-      <p>I proactively asked Dominique Benoit for permission to bring colleague Hande Cankaya Keles on the warehouse visit — including a fully planned train itinerary. After the visit, Hande gave structured feedback on the kit-system I had built, treating it as a serious piece of work.</p>
+      <p>Effective collaboration isn&rsquo;t just being easy to work with. It means <strong>choosing the right people, communicating clearly, and creating conditions for others to contribute meaningfully</strong>. At Stryker I regularly worked across departments, countries, and seniority levels.</p>
+      <h3>Evidence 1 &mdash; LVO Congress Stakeholder Coordination</h3>
+      <p>For the LVO Congress I coordinated seven stakeholders simultaneously &mdash; events manager, two sales reps, marketing manager, compliance, congress organisation and a colleague on setup. I mapped each person&rsquo;s priorities, addressed potential conflicts proactively, and kept everyone aligned via a single, structured update email.</p>
+      <h3>Evidence 2 &mdash; Jetpak Collaboration &amp; Feedback</h3>
+      <p>I proactively asked Dominique Benoit for permission to bring colleague Hande Cankaya Keles on the warehouse visit &mdash; including a fully planned train itinerary. After the visit, Hande gave structured feedback on the kit-system I had built, treating it as a serious piece of work.</p>
       <div class="quote-block">
-        <p>"I think the kit-based structure is a really solid starting point. Grouping the materials this way already brings much more clarity compared to tracking individual items."</p>
-        <cite>— Hande Cankaya Keles, Marketing Stryker Instruments Europe, 8 May 2026</cite>
+        <p>&ldquo;I think the kit-based structure is a really solid starting point. Grouping the materials this way already brings much more clarity compared to tracking individual items.&rdquo;</p>
+        <cite>&mdash; Hande Cankaya Keles, Marketing Stryker Instruments Europe, 8 May 2026</cite>
       </div>
     </div>
   </div>
 
-  <!-- CB -->
   <div class="skill-section" id="cb">
     <div class="skill-sidebar">
-      <div class="skill-abbr">CB</div>
-      <div class="skill-name-full">Commercial Awareness</div>
+      <div class="skill-abbr-large">CB</div>
+      <div class="skill-name-en">Commercial Awareness</div>
       <div class="skill-name-nl">Commercieel Bewustzijn</div>
-      <div class="skill-score">
-        <div class="score-label">Development level</div>
-        <div class="score-bar"><div class="score-fill" style="width:88%"></div></div>
-      </div>
+      <div class="score-label">Development level</div>
+      <div class="score-bar"><div class="score-fill" style="width:88%"></div></div>
       <div class="proof-links">
-        <span class="proof-link">Par. 2.1.1 — Market Intelligence</span>
-        <span class="proof-link">Par. 2.3.1 — LVO ROI</span>
-        <span class="proof-link">Par. 2.5.1 — Representing Stryker</span>
+        <span class="proof-link">Par. 2.1.1 &mdash; Market Intelligence</span>
+        <span class="proof-link">Par. 2.3.1 &mdash; LVO ROI</span>
+        <span class="proof-link">Par. 2.5.1 &mdash; Representing Stryker</span>
       </div>
     </div>
     <div class="skill-body">
       <h3>How I understand this skill</h3>
-      <p>Commercial awareness means understanding <strong>how business decisions translate into results</strong> — and making those connections explicit. It also means being able to identify where opportunities are being left on the table.</p>
-      <h3>Evidence 1 — LVO Lead Generation</h3>
-      <p>I built the MS Forms lead capture system specifically to make the event's ROI measurable. Every field was designed with the sales follow-up process in mind: hospital name, product interest, opt-in consent. This transformed the congress from a branding exercise into a pipeline-generating activity.</p>
-      <h3>Evidence 2 — MIS Foot Opportunity Identification</h3>
-      <p>The MIS Foot research identified a specific commercial window: Stryker is approximately 12–18 months behind Competitor A in the Benelux, but the market hasn't consolidated yet. I translated this into a timed action plan — KOL engagement now, structured training by Q3 — to position Stryker before it's too late.</p>
+      <p>Commercial awareness means understanding <strong>how business decisions translate into results</strong> &mdash; and making those connections explicit. It also means being able to identify where opportunities are being left on the table.</p>
+      <h3>Evidence 1 &mdash; LVO Lead Generation</h3>
+      <p>I built the MS Forms lead capture system specifically to make the event&rsquo;s ROI measurable. Every field was designed with the sales follow-up process in mind: hospital name, product interest, opt-in consent. This transformed the congress from a branding exercise into a pipeline-generating activity.</p>
+      <h3>Evidence 2 &mdash; MIS Foot Opportunity Identification</h3>
+      <p>The MIS Foot research identified a specific commercial window: Stryker is approximately 12&ndash;18 months behind Competitor A in the Benelux, but the market hasn&rsquo;t consolidated yet. I translated this into a timed action plan &mdash; KOL engagement now, structured training by Q3 &mdash; to position Stryker before it&rsquo;s too late.</p>
     </div>
   </div>
 
-  <!-- AV -->
   <div class="skill-section" id="av">
     <div class="skill-sidebar">
-      <div class="skill-abbr">AV</div>
-      <div class="skill-name-full">Adaptability</div>
+      <div class="skill-abbr-large">AV</div>
+      <div class="skill-name-en">Adaptability</div>
       <div class="skill-name-nl">Aanpassingsvermogen</div>
-      <div class="skill-score">
-        <div class="score-label">Development level</div>
-        <div class="score-bar"><div class="score-fill" style="width:82%"></div></div>
-      </div>
+      <div class="score-label">Development level</div>
+      <div class="score-bar"><div class="score-fill" style="width:82%"></div></div>
       <div class="proof-links">
-        <span class="proof-link">Par. 2.3.2 — Copilot Demo</span>
-        <span class="proof-link">Par. 2.4.1 — Jetpak Audit</span>
-        <span class="proof-link">Par. 2.5.2 — OI Academy</span>
+        <span class="proof-link">Par. 2.3.2 &mdash; Copilot Demo</span>
+        <span class="proof-link">Par. 2.4.1 &mdash; Jetpak Audit</span>
+        <span class="proof-link">Par. 2.5.2 &mdash; OI Academy</span>
       </div>
     </div>
     <div class="skill-body">
       <h3>How I understand this skill</h3>
-      <p>Adaptability isn't just reacting to change — it's <strong>staying effective when the plan changes</strong>, learning new domains quickly, and adjusting communication style to the situation and audience.</p>
-      <h3>Evidence 1 — OI Academy 201</h3>
-      <p>Learning surgical power tool technology as a marketing intern — alongside sales reps who work with this equipment daily — required rapid adaptation to a highly technical domain completely outside my training. Within four days I passed the formal assessment and was able to hold credible product conversations at the LVO Congress.</p>
-      <h3>Evidence 2 — Copilot Demo: audience adaptation</h3>
-      <p>I presented AI tools to a senior, multi-national audience that ranged from tech-savvy to tech-averse. I consciously adapted my language, examples, and pace — avoiding technical jargon and focusing entirely on what saves time in their specific daily workflows.</p>
-      <h3>Evidence 3 — Jetpak: adjusting scope under pressure</h3>
-      <p>When the warehouse visit couldn't deliver the planned output, I didn't pretend otherwise. I adjusted the scope in real-time, documented what we could, and reframed the findings as something more valuable — root cause analysis — rather than a failed task.</p>
+      <p>Adaptability isn&rsquo;t just reacting to change &mdash; it&rsquo;s <strong>staying effective when the plan changes</strong>, learning new domains quickly, and adjusting communication style to the situation and audience.</p>
+      <h3>Evidence 1 &mdash; OI Academy 201</h3>
+      <p>Learning surgical power tool technology as a marketing intern &mdash; alongside sales reps who work with this equipment daily &mdash; required rapid adaptation to a highly technical domain completely outside my training. Within four days I passed the formal assessment and was able to hold credible product conversations at the LVO Congress.</p>
+      <h3>Evidence 2 &mdash; Copilot Demo: audience adaptation</h3>
+      <p>I presented AI tools to a senior, multi-national audience that ranged from tech-savvy to tech-averse. I consciously adapted my language, examples, and pace &mdash; avoiding technical jargon and focusing entirely on what saves time in their specific daily workflows.</p>
+      <h3>Evidence 3 &mdash; Jetpak: adjusting scope under pressure</h3>
+      <p>When the warehouse visit couldn&rsquo;t deliver the planned output, I didn&rsquo;t pretend otherwise. I adjusted the scope in real-time, documented what we could, and reframed the findings as something more valuable &mdash; root cause analysis &mdash; rather than a failed task.</p>
     </div>
   </div>
 
-  <!-- CO -->
   <div class="skill-section" id="co">
     <div class="skill-sidebar">
-      <div class="skill-abbr">CO</div>
-      <div class="skill-name-full">Communication</div>
+      <div class="skill-abbr-large">CO</div>
+      <div class="skill-name-en">Communication</div>
       <div class="skill-name-nl">Communicatie</div>
-      <div class="skill-score">
-        <div class="score-label">Development level</div>
-        <div class="score-bar"><div class="score-fill" style="width:90%"></div></div>
-      </div>
+      <div class="score-label">Development level</div>
+      <div class="score-bar"><div class="score-fill" style="width:90%"></div></div>
       <div class="proof-links">
-        <span class="proof-link">Par. 2.2.1 — LVO Stakeholders</span>
-        <span class="proof-link">Par. 2.3.1 — Event Reporting</span>
-        <span class="proof-link">Par. 2.3.2 — Copilot Demo</span>
-        <span class="proof-link">Par. 2.5.1 — Representing Stryker</span>
+        <span class="proof-link">Par. 2.2.1 &mdash; LVO Stakeholders</span>
+        <span class="proof-link">Par. 2.3.1 &mdash; Event Reporting</span>
+        <span class="proof-link">Par. 2.3.2 &mdash; Copilot Demo</span>
+        <span class="proof-link">Par. 2.5.1 &mdash; Representing Stryker</span>
       </div>
     </div>
     <div class="skill-body">
       <h3>How I understand this skill</h3>
-      <p>Communication at Stryker means being understood by very different audiences: a surgeon at a congress stand, a marketing manager in a Teams meeting, a logistics partner in Mechelen, and a compliance officer reviewing an event request. <strong>The content is the same — the form has to change.</strong></p>
-      <h3>Evidence 1 — Copilot Demo</h3>
-      <p>Presenting AI tools to a multi-national senior team is a communication challenge as much as a technical one. I designed 'The 15-Minute Gift' to be entirely audience-centric — every use case mapped to a real pain point the team had voiced before. The session ended with spontaneous positive reactions from participants in five countries.</p>
-      <h3>Evidence 2 — Jetpak Findings Report</h3>
-      <p>Communicating disappointing findings to management is a delicate communication task. My 13 May email was structured, factual, and constructive — it acknowledged the scope limitation, explained the root causes clearly, and ended with an open invitation to align on next steps. Dominique Benoit forwarded it directly to senior management as a useful analysis.</p>
+      <p>Communication at Stryker means being understood by very different audiences: a surgeon at a congress stand, a marketing manager in a Teams meeting, a logistics partner in Mechelen, and a compliance officer reviewing an event request. <strong>The content is the same &mdash; the form has to change.</strong></p>
+      <h3>Evidence 1 &mdash; Copilot Demo</h3>
+      <p>Presenting AI tools to a multi-national senior team is a communication challenge as much as a technical one. I designed &lsquo;The 15-Minute Gift&rsquo; to be entirely audience-centric &mdash; every use case mapped to a real pain point the team had voiced before. The session ended with spontaneous positive reactions from participants in five countries.</p>
+      <h3>Evidence 2 &mdash; Jetpak Findings Report</h3>
+      <p>Communicating disappointing findings to management is a delicate communication task. My 13 May email was structured, factual, and constructive &mdash; it acknowledged the scope limitation, explained the root causes clearly, and ended with an open invitation to align on next steps. Dominique Benoit forwarded it directly to senior management as a useful analysis.</p>
       <div class="quote-block">
-        <p>"Dank je wel voor het initiatief en het duidelijke plan van aanpak."</p>
-        <cite>— Kirsty Thomass, Sales Representative, 11 May 2026</cite>
+        <p>&ldquo;Dank je wel voor het initiatief en het duidelijke plan van aanpak.&rdquo;</p>
+        <cite>&mdash; Kirsty Thomass, Sales Representative, 11 May 2026</cite>
       </div>
     </div>
   </div>
@@ -270,8 +262,8 @@
 </div>
 
 <footer>
-  <span>© 2026 Charlotte van den Kerkhoff</span>
-  <span><a href="index.html">Home</a> · <a href="projects.html">Projects</a> · <a href="reflection.html">Reflection</a></span>
+  <span>&copy; 2026 Charlotte van den Kerkhoff</span>
+  <span><a href="index.html">Home</a> &middot; <a href="projects.html">Projects</a> &middot; <a href="reflection.html">Reflection</a></span>
 </footer>
 
 </body>
